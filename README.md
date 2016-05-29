@@ -64,8 +64,8 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [ ] create `Pet` model
 - [ ] seed the database with a small amount of test data
   - [ ] set up Petfinder API
-- [ ] CRUD API for notes (`PetsController`)
-- [ ] jBuilder views for notes
+- [ ] CRUD API for pets (`PetsController`)
+- [ ] jBuilder views for pets
 - [ ] setup Webpack & Flux scaffold
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
