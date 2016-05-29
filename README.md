@@ -1,4 +1,4 @@
-# FresherNote
+# Petsy
 
 [Heroku link][heroku]
 
