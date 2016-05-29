@@ -17,7 +17,10 @@ name        | string    | not null
 description | text      | not null
 author_id   | integer   |
 pet_type_id | integer   | not null, foreign key (references pet types)
-archived    | boolean   | not null, default: false
+description | text      | not null
+breed       | string    |
+sex         | string    |
+age         | integer   |
 
 ##favorites (join table)
 column name | data type | details
