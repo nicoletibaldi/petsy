@@ -39,7 +39,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 
-[views]: ./docs/views.md
+[views]: ./docs/wireframes.md
 [components]: ./docs/components.md
 [flux-cycles]: ./docs/flux-cycles.md
 [api-endpoints]: ./docs/api-endpoints.md
@@ -141,8 +141,7 @@ which has its own `Index` view.)
 - [ ] User reviews/comments
 - [ ] Show 'similar pets' in bottom right corner of show page
 
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
+[phase-onetwo]: ./docs/phases/phase1-2.md
+[phase-threefour]: ./docs/phases/phase3-4.md
+[phase-fivesix]: ./docs/phases/phase5-6.md
+[phase-seveneight]: ./docs/phases/phase7-8.md
