@@ -39,7 +39,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 
-[views]: ./docs/wireframes.md
+[views]: ./docs/wireframes
 [components]: ./docs/components.md
 [flux-cycles]: ./docs/flux-cycles.md
 [api-endpoints]: ./docs/api-endpoints.md
