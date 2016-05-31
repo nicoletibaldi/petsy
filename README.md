@@ -1,8 +1,8 @@
 # Petsy
 
-[Heroku link][heroku]
+[Heroku link][Petsy]
 
-[heroku]: http://www.petsy-.herokuapp.com
+[Petsy]: http://www.petsypets.herokuapp.com
 
 ## Minimum Viable Product
 
