@@ -74,23 +74,30 @@ var LoginForm = React.createClass({
     }
 
     return (
-      <form className="login-form" onSubmit={this.handleSubmit}>
-      Welcome to Petsy! Please {this.formType()} or {navLink}
-      <br/>
-      <label> Email:
-        <input type="text" value={this.state.email} onChange={this.emailChange}/>
-      </label>
-      <br/>
-      <label> Username:
-        <input type="text" value={this.state.username} onChange={this.usernameChange}/>
-      </label>
-      <br/>
-      <label> Password:
-        <input type="text" value={this.state.password} onChange={this.passwordChange}/>
-      </label>
-      <br/>
-      <input type="submit" value="Submit" />
-      </form>
+      <section id="modal" class="modal is-active">
+      <article class="modal-content">
+      <span class="modal-close js-hide-modal">&times;</span>
+          <form className="login-form" onSubmit={this.handleSubmit}>
+          // Welcome to Petsy! Please {this.formType()} or {navLink}
+          // <br/>
+          <label> Email:
+            <input type="text" value={this.state.email} onChange={this.emailChange}/>
+          </label>
+          <br/>
+          <label> Username:
+            <input type="text" value={this.state.username} onChange={this.usernameChange}/>
+          </label>
+          <br/>
+          <label> Password:
+            <input type="text" value={this.state.password} onChange={this.passwordChange}/>
+          </label>
+          <br/>
+          <input type="submit" value="Submit" />
+          </div>
+          </form>
+        </article>
+        <div class="modal-screen js-hide-modal"></div>
+      </section>
     );
   }
 });
