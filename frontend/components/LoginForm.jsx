@@ -85,19 +85,19 @@ var LoginForm = React.createClass({
           <span class="modal-close js-hide-modal">&times;</span>
           <form className="login-form" onSubmit={this.handleSubmit}>
             <br/>
-            <label> Email:
+            <label> Email<br/>
               <input type="text" value={this.state.email} onChange={this.emailChange}/>
             </label>
             <br/>
-            <label> Username:
+            <label> Username<br/>
               <input type="text" value={this.state.username} onChange={this.usernameChange}/>
             </label>
             <br/>
-            <label> Password:
+            <label> Password<br/>
               <input type="text" value={this.state.password} onChange={this.passwordChange}/>
             </label>
             <br/>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" className="login-button" />
           </form>
         </article>
       <div class="modal-screen js-hide-modal"></div>

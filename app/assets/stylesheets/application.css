@@ -1,6 +1,16 @@
 .login-form {
   border: 1px solid black;
   background: orange;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.login-button {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(66, 184, 221);
+  margin: 5px;
 }
 
 
