@@ -10,7 +10,8 @@ var LoginForm = React.createClass({
     return({
       username: "",
       email: "",
-      password: ""
+      password: "",
+      modalVisible: false
     });
   },
 
@@ -30,6 +31,10 @@ var LoginForm = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
       this.context.router.push("/");
     }
+  },
+
+  modalVisible: function () {
+    this.setState({modalVisible: true});
   },
 
   emailChange: function (event) {
@@ -74,30 +79,29 @@ var LoginForm = React.createClass({
     }
 
     return (
+
       <section id="modal" class="modal is-active">
-      <article class="modal-content">
-      <span class="modal-close js-hide-modal">&times;</span>
+        <article class="modal-content">
+          <span class="modal-close js-hide-modal">&times;</span>
           <form className="login-form" onSubmit={this.handleSubmit}>
-          // Welcome to Petsy! Please {this.formType()} or {navLink}
-          // <br/>
-          <label> Email:
-            <input type="text" value={this.state.email} onChange={this.emailChange}/>
-          </label>
-          <br/>
-          <label> Username:
-            <input type="text" value={this.state.username} onChange={this.usernameChange}/>
-          </label>
-          <br/>
-          <label> Password:
-            <input type="text" value={this.state.password} onChange={this.passwordChange}/>
-          </label>
-          <br/>
-          <input type="submit" value="Submit" />
-          </div>
+            <br/>
+            <label> Email:
+              <input type="text" value={this.state.email} onChange={this.emailChange}/>
+            </label>
+            <br/>
+            <label> Username:
+              <input type="text" value={this.state.username} onChange={this.usernameChange}/>
+            </label>
+            <br/>
+            <label> Password:
+              <input type="text" value={this.state.password} onChange={this.passwordChange}/>
+            </label>
+            <br/>
+            <input type="submit" value="Submit" />
           </form>
         </article>
-        <div class="modal-screen js-hide-modal"></div>
-      </section>
+      <div class="modal-screen js-hide-modal"></div>
+    </section>
     );
   }
 });
