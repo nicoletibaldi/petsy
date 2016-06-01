@@ -13,6 +13,7 @@ var App = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
       return (
         <nav>
+        <img className="favorite-logo h-button" src={favoriteUrl}/>
         <Link to="/" className="h-button" onClick={SessionApiUtil.logout}>Log out</Link>
         <p className="h-button">Hey, {SessionStore.currentUser().username}!</p>
         </nav>
