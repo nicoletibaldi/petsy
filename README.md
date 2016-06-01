@@ -8,7 +8,7 @@
 
 Petsy is a web application inspired by Etsy that will be built using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
-- [ ] New account creation, login, and guest/demo login
+- [x] New account creation, login, and guest/demo login
 - [ ] Smooth, bug-free navigation
 - [ ] Adequate seed data to demonstrate the site's features (using Petfinder API)
 - [ ] The minimally necessary features for an Etsy-inspired site: view listings by category, view detailed pet page, and select a pet to add to favorites (equivalent to "cart" on the traditional Etsy site, "checkout" will be contacting the rescue organization)
@@ -24,7 +24,7 @@ Petsy will allow users to do the following:
 progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [x] Create an account (MVP)
-- [ ] Log in / Log out, including as a Guest/Demo User (MVP)
+- [x] Log in / Log out, including as a Guest/Demo User (MVP)
 - [ ] View listings by category, each with separate index page (MVP)
 - [ ] Add a pet to favorites list (equivalent to add to cart) (MVP)
 - [ ] Tag listings with multiple tags (expected feature, but not MVP)
