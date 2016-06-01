@@ -36,8 +36,12 @@ var LoginForm = React.createClass({
     }
   },
 
-  modalVisible: function () {
-    this.setState({modalVisible: true});
+  handleModalClick: function () {
+    this.context.router.push("/");
+  },
+
+  stopProp: function (e) {
+    e.stopPropagation();
   },
 
   usernameChange: function (event) {
@@ -73,7 +77,8 @@ var LoginForm = React.createClass({
 
   render: function () {
     return (
-          <form className="login-form" onSubmit={this.handleSubmit}>
+        <div className="modal" onClick={this.handleModalClick}>
+          <form className="login-form" onSubmit={this.handleSubmit} onClick={this.stopProp}>
             <br/>
             <label> Username<br/>
             { this.fieldErrors("username") }
@@ -87,6 +92,7 @@ var LoginForm = React.createClass({
             <br/>
             <input type="submit" value="Submit" className="login-button" />
           </form>
+        </div>
     );
   }
 });

@@ -16,8 +16,8 @@ var SessionApiUtil = require('./util/session_api_util');
 var Router = (
   <Router history={hashHistory}>
   <Route path="/" component={App}>
-  <Route path="/login" component={LoginForm} />
-  <Route path="/signup" component={SignupForm} />
+      <Route path="/login" component={LoginForm} />
+      <Route path="/signup" component={SignupForm} />
   </Route>
   </Router>
 );
