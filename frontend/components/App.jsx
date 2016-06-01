@@ -5,36 +5,41 @@ var SessionApiUtil = require('./../util/session_api_util');
 
 var App = React.createClass({
   componentDidMount: function () {
+    SessionApiUtil.fetchCurrentUser();
     SessionStore.addListener(this.forceUpdate.bind(this));
   },
 
   greeting: function () {
     if (SessionStore.isUserLoggedIn()) {
       return (
-        <hgroup>
-        <h2>Hey, {SessionStore.currentUser().username}!</h2>
-        <input type="submit" value="LOG OUT" onClick={SessionApiUtil.logout} />
-        </hgroup>
-      );
-    } else if (["/login", "/signup"].indexOf(this.props.location.pathname) === -1) {
-      return (
         <nav>
-          <Link to="/login" activeClassName="current">Login</Link>
-          &nbsp;or&nbsp;
-          <Link to="/signup" activeClassName="current">Sign up!</Link>
+        <Link to="/" className="h-button" onClick={SessionApiUtil.logout}>Log out</Link>
+        <p className="h-button">Hey, {SessionStore.currentUser().username}!</p>
         </nav>
       );
+    } else if (SessionStore.currentUserHasBeenFetched()) {
+      return (
+        <nav>
+        <Link to="/signup" className="h-button">Register</Link>
+        <Link to="/login" className="h-button sign-in">Sign in</Link>
+        </nav>
+      );
+    } else {
+      return (
+        <nav/>
+      )
     }
   },
 
   render: function () {
     return (
       <div>
-        <header>
-          <h1>Petsy</h1>
+        <header className="petsy-header">
+        <img className="logo" src={petsyUrl}/>
           {this.greeting()}
         </header>
           {this.props.children}
+          <img className="ursa" src={ursaUrl}/>
       </div>
     );
   }
