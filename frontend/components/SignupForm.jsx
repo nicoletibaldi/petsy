@@ -66,6 +66,14 @@ var SignupForm = React.createClass({
       UserApiUtil.signup(formData);
   },
 
+  handleModalClick: function () {
+    this.context.router.push("/");
+  },
+
+  stopProp: function (e) {
+    e.stopPropagation();
+  },
+
   fieldErrors: function (field) {
     var errors = ErrorStore.formErrors(this.props.location.pathname.slice(1));
     if (!errors[field]) { return; }
@@ -79,7 +87,8 @@ var SignupForm = React.createClass({
 
   render: function () {
     return (
-          <form className="login-form" onSubmit={this.handleSubmit}>
+      <div className="modal" onClick={this.handleModalClick}>
+        <form className="login-form" onSubmit={this.handleSubmit} onClick={this.stopProp}>
             <br/>
             <label> Email<br/>
             { this.fieldErrors("email") }
@@ -98,6 +107,7 @@ var SignupForm = React.createClass({
             <br/>
             <input type="submit" value="Submit" className="login-button" />
           </form>
+        </div>
     );
   }
 });
