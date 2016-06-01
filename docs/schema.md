@@ -9,7 +9,7 @@ password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 email           | string    | not null
 
-## pets
+## favorites
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -21,24 +21,3 @@ description | text      | not null
 breed       | string    |
 sex         | string    |
 age         | integer   |
-
-##favorites (join table)
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-pet_id      | integer   | not null, foreign key (references pets), indexed, unique [tag_id]
-user_id     | integer   | not null, foreign key (references users), indexed
-
-## tags
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
-
-## taggings (join table)
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
-pet_id      | integer   | not null, foreign key (references pets), indexed, unique [tag_id]
-tag_id      | integer   | not null, foreign key (references tags), indexed
