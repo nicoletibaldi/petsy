@@ -9,21 +9,23 @@ nav {
   float: right;
   font-family: georgia;
   padding: 10px 0px 0px 0px;
-
 }
 
-.ursa {
-  width:100%;
-  height:auto;
+/*.ursa {
   border-bottom: 2px solid #ccc;
-}
+  background-image: url('petsy_background_2.png');
+  min-height: 250px;
+  height: 415px;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  size: 100% auto;
+}*/
 
 .logo {
   height: 50px;
 }
 
 .login-form {
-  position: absolute;
   top: 100px;
   border: 1px solid #ccc;
   background: white;
@@ -32,7 +34,10 @@ nav {
   height: 200px;
   padding: 20px;
   font-size: 14px;
-  right: 30%;
+  position:absolute;
+  left:50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
 }
 
 .login-button {
@@ -58,7 +63,6 @@ input {
   margin: 5px 15px;
   text-decoration: none;
   float: right;
-
 }
 
 .favorite-logo {
@@ -77,6 +81,27 @@ input {
   left: 0;
   right: 0;
 }
+
+.outer {
+    position: relative;
+}
+.scaling-image {
+    position: relative;
+    width: 100%;
+    min-width: 100%;
+}
+.inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow:hidden;
+}
+
+/*.search {
+  z-index: 100;
+}*/
 
 /*.sign-in {
   border-radius: 3px;
