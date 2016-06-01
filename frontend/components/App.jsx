@@ -2,6 +2,7 @@ var React = require('react');
 var Link = require('react-router').Link;
 var SessionStore = require('./../stores/session_store');
 var SessionApiUtil = require('./../util/session_api_util');
+var NavBar = require('./NavBar');
 
 var App = React.createClass({
   componentDidMount: function () {
@@ -35,6 +36,7 @@ var App = React.createClass({
   render: function () {
     return (
       <div>
+      <NavBar/>
         <header className="petsy-header">
         <img className="logo" src={petsyUrl}/>
           {this.greeting()}
