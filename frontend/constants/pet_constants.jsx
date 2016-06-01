@@ -1,0 +1,4 @@
+module.exports = {
+  PETS_RECEIVED: "PETS_RECEIVED",
+  PET_RECEIVED: "PET_RECEIVED"
+};

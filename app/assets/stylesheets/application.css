@@ -1,7 +1,7 @@
 header {
   height: 55px;
   margin-top: 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 2px solid #ccc;
 }
 
 nav {
@@ -15,6 +15,7 @@ nav {
 .ursa {
   width:100%;
   height:auto;
+  border-bottom: 2px solid #ccc;
 }
 
 .logo {
@@ -58,6 +59,14 @@ input {
   text-decoration: none;
   float: right;
 
+}
+
+.favorite-logo {
+  height: 30px;
+  margin-right: 20px;
+  margin-top: 0px;
+  border-left: 1px solid #ccc;
+  padding-left: 15px;
 }
 
 /*.sign-in {
