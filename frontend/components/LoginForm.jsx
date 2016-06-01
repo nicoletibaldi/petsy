@@ -11,7 +11,7 @@ var LoginForm = React.createClass({
       username: "",
       email: "",
       password: "",
-      modalVisible: false
+      modalToggle: false
     });
   },
 
@@ -79,10 +79,6 @@ var LoginForm = React.createClass({
     }
 
     return (
-
-      <section id="modal" class="modal is-active">
-        <article class="modal-content">
-          <span class="modal-close js-hide-modal">&times;</span>
           <form className="login-form" onSubmit={this.handleSubmit}>
             <br/>
             <label> Email<br/>
@@ -99,9 +95,6 @@ var LoginForm = React.createClass({
             <br/>
             <input type="submit" value="Submit" className="login-button" />
           </form>
-        </article>
-      <div class="modal-screen js-hide-modal"></div>
-    </section>
     );
   }
 });

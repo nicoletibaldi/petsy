@@ -1,60 +1,67 @@
+header {
+  height: 55px;
+  margin-top: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+nav {
+  margin: auto;
+  float: right;
+  font-family: georgia;
+  padding: 10px 0px 0px 0px;
+
+}
+
+.ursa {
+  width:100%;
+  height:auto;
+}
+
+.logo {
+  height: 50px;
+}
+
 .login-form {
-  border: 1px solid black;
-  background: orange;
-  box-sizing: border-box;
-  text-align: center;
+  position: absolute;
+  top: 100px;
+  border: 1px solid #ccc;
+  background: white;
+  font-family: georgia;
+  width: 400px;
+  height: 200px;
+  padding: 20px;
+  font-size: 14px;
+  right: 30%;
 }
 
 .login-button {
   color: white;
   border-radius: 4px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-  background: rgb(66, 184, 221);
+  background: #0192b5;
+  margin: 5px;
+  font-family: georgia;
+  font-size: 14px;
+  text-align: center;
+  font-style: bold;
+  padding: 5px 20px 5px 20px;
+  border: solid;
+}
+
+input {
   margin: 5px;
 }
 
+.h-button {
+  color: #0192b5;
+  margin: 5px 15px;
+  text-decoration: none;
+  float: right;
 
-.modal {
-  display: none;
 }
 
-.modal.is-active {
-  display: block;
-}
-
-.modal-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  background: rgba(0, 0, 0, 0.7);
-}
-
-.modal-content {
-  position: absolute;
-  z-index: 1000;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  padding: 50px;
-  margin-left: -250px;
-  transform: translateY(-50%);
-  background: white;
-  border-radius: 5px;
-}
-
-.modal-close {
-  position: absolute;
-  top: 0;
-  right: 15px;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-  color: gray;
-}
-
-.modal-close:hover {
-  color: black;
-}
+/*.sign-in {
+  border-radius: 3px;
+  border: 1px solid #0192b5;
+  padding: 5px;
+}*/

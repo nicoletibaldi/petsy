@@ -15,14 +15,14 @@ var SessionApiUtil = require('./util/session_api_util');
 
 var Router = (
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <Route path="/login" component={LoginForm} />
-      <Route path="/signup" component={LoginForm} />
-    </Route>
+  <Route path="/" component={App}>
+  <Route path="/login" component={LoginForm} />
+  <Route path="/signup" component={LoginForm} />
+  </Route>
   </Router>
 );
 
-function _ensureLoggedIN(nextState, replace, asyncDoneCallback) {
+function _ensureLoggedIn(nextState, replace, asyncDoneCallback) {
   if (SessionStore.currentUserHasBeenFetched()) {
     redirectIfNotLoggedIn();
   } else {
