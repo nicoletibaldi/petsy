@@ -6,11 +6,12 @@ var UserApiUtil = require('./../util/user_api_util');
 var ErrorStore = require('./../stores/error_store');
 
 
-var LoginForm = React.createClass({
+var SignupForm = React.createClass({
 
   getInitialState: function () {
     return({
       username: "",
+      email: "",
       password: "",
       modalToggle: false
     });
@@ -40,6 +41,11 @@ var LoginForm = React.createClass({
     this.setState({modalVisible: true});
   },
 
+  emailChange: function (event) {
+    var newEmail = event.target.value;
+    this.setState({email: newEmail});
+  },
+
   usernameChange: function (event) {
     var newUsername = event.target.value;
     this.setState({username: newUsername});
@@ -57,11 +63,11 @@ var LoginForm = React.createClass({
       email: this.state.email,
       password: this.state.password
     };
-      SessionApiUtil.login(formData);
+      UserApiUtil.signup(formData);
   },
 
   fieldErrors: function (field) {
-    var errors = ErrorStore.formErrors("login");
+    var errors = ErrorStore.formErrors(this.props.location.pathname.slice(1));
     if (!errors[field]) { return; }
 
     var messages = errors[field].map(function (errorMsg, i) {
@@ -74,6 +80,11 @@ var LoginForm = React.createClass({
   render: function () {
     return (
           <form className="login-form" onSubmit={this.handleSubmit}>
+            <br/>
+            <label> Email<br/>
+            { this.fieldErrors("email") }
+              <input type="text" value={this.state.email} onChange={this.emailChange}/>
+            </label>
             <br/>
             <label> Username<br/>
             { this.fieldErrors("username") }
@@ -90,4 +101,4 @@ var LoginForm = React.createClass({
     );
   }
 });
-module.exports = LoginForm;
+module.exports = SignupForm;

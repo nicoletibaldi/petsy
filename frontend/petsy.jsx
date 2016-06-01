@@ -9,7 +9,7 @@ var hashHistory = ReactRouter.hashHistory;
 
 var App = require('./components/App');
 var LoginForm = require('./components/LoginForm');
-
+var SignupForm = require('./components/SignupForm');
 var SessionStore = require('./stores/session_store');
 var SessionApiUtil = require('./util/session_api_util');
 
@@ -17,7 +17,7 @@ var Router = (
   <Router history={hashHistory}>
   <Route path="/" component={App}>
   <Route path="/login" component={LoginForm} />
-  <Route path="/signup" component={LoginForm} />
+  <Route path="/signup" component={SignupForm} />
   </Route>
   </Router>
 );
