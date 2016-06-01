@@ -11,7 +11,7 @@ Petsy is a web application inspired by Etsy that will be built using Ruby on Rai
 - [ ] New account creation, login, and guest/demo login
 - [ ] Smooth, bug-free navigation
 - [ ] Adequate seed data to demonstrate the site's features (using Petfinder API)
-- [ ] The minimally necessary features for an Etsy-inspired site: ability to create a listing, view listings by category, and select a pet to add to favorites (equivalent to "cart" on the traditional Etsy site, "checkout" will be contacting the rescue organization)
+- [ ] The minimally necessary features for an Etsy-inspired site: view listings by category, view detailed pet page, and select a pet to add to favorites (equivalent to "cart" on the traditional Etsy site, "checkout" will be contacting the rescue organization)
 - [ ] Hosting on Heroku
 - [ ] CSS styling that is satisfactorily visually appealing
 - [ ] A production README, replacing this README
@@ -23,14 +23,14 @@ Petsy will allow users to do the following:
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress. Put an x between the brackets for a checkmark: [x] -->
 
-- [ ] Create an account (MVP)
+- [x] Create an account (MVP)
 - [ ] Log in / Log out, including as a Guest/Demo User (MVP)
-- [ ] Create, read, edit, and delete listings (MVP)
 - [ ] View listings by category, each with separate index page (MVP)
 - [ ] Add a pet to favorites list (equivalent to add to cart) (MVP)
 - [ ] Tag listings with multiple tags (expected feature, but not MVP)
 - [ ] Register using Google or Facebook (expected, but not MVP)
 - [ ] Users can leave reviews (if I have time)
+- [ ] Create, read, edit, and delete listings (if I have time - how to integrate with Petfinder dogs?)
 
 ## Design Docs
 * [View Wireframes][views]
@@ -61,10 +61,8 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 **Objective:** Pet listings can be created, read, edited and destroyed through the API.
 
-- [ ] create `Pet` model
 - [ ] seed the database with a small amount of test data
   - [ ] set up Petfinder API
-- [ ] CRUD API for pets (`PetsController`)
 - [ ] jBuilder views for pets
 - [ ] setup Webpack & Flux scaffold
 - [ ] setup `APIUtil` to interact with the API
@@ -72,14 +70,14 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 ### Phase 3: Flux Architecture and Router (1.5 days)
 
-**Objective:** Pet listings can be created, read, edited and destroyed with the user interface.
+**Objective:** Pet listings can be read with the user interface.
 
 - [ ] setup the flux loop with skeleton files
 - [ ] setup React Router
 - implement pets component, building out the flux loop as needed.
   - [ ] `PetsIndex`
   - [ ] `PetIndexItem`
-  - [ ] `PetForm`
+  - [ ] `PetDetail`
 
 ### Phase 4: Start Styling (1 day)
 
@@ -95,22 +93,18 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [ ] create `PetType` model
 - build out API, Flux loop, and components for:
-  - [ ] adding pets requires a pet type
   - [ ] viewing pets by pet type
 - Use CSS to style new views
 
 (Adds organization to the listings. Pet listings belong to a pet type,
 which has its own `Index` view.)
 
-### Phase 6: Tags (1 day)
+### Phase 6: Search (1 day)
 
-**Objective:** Pets are searchable (using tags (ie: breed, age, sex))
+**Objective:** Pets are searchable
 
-- [ ] create `Tag` model and join table
 - build out API, Flux loop, and components for:
-- [ ] fetching tags for pet listing
-- [ ] adding tags to pet listing
-- [ ] searching pet listings by tag
+- [ ] fetching pets by search
 - [ ] Style new elements
 
 ### Phase 7: Favorites (1 day)
@@ -136,7 +130,6 @@ which has its own `Index` view.)
 - [ ] Try to match UI more closely to Etsy
 
 ### Bonus Features (TBD)
-- [ ] Search through listings for non-tag information
 - [ ] Google/Facebook authentication
 - [ ] User reviews/comments
 - [ ] Show 'similar pets' in bottom right corner of show page

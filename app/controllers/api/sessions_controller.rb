@@ -27,7 +27,7 @@ class Api::SessionsController < ApplicationController
       render(
         json: {
           base: ['No user logged in!'],
-        }, 
+        },
         status: 404
       )
     end
