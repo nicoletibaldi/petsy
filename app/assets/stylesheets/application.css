@@ -155,7 +155,8 @@ input {
 }
 
 .pet-index-item {
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
+  box-shadow: 0 0 1em #ccc;
   display: inline-block;
   font-family: 'Raleway', sans-serif;
   font-size: 12px;
@@ -170,4 +171,11 @@ input {
   overflow: hidden;
   height: 200px;
   width: 250px;
+  margin-bottom: 7px;
+}
+
+.tagline{
+  font-size: 32px;
+  color: white;
+  font-family: 'Raleway', sans-serif;
 }
