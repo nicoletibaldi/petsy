@@ -29,6 +29,10 @@ nav {
   padding: 10px 0px 0px 0px;
 }
 
+input {
+  margin: 5px;
+}
+
 /*.ursa {
   border-bottom: 2px solid #ccc;
   background-image: url('petsy_background_2.png');
@@ -74,9 +78,6 @@ nav {
   border: solid;
 }
 
-input {
-  margin: 5px;
-}
 
 .h-button {
   color: #0192b5;
@@ -124,7 +125,7 @@ input {
 .search {
   position: relative;
   z-index: 100;
-  bottom: 130px;
+  bottom: 100px;
   left: 10px;
 }
 
@@ -145,7 +146,7 @@ input {
 .search-input {
   height: 25px;
   padding: 5px;
-  width: 275px;
+  width: 250px;
   border-radius: 4px;
 }
 
@@ -176,7 +177,6 @@ input {
   margin-bottom: 10px;
   display: block;
 }
-
 
 .landscape {
   height: 100%;

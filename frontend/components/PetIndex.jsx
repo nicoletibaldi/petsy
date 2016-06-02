@@ -10,7 +10,7 @@ var PetIndex = React.createClass({
 
   getInitialState: function () {
     return ({
-      pets: []
+      pets: PetStore.all()
     });
   },
 

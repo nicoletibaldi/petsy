@@ -4,11 +4,12 @@ var PetConstants = require('../constants/pet_constants');
 
 var PetStore = new Store(AppDispatcher);
 
-var _pets;
+var _pets = {};
 
 PetStore.all = function () {
-  var result= _pets.petfinder.pets.pet;
-  return result;
+  return Object.keys(_pets).map( function (petId) {
+    return _pets[petId];
+  });
 };
 
 PetStore.find = function(id) {
@@ -16,11 +17,12 @@ PetStore.find = function(id) {
 };
 
 resetPets = function (newPets) {
-  _pets = newPets;
+  _pets = {};
 
-  // for (var i = 0; i < newPets.length; i++) {
-  //   _pets[newPets[i].petfinder.pets.pet.i.id.$t] = newPets[i];
-  // }
+  var petsArr= newPets.petfinder.pets.pet;
+  for (var i = 0; i < petsArr.length; i++) {
+    _pets[petsArr[i].id.$t] = petsArr[i];
+  }
 };
 
 PetStore.__onDispatch = function (payload) {
