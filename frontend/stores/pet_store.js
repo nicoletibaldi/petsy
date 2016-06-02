@@ -25,13 +25,20 @@ resetPets = function (newPets) {
   }
 };
 
+addPet = function (pet) {
+  _pets[pet.petfinder.pet.id.$t] = pet.petfinder.pet;
+};
+
 PetStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case PetConstants.PETS_RECEIVED:
-    resetPets(payload.pets);
-    PetStore.__emitChange();
-    break;
-
+      resetPets(payload.pets);
+      PetStore.__emitChange();
+      break;
+    case PetConstants.PET_RECEIVED:
+      addPet(payload.pet);
+      PetStore.__emitChange();
+      break;
   }
 };
 

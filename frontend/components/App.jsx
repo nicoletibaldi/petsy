@@ -8,7 +8,6 @@ var App = React.createClass({
   render: function () {
     return (
         <div class="outer">
-        <NavBar />
           <div class="inner">
               <img src={ursaUrl} className="scaling-image"/>
               <form className="search">
@@ -16,8 +15,7 @@ var App = React.createClass({
                 <input className="search-button" value="Search" type="submit"/>
               </form>
               <PetIndex />
-              {this.props.children}
-        </div>
+            </div>
       </div>
     );
   }

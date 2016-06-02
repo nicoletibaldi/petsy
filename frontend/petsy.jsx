@@ -15,14 +15,16 @@ var PetIndex = require('./components/PetIndex');
 var LoginForm = require('./components/LoginForm');
 var SignupForm = require('./components/SignupForm');
 var PetDetail = require('./components/PetDetail');
+var NavBar = require('./components/NavBar');
 
 var Router = (
   <Router history={hashHistory}>
-  <Route path="/" component={App}>
+  <Route path="/" component={NavBar}>
+      <IndexRoute component={App} />
       <Route path="/login" component={LoginForm} />
       <Route path="/signup" component={SignupForm} />
+      <Route path="pets/:petId" component={PetDetail} />
   </Route>
-  <Route path="pets/:petId" component={PetDetail} />
   </Router>
 );
 
