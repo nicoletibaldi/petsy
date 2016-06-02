@@ -200,3 +200,13 @@ input {
   font-family: 'Raleway', sans-serif;
   padding: 10px;
 }
+
+.pet-detail-photo {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  width: 550px;
+  margin-bottom: 10px;
+  display: block;
+  border: 5px solid white;
+}
