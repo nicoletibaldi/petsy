@@ -6,8 +6,23 @@ var PetIndexItem = React.createClass({
     router: React.PropTypes.object.isRequired
   },
 
+  getInitialState: function () {
+    return({size: ""});
+  },
+
   showDetail: function () {
     // this.context.router.push(something to do with id);
+  },
+
+  setRef: function (e) {
+    var image = e.currentTarget;
+      console.log(image.width);
+      console.log(image.height);
+      if (image.width > image.height) {
+         this.setState({size: "landscape"});
+      } else {
+        this.setState({size: "portrait"});
+      }
   },
 
   render: function () {
@@ -15,7 +30,7 @@ var PetIndexItem = React.createClass({
     return(
       <div className="pet-index-item">
         <div className="pet-index-item-photo">
-          <img src={this.props.pet.media.photos.photo[3].$t}/>
+          <img className={this.state.size} onLoad={this.setRef} src={this.props.pet.media.photos.photo[3].$t}/>
         </div>
         <p>Name: {this.props.pet.name.$t}</p>
         <p>{this.props.pet.animal.$t}</p>
