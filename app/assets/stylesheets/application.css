@@ -123,7 +123,7 @@ input {
 .search {
   position: relative;
   z-index: 100;
-  bottom: 100px;
+  bottom: 130px;
   left: 10px;
 }
 
@@ -168,14 +168,23 @@ input {
 }
 
 .pet-index-item-photo {
+  position: relative;
   overflow: hidden;
   height: 200px;
   width: 250px;
   margin-bottom: 7px;
+  display: block;
+  margin: 0 auto;
+}
+
+.pet-index-item-photo > img {
+  position: absolute;
+  top: 0; bottom:0; left: 0; right:0;
 }
 
 .tagline{
   font-size: 32px;
   color: white;
   font-family: 'Raleway', sans-serif;
+  padding: 10px;
 }
