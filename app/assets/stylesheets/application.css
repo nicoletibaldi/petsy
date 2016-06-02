@@ -1,3 +1,16 @@
+html, body, section, article, h1, h2, p, strong, em, a, button {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent;
+}
+
 header {
   height: 55px;
   margin-top: 10px;
@@ -31,13 +44,14 @@ nav {
   background: white;
   font-family: georgia;
   width: 400px;
-  height: 200px;
+  height: 250px;
   padding: 20px;
   font-size: 14px;
   position:absolute;
   left:50%;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
+  z-index: 1000;
 }
 
 .login-button {
@@ -80,6 +94,7 @@ input {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 999;
 }
 
 .outer {
@@ -127,8 +142,8 @@ input {
   border-radius: 4px;
 }
 
-/*.sign-in {
-  border-radius: 3px;
-  border: 1px solid #0192b5;
-  padding: 5px;
-}*/
+.errors {
+  color: red;
+  list-style: none;
+  float: right;
+}
