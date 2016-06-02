@@ -38,10 +38,6 @@ var SignupForm = React.createClass({
     }
   },
 
-  modalVisible: function () {
-    this.setState({modalVisible: true});
-  },
-
   emailChange: function (event) {
     var newEmail = event.target.value;
     this.setState({email: newEmail});

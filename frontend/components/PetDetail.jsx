@@ -2,6 +2,7 @@ var React = require('react');
 var Link = require('react-router').Link;
 var PetStore = require('./../stores/pet_store');
 var PetApiUtil = require('./../util/pet_api_util');
+var NavBar = require('./NavBar');
 
 var PetDetail = React.createClass({
   contextTypes: {
@@ -37,6 +38,7 @@ var PetDetail = React.createClass({
     //onClick of div (make it a link?) do this.showDetail
     return(
       <div>
+      <NavBar />
         <div>
           <img className={this.state.size} onLoad={this.setRef} src={this.state.pet.media.photos.photo[3].$t}/>
         </div>
