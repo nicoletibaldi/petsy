@@ -20,7 +20,7 @@ var NavBar = React.createClass({
         <nav>
         <img className="favorite-logo h-button" src={favoriteUrl}/>
         <Link to="/" className="h-button" onClick={SessionApiUtil.logout}>Log out</Link>
-        <a href="#" className="h-button">Hey, {SessionStore.currentUser().username}!</a>
+        <p className="h-button">Hey, {SessionStore.currentUser().username}!</p>
         </nav>
       );
     } else if (SessionStore.currentUserHasBeenFetched()) {
@@ -28,7 +28,7 @@ var NavBar = React.createClass({
         <nav>
         <Link to="/signup" className="h-button">Register</Link>
         <Link to="/login" className="h-button sign-in">Sign in</Link>
-        <p className="h-button" onClick={this.guestLogin}>Demo User</p>
+        <a href="#" className="h-button" onClick={this.guestLogin}>Demo User</a>
         </nav>
       );
     } else {
