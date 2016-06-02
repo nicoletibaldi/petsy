@@ -76,7 +76,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - implement pets component, building out the flux loop as needed.
   - [x] `PetsIndex`
   - [x] `PetIndexItem`
-  - [ ] `PetDetail`
+  - [x] `PetDetail`
 
 ### Phase 4: Start Styling (1 day)
 
