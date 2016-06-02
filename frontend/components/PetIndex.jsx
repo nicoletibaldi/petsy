@@ -1,6 +1,7 @@
 var React = require('react');
 var PetStore = require('./../stores/pet_store');
 var PetApiUtil = require('./../util/pet_api_util');
+var PetIndexItem = require('./PetIndexItem');
 
 var PetIndex = React.createClass({
   contextTypes: {
@@ -38,7 +39,7 @@ var PetIndex = React.createClass({
         <ul>
           {this.state.pets.map(function (pet) {
             return(
-              <li key={pet.id.$t}>{pet.name.$t}</li>
+              <PetIndexItem pet={pet}/>
             )
           })}
         </ul>

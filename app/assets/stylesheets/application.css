@@ -148,3 +148,7 @@ input {
   list-style: none;
   float: right;
 }
+
+.pet-index-item {
+  border: 1px solid black;
+}
