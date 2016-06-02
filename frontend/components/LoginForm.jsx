@@ -12,7 +12,6 @@ var LoginForm = React.createClass({
     return({
       username: "",
       password: "",
-      modalToggle: false
     });
   },
 
@@ -90,7 +89,7 @@ var LoginForm = React.createClass({
               <input type="password" value={this.state.password} onChange={this.passwordChange}/>
             </label>
             <br/>
-            <input type="submit" value="Submit" className="login-button" />
+            <input type="submit" value="Sign in" className="login-button" />
           </form>
         </div>
     );
