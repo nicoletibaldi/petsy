@@ -11,13 +11,11 @@ var PetIndexItem = React.createClass({
   },
 
   showDetail: function () {
-    // this.context.router.push(something to do with id);
+    this.context.router.push('/pets/'+ this.props.pet.id.$t);
   },
 
   setRef: function (e) {
     var image = e.currentTarget;
-      console.log(image.width);
-      console.log(image.height);
       if (image.width > image.height) {
          this.setState({size: "landscape"});
       } else {
@@ -28,7 +26,7 @@ var PetIndexItem = React.createClass({
   render: function () {
     //onClick of div (make it a link?) do this.showDetail
     return(
-      <div className="pet-index-item">
+      <div className="pet-index-item" onClick={this.showDetail}>
         <div className="pet-index-item-photo">
           <img className={this.state.size} onLoad={this.setRef} src={this.props.pet.media.photos.photo[3].$t}/>
         </div>

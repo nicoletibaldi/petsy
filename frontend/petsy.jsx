@@ -7,12 +7,14 @@ var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
 
+var SessionStore = require('./stores/session_store');
+var SessionApiUtil = require('./util/session_api_util');
+
 var App = require('./components/App');
 var PetIndex = require('./components/PetIndex');
 var LoginForm = require('./components/LoginForm');
 var SignupForm = require('./components/SignupForm');
-var SessionStore = require('./stores/session_store');
-var SessionApiUtil = require('./util/session_api_util');
+var PetDetail = require('./components/PetDetail');
 
 var Router = (
   <Router history={hashHistory}>
@@ -20,6 +22,7 @@ var Router = (
       <Route path="/login" component={LoginForm} />
       <Route path="/signup" component={SignupForm} />
   </Route>
+  <Route path="pets/:petId" component={PetDetail} />
   </Router>
 );
 
