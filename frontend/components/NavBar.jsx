@@ -41,7 +41,7 @@ var NavBar = React.createClass({
   render: function () {
     return (
       <div>
-        <header className="petsy-header">
+        <header>
         <img className="logo" src={petsyUrl}/>
           {this.greeting()}
         </header>
