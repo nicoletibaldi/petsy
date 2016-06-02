@@ -15,5 +15,20 @@ var PetActions = require('./../actions/pet_actions');
          console.log("Error");
        }
      });
+   },
+
+   fetchSinglePet: function (id) {
+     $.ajax({
+       type: "GET",
+       dataType: "JSONP",
+       data: {id: id},
+       url: "http://api.petfinder.com/pet.get?key=8702fd94d045acb703444d0f1969212c&format=json&output=full",
+       success: function (result) {
+         PetActions.receiveSinglePet(result);
+       },
+       error: function () {
+         console.log("Error");
+       }
+     });
    }
  };
