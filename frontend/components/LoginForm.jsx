@@ -64,12 +64,13 @@ var LoginForm = React.createClass({
       SessionApiUtil.login(formData);
   },
 
-  fieldErrors: function (field) {
+  baseErrors: function (field) {
     var errors = ErrorStore.formErrors("login");
-    if (!errors[field]) { return; }
+    if (!errors["base"]) { return; }
 
-    var messages = errors[field].map(function (errorMsg, i) {
-      return <li key={ i }>{ errorMsg }</li>;
+    var messages = errors["base"].map(function (errorMsg, i) {
+      console.log(errorMsg);
+      return <li className="errors" key={ i }>{ errorMsg }</li>;
     });
 
     return <ul>{ messages }</ul>;
@@ -78,15 +79,14 @@ var LoginForm = React.createClass({
   render: function () {
     return (
         <div className="modal" onClick={this.handleModalClick}>
-          <form className="login-form" onSubmit={this.handleSubmit} onClick={this.stopProp}>
+          <form className="login-form" onSubmit={this.handleSubmit} onEnter={this.handleSubmit} onClick={this.stopProp}>
+          { this.baseErrors("username") }
             <br/>
             <label> Username<br/>
-            { this.fieldErrors("username") }
               <input type="text" value={this.state.username} onChange={this.usernameChange}/>
             </label>
             <br/>
             <label> Password<br/>
-            { this.fieldErrors("password") }
               <input type="password" value={this.state.password} onChange={this.passwordChange}/>
             </label>
             <br/>

@@ -79,7 +79,7 @@ var SignupForm = React.createClass({
     if (!errors[field]) { return; }
 
     var messages = errors[field].map(function (errorMsg, i) {
-      return <li key={ i }>{ errorMsg }</li>;
+      return <li className="errors" key={ i }>{ errorMsg }</li>;
     });
 
     return <ul>{ messages }</ul>;
@@ -88,7 +88,7 @@ var SignupForm = React.createClass({
   render: function () {
     return (
       <div className="modal" onClick={this.handleModalClick}>
-        <form className="login-form" onSubmit={this.handleSubmit} onClick={this.stopProp}>
+        <form className="login-form" onSubmit={this.handleSubmit} onEnter={this.handleSubmit} onClick={this.stopProp}>
             <br/>
             <label> Email<br/>
             { this.fieldErrors("email") }

@@ -11,8 +11,10 @@ var App = React.createClass({
         <NavBar />
           <div class="inner">
               <img src={ursaUrl} className="scaling-image"/>
-                <input className="search" type="text"/>
-                <input className="search" type="submit"/>
+              <form className="search">
+                <input className="search-input" type="text"/>
+                <input className="search-button" type="submit"/>
+              </form>
               {this.props.children}
         </div>
       </div>
