@@ -9,6 +9,7 @@ html, body, section, article, h1, h2, p, strong, em, a, button {
   text-align: inherit;
   color: inherit;
   background: transparent;
+  font-family: georgia;
 }
 
 header {
@@ -150,5 +151,6 @@ input {
 }
 
 .pet-index-item {
-  border: 1px solid black;
+  border: 1px solid #ccc;
+  display: inline-block;
 }
