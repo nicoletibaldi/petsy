@@ -169,6 +169,10 @@ input {
   text-align: center;
 }
 
+.pet-index-item :hover{
+  cursor: pointer;
+}
+
 .pet-index-item-photo {
   position: relative;
   overflow: hidden;

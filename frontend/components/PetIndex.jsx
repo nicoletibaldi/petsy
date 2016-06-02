@@ -39,7 +39,7 @@ var PetIndex = React.createClass({
         <ul>
           {this.state.pets.map(function (pet) {
             return(
-              <PetIndexItem pet={pet}/>
+              <PetIndexItem key={pet.id.$t} pet={pet}/>
             )
           })}
         </ul>
