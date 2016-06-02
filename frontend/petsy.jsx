@@ -8,6 +8,7 @@ var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
 
 var App = require('./components/App');
+var PetIndex = require('./components/PetIndex');
 var LoginForm = require('./components/LoginForm');
 var SignupForm = require('./components/SignupForm');
 var SessionStore = require('./stores/session_store');
