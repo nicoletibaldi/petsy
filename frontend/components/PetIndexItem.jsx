@@ -17,10 +17,10 @@ var PetIndexItem = React.createClass({
         <div className="pet-index-item-photo">
           <img src={this.props.pet.media.photos.photo[3].$t}/>
         </div>
-        <p>{this.props.pet.name.$t}</p>
+        <p>Name: {this.props.pet.name.$t}</p>
         <p>{this.props.pet.animal.$t}</p>
-        <p>{this.props.pet.sex.$t}</p>
-        <p>{this.props.pet.age.$t}</p>
+        <p>Sex: {this.props.pet.sex.$t}</p>
+        <p>Age: {this.props.pet.age.$t}</p>
       </div>
     );
   }

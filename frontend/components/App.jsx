@@ -11,7 +11,7 @@ var App = React.createClass({
         <NavBar />
           <div class="inner">
               <img src={ursaUrl} className="scaling-image"/>
-              <p className="search">Whoever you are, find your best friend</p>
+              <p className="tagline search">Whoever you are, find your best friend</p>
               <form className="search">
                 <input className="search-input" type="text"/>
                 <input className="search-button" value="Search" type="submit"/>
