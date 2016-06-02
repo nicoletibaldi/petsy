@@ -13,7 +13,8 @@ var SignupForm = React.createClass({
       username: "",
       email: "",
       password: "",
-      modalToggle: false
+      fname: "",
+      lname: ""
     });
   },
 
@@ -56,12 +57,24 @@ var SignupForm = React.createClass({
     this.setState({password: newPassword});
   },
 
+  fnameChange: function (event) {
+      var newFname = event.target.value;
+      this.setState({fname: newFname});
+  },
+
+  lnameChange: function (event) {
+    var newLname = event.target.value;
+    this.setState({lname: newLname});
+  },
+
   handleSubmit: function (event) {
     event.preventDefault();
     var formData = {
       username: this.state.username,
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      fname: this.state.fname,
+      lname: this.state.lname
     };
       UserApiUtil.signup(formData);
   },
@@ -90,9 +103,24 @@ var SignupForm = React.createClass({
       <div className="modal" onClick={this.handleModalClick}>
         <form className="login-form" onSubmit={this.handleSubmit} onEnter={this.handleSubmit} onClick={this.stopProp}>
             <br/>
+            <label>First name<br/>
+            { this.fieldErrors("fname") }
+              <input type="text" value={this.state.fname} onChange={this.fnameChange}/>
+            </label>
+            <br/>
+            <label>Last name<br/>
+            { this.fieldErrors("lname") }
+              <input type="text" value={this.state.lname} onChange={this.lnameChange}/>
+            </label>
+            <br/>
             <label> Email<br/>
             { this.fieldErrors("email") }
               <input type="text" value={this.state.email} onChange={this.emailChange}/>
+            </label>
+            <br/>
+            <label> Password<br/>
+            { this.fieldErrors("password") }
+            <input type="password" value={this.state.password} onChange={this.passwordChange}/>
             </label>
             <br/>
             <label> Username<br/>
@@ -100,12 +128,7 @@ var SignupForm = React.createClass({
               <input type="text" value={this.state.username} onChange={this.usernameChange}/>
             </label>
             <br/>
-            <label> Password<br/>
-            { this.fieldErrors("password") }
-              <input type="password" value={this.state.password} onChange={this.passwordChange}/>
-            </label>
-            <br/>
-            <input type="submit" value="Submit" className="login-button" />
+            <input type="submit" value="Register" className="login-button" />
           </form>
         </div>
     );

@@ -20,13 +20,13 @@ var NavBar = React.createClass({
         <nav>
         <img className="favorite-logo h-button" src={favoriteUrl}/>
         <Link to="/" className="h-button" onClick={SessionApiUtil.logout}>Log out</Link>
-        <p className="h-button">Hey, {SessionStore.currentUser().username}!</p>
+        <p className="h-button">Hey, {SessionStore.currentUser().fname}!</p>
         </nav>
       );
     } else if (SessionStore.currentUserHasBeenFetched()) {
       return (
         <nav>
-        <Link to="/signup" className="h-button">Register</Link>
+        <Link to="/signup" className="h-button">Register </Link>
         <Link to="/login" className="h-button sign-in">Sign in</Link>
         <a href="#" className="h-button" onClick={this.guestLogin}>Demo User</a>
         </nav>

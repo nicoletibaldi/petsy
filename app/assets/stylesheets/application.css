@@ -44,7 +44,7 @@ nav {
   background: white;
   font-family: georgia;
   width: 400px;
-  height: 250px;
+  height: 335px;
   padding: 20px;
   font-size: 14px;
   position:absolute;
@@ -74,7 +74,7 @@ input {
 
 .h-button {
   color: #0192b5;
-  margin: 5px 15px;
+  margin: 5px 5px;
   text-decoration: none;
   float: right;
 }
@@ -116,9 +116,9 @@ input {
 }
 
 .search {
-  position: absolute;
+  position: relative;
   z-index: 100;
-  top: 350px;
+  bottom: 100px;
   left: 10px;
 }
 
@@ -132,13 +132,14 @@ input {
   font-size: 14px;
   text-align: center;
   font-style: bold;
-  padding: 5px 20px 5px 20px;
+  padding: 12px 20px 12px 20px;
   border: none;
 }
 
 .search-input {
+  height: 25px;
   padding: 5px;
-  width: 350px;
+  width: 275px;
   border-radius: 4px;
 }
 
