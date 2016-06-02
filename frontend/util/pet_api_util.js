@@ -6,7 +6,7 @@ var PetActions = require('./../actions/pet_actions');
      $.ajax({
        type: "GET",
        dataType: "JSONP",
-       data: {count: 30, offset: offset},
+       data: {count: 16, offset: offset},
        url: "http://api.petfinder.com/pet.find?key=8702fd94d045acb703444d0f1969212c&format=json&location=11570&output=full",
        success: function (result) {
          PetActions.receivePets(result);

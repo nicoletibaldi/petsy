@@ -9,13 +9,17 @@ html, body, section, article, h1, h2, p, strong, em, a, button {
   text-align: inherit;
   color: inherit;
   background: transparent;
-  font-family: georgia;
+}
+
+div {
+  background: #f5f5f1;
 }
 
 header {
   height: 55px;
   margin-top: 10px;
   border-bottom: 2px solid #ccc;
+  background: white;
 }
 
 nav {
@@ -153,4 +157,17 @@ input {
 .pet-index-item {
   border: 1px solid #ccc;
   display: inline-block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  width: 250px;
+  height: 275px;
+  margin: 10px;
+  background: white;
+  text-align: center;
+}
+
+.pet-index-item-photo {
+  overflow: hidden;
+  height: 200px;
+  width: 250px;
 }

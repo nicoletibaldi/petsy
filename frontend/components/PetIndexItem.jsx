@@ -14,7 +14,9 @@ var PetIndexItem = React.createClass({
     //onClick of div (make it a link?) do this.showDetail
     return(
       <div className="pet-index-item">
-        <img src={this.props.pet.media.photos.photo[3].$t}/>
+        <div className="pet-index-item-photo">
+          <img src={this.props.pet.media.photos.photo[3].$t}/>
+        </div>
         <p>{this.props.pet.name.$t}</p>
         <p>{this.props.pet.animal.$t}</p>
         <p>{this.props.pet.sex.$t}</p>
