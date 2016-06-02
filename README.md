@@ -51,32 +51,31 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 **Objective:** Functioning rails project with Authentication
 
-- [ ] create new project
-- [ ] create `User` model
-- [ ] authentication
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [x] create new project
+- [x] create `User` model
+- [x] authentication
+- [x] user signup/signin pages
+- [x] blank landing page after signin
 
 ### Phase 2: Pet Listing Model, API, and basic APIUtil (1.5 days)
 
 **Objective:** Pet listings can be created, read, edited and destroyed through the API.
 
-- [ ] seed the database with a small amount of test data
-  - [ ] set up Petfinder API
-- [ ] jBuilder views for pets
-- [ ] setup Webpack & Flux scaffold
-- [ ] setup `APIUtil` to interact with the API
-- [ ] test out API interaction in the console.
+- [x] seed the database with a small amount of test data
+  - [x] set up Petfinder API
+- [x] setup Webpack & Flux scaffold
+- [x] setup `APIUtil` to interact with the API
+- [x] test out API interaction in the console.
 
 ### Phase 3: Flux Architecture and Router (1.5 days)
 
 **Objective:** Pet listings can be read with the user interface.
 
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
+- [x] setup the flux loop with skeleton files
+- [x] setup React Router
 - implement pets component, building out the flux loop as needed.
-  - [ ] `PetsIndex`
-  - [ ] `PetIndexItem`
+  - [x] `PetsIndex`
+  - [x] `PetIndexItem`
   - [ ] `PetDetail`
 
 ### Phase 4: Start Styling (1 day)
