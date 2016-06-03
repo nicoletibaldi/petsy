@@ -4,6 +4,10 @@ var SessionStore = require('./../stores/session_store');
 var SessionApiUtil = require('./../util/session_api_util');
 
 var NavBar = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   componentDidMount: function () {
     SessionApiUtil.fetchCurrentUser();
     SessionStore.addListener(this.forceUpdate.bind(this));
@@ -18,17 +22,17 @@ var NavBar = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
       return (
         <nav>
-        <img className="favorite-logo h-button" src={favoriteUrl}/>
-        <Link to="/" className="h-button" onClick={SessionApiUtil.logout}>Log out</Link>
-        <p className="h-button">Hey, {SessionStore.currentUser().fname}!</p>
+          <img className="favorite-logo h-button" src={favoriteUrl}/>
+          <Link to="/" className="h-button" onClick={SessionApiUtil.logout}>Log out</Link>
+          <p className="h-button">Hey, {SessionStore.currentUser().fname}!</p>
         </nav>
       );
     } else if (SessionStore.currentUserHasBeenFetched()) {
       return (
         <nav>
-        <Link to="/signup" className="h-button">Register </Link>
-        <Link to="/login" className="h-button sign-in">Sign in</Link>
-        <a href="#" className="h-button" onClick={this.guestLogin}>Demo User</a>
+          <Link to="/signup" className="h-button">Register </Link>
+          <Link to="/login" className="h-button sign-in">Sign in</Link>
+          <a href="#" className="h-button" onClick={this.guestLogin}>Demo User</a>
         </nav>
       );
     } else {
@@ -37,15 +41,14 @@ var NavBar = React.createClass({
       )
     }
   },
-
   render: function () {
     return (
       <div>
         <header>
         <img className="logo" src={petsyUrl}/>
-          {this.greeting()}
+        {this.greeting()}
         </header>
-          {this.props.children}
+        {this.props.children}
       </div>
     );
   }

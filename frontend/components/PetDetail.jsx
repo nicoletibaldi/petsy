@@ -13,7 +13,6 @@ var PetDetail = React.createClass({
     return(
       {
         pet: PetStore.find(this.props.params.petId),
-        size: ""
       }
     );
   },
@@ -31,28 +30,29 @@ var PetDetail = React.createClass({
     this.petDetailListener.remove();
   },
 
-  setRef: function (e) {
-    var image = e.currentTarget;
-      if (image.width > image.height) {
-         this.setState({size: "landscape"});
-      } else {
-        this.setState({size: "portrait"});
-      }
-  },
-
   render: function () {
     if (!this.state.pet) {
       return (<div />);
     } else {
       return(
-        <div>
+        <div className="pet-detail-container">
           <div className="pet-detail-photo">
-            <img className={this.state.size} onLoad={this.setRef} src={this.state.pet.media.photos.photo[3].$t}/>
+            <img src={this.state.pet.media.photos.photo[2].$t}/>
           </div>
-          <p>Name: {this.state.pet.name.$t}</p>
-          <p>{this.state.pet.animal.$t}</p>
-          <p>Sex: {this.state.pet.sex.$t}</p>
-          <p>Age: {this.state.pet.age.$t}</p>
+          <div className="pet-detail-photo">
+            <img src={this.state.pet.media.photos.photo[7].$t}/>
+          </div>
+          <div className="pet-detail-photo">
+            <img src={this.state.pet.media.photos.photo[12].$t}/>
+          </div>
+          <ul className="detail-right-box">
+            <li>Name: {this.state.pet.name.$t}</li>
+            <li>{this.state.pet.animal.$t}</li>
+            <li>Sex: {this.state.pet.sex.$t}</li>
+            <li>Age: {this.state.pet.age.$t}</li>
+            <a href="#" className="checkout">Add to favorites</a>
+          </ul>
+          <p className="detail-description"> {this.state.pet.description.$t}</p>
         </div>
       );
     }
