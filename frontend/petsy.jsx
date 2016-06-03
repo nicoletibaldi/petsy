@@ -21,8 +21,6 @@ var router = (
   <Router history={hashHistory}>
     <Route path="/" component={NavBar}>
       <IndexRoute component={App}/>
-        <Route path="/login" component={LoginForm} />
-        <Route path="/signup" component={SignupForm} />
       <Route path="pets/:petId" component={PetDetail} />
       <Route path=":petType" component={PetIndex} />
     </Route>

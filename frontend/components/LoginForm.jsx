@@ -36,7 +36,7 @@ var LoginForm = React.createClass({
   },
 
   handleModalClick: function () {
-    this.context.router.push("/");
+      this.props.close();
   },
 
   stopProp: function (e) {
