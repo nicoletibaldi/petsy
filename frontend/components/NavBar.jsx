@@ -2,10 +2,16 @@ var React = require('react');
 var Link = require('react-router').Link;
 var SessionStore = require('./../stores/session_store');
 var SessionApiUtil = require('./../util/session_api_util');
+var SignupForm = require('./SignupForm');
+var LoginForm = require('./LoginForm');
 
 var NavBar = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
+  },
+
+  getInitialState: function () {
+    return({modal: null})
   },
 
   componentDidMount: function () {
@@ -16,6 +22,18 @@ var NavBar = React.createClass({
   guestLogin: function(e) {
     e.preventDefault();
     SessionApiUtil.login({username: "Nicole", password: "password"})
+  },
+
+  showRegister: function () {
+    this.setState({modal: <SignupForm close={this.closeModal}/>})
+  },
+
+  showSignUp: function () {
+    this.setState({modal: <LoginForm close={this.closeModal}/>})
+  },
+
+  closeModal: function () {
+    this.setState({modal: null})
   },
 
   greeting: function () {
@@ -30,9 +48,9 @@ var NavBar = React.createClass({
       );
     } else if (SessionStore.currentUserHasBeenFetched()) {
       return (
-        <nav>
-          <Link to="/signup" className="h-button">Register </Link>
-          <Link to="/login" className="h-button sign-in">Sign in</Link>
+        <nav className="petsy">
+          <button onClick={this.showRegister} className="h-button">Register </button>
+          <button onClick={this.showSignUp} className="h-button sign-in">Sign in</button>
           <a href="#" className="h-button" onClick={this.guestLogin}>Demo User</a>
         </nav>
       );
@@ -66,6 +84,7 @@ var NavBar = React.createClass({
               <li onClick={this.filterSearch} className="pet-type-item">Barnyard</li>
             </ul>
           </nav>
+          {this.state.modal}
         {this.props.children}
       </div>
     );

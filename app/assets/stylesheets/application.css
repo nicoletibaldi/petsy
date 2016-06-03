@@ -238,9 +238,7 @@ input {
 /*search filter bar*/
 
 .pet-type-nav {
-  display: block;
   background: white;
-
 }
 
 .pet-type-list {
@@ -251,12 +249,13 @@ input {
   list-style: none;
   float: left;
   font-family: georgia;
-  color: #0192b5;
+  color: #777777;
   padding: 5px;
 }
 
 .pet-type-item:hover{
   cursor: pointer;
+  color: #333333;
 }
 
 /* clearfix*/

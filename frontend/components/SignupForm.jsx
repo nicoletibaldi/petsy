@@ -76,7 +76,7 @@ var SignupForm = React.createClass({
   },
 
   handleModalClick: function () {
-    this.context.router.push("/");
+      this.props.close();
   },
 
   stopProp: function (e) {
@@ -84,7 +84,7 @@ var SignupForm = React.createClass({
   },
 
   fieldErrors: function (field) {
-    var errors = ErrorStore.formErrors(this.props.location.pathname.slice(1));
+    var errors = ErrorStore.formErrors("signup");
     if (!errors[field]) { return; }
 
     var messages = errors[field].map(function (errorMsg, i) {
