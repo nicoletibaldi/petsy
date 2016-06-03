@@ -22,18 +22,19 @@ header {
   background: white;
 }
 
-nav {
-  margin: auto;
-  float: right;
-  font-family: georgia;
-  padding: 10px 0px 0px 0px;
-}
 
 input {
   margin: 5px;
 }
 
 /*header*/
+
+.petsy {
+  margin: auto;
+  float: right;
+  font-family: georgia;
+  padding: 10px 0px 0px 0px;
+}
 
 .logo {
   height: 50px;
@@ -232,4 +233,35 @@ input {
   font-family: 'Raleway', sans-serif;
   border: 5px solid #e4f3d9;
   color: white;
+}
+
+/*search filter bar*/
+
+.pet-type-nav {
+  display: block;
+  background: white;
+
+}
+
+.pet-type-list {
+  float: left;
+}
+
+.pet-type-item {
+  list-style: none;
+  float: left;
+  font-family: georgia;
+  color: #0192b5;
+  padding: 5px;
+}
+
+.pet-type-item:hover{
+  cursor: pointer;
+}
+
+/* clearfix*/
+.group:after{
+  content: "";
+  clear: both;
+  display: block;
 }

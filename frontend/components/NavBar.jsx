@@ -21,8 +21,9 @@ var NavBar = React.createClass({
   greeting: function () {
     if (SessionStore.isUserLoggedIn()) {
       return (
-        <nav>
+        <nav className="petsy">
           <img className="favorite-logo h-button" src={favoriteUrl}/>
+          <img className="favorite-logo h-button" src={profileUrl} />
           <Link to="/" className="h-button" onClick={SessionApiUtil.logout}>Log out</Link>
           <p className="h-button">Hey, {SessionStore.currentUser().fname}!</p>
         </nav>
@@ -41,6 +42,13 @@ var NavBar = React.createClass({
       )
     }
   },
+
+  filterSearch: function (e) {
+    var petType = e.currentTarget.innerHTML.toLowerCase();
+    this.context.router.push("/" + petType);
+  },
+
+
   render: function () {
     return (
       <div>
@@ -48,6 +56,16 @@ var NavBar = React.createClass({
         <img className="logo" src={petsyUrl}/>
         {this.greeting()}
         </header>
+          <nav className="pet-type-nav group">
+            <ul className="pet-type-list group">
+              <li onClick={this.filterSearch} className="pet-type-item">Dogs</li>
+              <li onClick={this.filterSearch} className="pet-type-item">Cats</li>
+              <li onClick={this.filterSearch} className="pet-type-item">Birds</li>
+              <li onClick={this.filterSearch} className="pet-type-item">Reptiles</li>
+              <li onClick={this.filterSearch} className="pet-type-item">Horses</li>
+              <li onClick={this.filterSearch} className="pet-type-item">Barnyard</li>
+            </ul>
+          </nav>
         {this.props.children}
       </div>
     );

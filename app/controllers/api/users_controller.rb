@@ -9,9 +9,24 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    if logged_in?
+      @user = current_user
+      render :show
+    else
+      render json: { message: "Not logged in" }, status: 401
+    end
+  end
+
+def update
+  @user = current_user
+  @user.update!(user_params)
+  render :show
+end
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :email, :fname, :lname)
+    params.require(:user).permit(:username, :password, :email, :fname, :lname, :city, :state, :description)
   end
 end
