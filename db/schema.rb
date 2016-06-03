@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602013625) do
+ActiveRecord::Schema.define(version: 20160603183009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pets", force: :cascade do |t|
+    t.string "name",          null: false
+    t.string "animal",        null: false
+    t.string "age"
+    t.string "breed"
+    t.string "contact_email"
+    t.text   "description"
+    t.string "sex"
+    t.string "image"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username",        null: false
@@ -23,6 +34,9 @@ ActiveRecord::Schema.define(version: 20160602013625) do
     t.string "email",           null: false
     t.string "fname",           null: false
     t.string "lname",           null: false
+    t.string "city"
+    t.string "state"
+    t.text   "description"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

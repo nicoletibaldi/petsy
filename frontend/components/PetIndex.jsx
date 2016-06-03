@@ -15,8 +15,16 @@ var PetIndex = React.createClass({
   },
 
   componentDidMount: function () {
-    PetApiUtil.fetchRandomPets();
-    this.petListener = PetStore.addListener(this._onChange);
+    if (this.props.params) {
+      var petType = this.props.params.petType;
+      PetApiUtil.fetchFilteredPets(petType);
+      this.petListener = PetStore.addListener(this._onChange);
+    } else {
+      PetApiUtil.fetchAllPets();
+      this.petListener = PetStore.addListener(this._onChange);
+    }
+    //this.props.params --> action takes pet type
+    //componentwillreceive props --> new fetch when URL changes
   },
 
   componentWillUnmount: function () {
@@ -39,7 +47,7 @@ var PetIndex = React.createClass({
         <ul>
           {this.state.pets.map(function (pet) {
             return(
-              <PetIndexItem key={pet.id.$t} pet={pet}/>
+              <PetIndexItem key={pet.id} pet={pet}/>
             )
           })}
         </ul>

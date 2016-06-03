@@ -37,22 +37,16 @@ var PetDetail = React.createClass({
       return(
         <div className="pet-detail-container">
           <div className="pet-detail-photo">
-            <img src={this.state.pet.media.photos.photo[2].$t}/>
-          </div>
-          <div className="pet-detail-photo">
-            <img src={this.state.pet.media.photos.photo[7].$t}/>
-          </div>
-          <div className="pet-detail-photo">
-            <img src={this.state.pet.media.photos.photo[12].$t}/>
+            <img src={this.state.pet.image}/>
           </div>
           <ul className="detail-right-box">
-            <li>Name: {this.state.pet.name.$t}</li>
-            <li>{this.state.pet.animal.$t}</li>
-            <li>Sex: {this.state.pet.sex.$t}</li>
-            <li>Age: {this.state.pet.age.$t}</li>
+            <li>Name: {this.state.pet.name}</li>
+            <li>{this.state.pet.animal}</li>
+            <li>Sex: {this.state.pet.sex}</li>
+            <li>Age: {this.state.pet.age}</li>
             <a href="#" className="checkout">Add to favorites</a>
           </ul>
-          <p className="detail-description"> {this.state.pet.description.$t}</p>
+          <p className="detail-description"> {this.state.pet.description}</p>
         </div>
       );
     }

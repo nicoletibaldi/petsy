@@ -11,7 +11,7 @@ var PetIndexItem = React.createClass({
   },
 
   showDetail: function () {
-    this.context.router.push('/pets/'+ this.props.pet.id.$t);
+    this.context.router.push('/pets/'+ this.props.pet.id);
     // window.location.href = 'http://localhost:3000/#/pets/' + this.props.pet.id.$t;
   },
 
@@ -29,12 +29,12 @@ var PetIndexItem = React.createClass({
     return(
       <div className="pet-index-item" onClick={this.showDetail}>
         <div className="pet-index-item-photo">
-          <img className={this.state.size} onLoad={this.setRef} src={this.props.pet.media.photos.photo[3].$t}/>
+          <img className={this.state.size} onLoad={this.setRef} src={this.props.pet.image}/>
         </div>
-        <p>Name: {this.props.pet.name.$t}</p>
-        <p>{this.props.pet.animal.$t}</p>
-        <p>Sex: {this.props.pet.sex.$t}</p>
-        <p>Age: {this.props.pet.age.$t}</p>
+        <p>Name: {this.props.pet.name}</p>
+        <p>{this.props.pet.animal}</p>
+        <p>Sex: {this.props.pet.sex}</p>
+        <p>Age: {this.props.pet.age}</p>
       </div>
     );
   }

@@ -1,13 +1,11 @@
 var PetActions = require('./../actions/pet_actions');
 
  module.exports = {
-   fetchRandomPets: function (offset) {
-     offset = offset || 0;
+   fetchAllPets: function () {
      $.ajax({
        type: "GET",
-       dataType: "JSONP",
-       data: {count: 16, offset: offset},
-       url: "http://api.petfinder.com/pet.find?key=8702fd94d045acb703444d0f1969212c&format=json&location=11570&output=full",
+       dataType: "JSON",
+       url: "/api/pets",
        success: function (result) {
          PetActions.receivePets(result);
        },
@@ -17,12 +15,27 @@ var PetActions = require('./../actions/pet_actions');
      });
    },
 
+   fetchFilteredPets: function (petType) {
+        $.ajax({
+          type: "GET",
+          dataType: "JSON",
+          data: {animal: petType},
+          url: "/api/pets",
+          success: function (result) {
+            PetActions.receivePets(result);
+          },
+          error: function () {
+            console.log("Error");
+          }
+        });
+      },
+
    fetchSinglePet: function (id) {
      $.ajax({
        type: "GET",
-       dataType: "JSONP",
+       dataType: "JSON",
        data: {id: id},
-       url: "http://api.petfinder.com/pet.get?key=8702fd94d045acb703444d0f1969212c&format=json&output=full",
+       url: "/api/pets",
        success: function (result) {
          PetActions.receiveSinglePet(result);
        },

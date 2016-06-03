@@ -24,6 +24,7 @@ var router = (
         <Route path="/login" component={LoginForm} />
         <Route path="/signup" component={SignupForm} />
       <Route path="pets/:petId" component={PetDetail} />
+      <Route path=":petType" component={PetIndex} />
     </Route>
   </Router>
 );
