@@ -25,7 +25,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [x] Create an account (MVP)
 - [x] Log in / Log out, including as a Guest/Demo User (MVP)
-- [ ] View listings by category, each with separate index page (MVP)
+- [x] View listings by category, each with separate index page (MVP)
 - [ ] Add a pet to favorites list (equivalent to add to cart) (MVP)
 - [ ] Tag listings with multiple tags (expected feature, but not MVP)
 - [ ] Register using Google or Facebook (expected, but not MVP)
@@ -82,9 +82,9 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 **Objective:** Existing pages (including signup/signin) will look good.
 
-- [ ] create a basic style guide
-- [ ] position elements on the page
-- [ ] add basic colors & styles
+- [x] create a basic style guide
+- [x] position elements on the page
+- [x] add basic colors & styles
 
 ### Phase 5: PetTypes/Browsing (1 day)
 
@@ -93,7 +93,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [ ] create `PetType` model
 - build out API, Flux loop, and components for:
   - [ ] viewing pets by pet type
-- Use CSS to style new views
+- [ ] Use CSS to style new views
 
 (Adds organization to the listings. Pet listings belong to a pet type,
 which has its own `Index` view.)
@@ -130,6 +130,7 @@ which has its own `Index` view.)
 
 ### Bonus Features (TBD)
 - [ ] Google/Facebook authentication
+- [ ] Users can create and edit their profile pages
 - [ ] User reviews/comments
 - [ ] Show 'similar pets' in bottom right corner of show page
 

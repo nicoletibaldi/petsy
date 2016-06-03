@@ -41,6 +41,10 @@ input {
   margin-left: 7px;
 }
 
+.logo:hover{
+  cursor: pointer;
+}
+
 .h-button {
   color: #0192b5;
   margin: 5px 5px;
