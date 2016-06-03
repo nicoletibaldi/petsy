@@ -17,14 +17,14 @@ var SignupForm = require('./components/SignupForm');
 var PetDetail = require('./components/PetDetail');
 var NavBar = require('./components/NavBar');
 
-var Router = (
+var router = (
   <Router history={hashHistory}>
-  <Route path="/" component={NavBar}>
-      <IndexRoute component={App} />
-      <Route path="/login" component={LoginForm} />
-      <Route path="/signup" component={SignupForm} />
+    <Route path="/" component={NavBar}>
+      <IndexRoute component={App}/>
+        <Route path="/login" component={LoginForm} />
+        <Route path="/signup" component={SignupForm} />
       <Route path="pets/:petId" component={PetDetail} />
-  </Route>
+    </Route>
   </Router>
 );
 
@@ -46,5 +46,5 @@ function _ensureLoggedIn(nextState, replace, asyncDoneCallback) {
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById('content');
-  ReactDOM.render(Router, root);
+  ReactDOM.render(router, root);
 });

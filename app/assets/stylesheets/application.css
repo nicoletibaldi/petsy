@@ -33,20 +33,29 @@ input {
   margin: 5px;
 }
 
-/*.ursa {
-  border-bottom: 2px solid #ccc;
-  background-image: url('petsy_background_2.png');
-  min-height: 250px;
-  height: 415px;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  size: 100% auto;
-}*/
+/*header*/
 
 .logo {
   height: 50px;
   margin-left: 7px;
 }
+
+.h-button {
+  color: #0192b5;
+  margin: 5px 5px;
+  text-decoration: none;
+  float: right;
+}
+
+.favorite-logo {
+  height: 30px;
+  margin-right: 20px;
+  margin-top: 0px;
+  border-left: 1px solid #ccc;
+  padding-left: 15px;
+}
+
+/*login - sign up - modal */
 
 .login-form {
   top: 100px;
@@ -78,22 +87,6 @@ input {
   border: solid;
 }
 
-
-.h-button {
-  color: #0192b5;
-  margin: 5px 5px;
-  text-decoration: none;
-  float: right;
-}
-
-.favorite-logo {
-  height: 30px;
-  margin-right: 20px;
-  margin-top: 0px;
-  border-left: 1px solid #ccc;
-  padding-left: 15px;
-}
-
 .modal {
   background: rgba(0, 0, 0, 0.7);
   position: fixed;
@@ -104,23 +97,21 @@ input {
   z-index: 999;
 }
 
-.outer {
-    position: relative;
+.errors {
+  color: red;
+  list-style: none;
+  float: right;
 }
+
 
 .scaling-image {
     position: relative;
     width: 100%;
     min-width: 100%;
 }
-.inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow:hidden;
-}
+
+
+/*search bar */
 
 .search {
   position: relative;
@@ -150,12 +141,7 @@ input {
   border-radius: 4px;
 }
 
-.errors {
-  color: red;
-  list-style: none;
-  float: right;
-}
-
+/* pet index items */
 .pet-index-item {
   border: 2px solid #ccc;
   box-shadow: 0 0 1em #ccc;
@@ -194,19 +180,56 @@ input {
   height: auto;
 }
 
-.tagline{
-  font-size: 32px;
-  color: white;
-  font-family: 'Raleway', sans-serif;
-  padding: 10px;
+/*pet show page*/
+
+.pet-detail-container {
+  position: relative;
+  margin-top: 20px;
+  background: white;
+  max-width: 85%;
+  height: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ececec;
+  border-radius: 4px;
 }
 
 .pet-detail-photo {
-  position: relative;
+  position: absolute;
   overflow: hidden;
-  height: 500px;
-  width: 550px;
+  height: 300px;
+  width: 350px;
   margin-bottom: 10px;
   display: block;
   border: 5px solid white;
+}
+
+.detail-right-box {
+  float: right;
+  border: 10px solid #e4f3d9;
+  background: white;
+  font-family: 'Raleway', sans-serif;
+  list-style: none;
+  text-align: left;
+  padding: 10px 10px 0px 10px;
+}
+
+.detail-description {
+  position: absolute;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  top: 370px;
+  max-width: 50%;
+  margin-right: auto;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.checkout {
+  background: #7ac142;
+  font-family: 'Raleway', sans-serif;
+  border: 5px solid #e4f3d9;
+  color: white;
 }

@@ -12,6 +12,7 @@ var PetIndexItem = React.createClass({
 
   showDetail: function () {
     this.context.router.push('/pets/'+ this.props.pet.id.$t);
+    // window.location.href = 'http://localhost:3000/#/pets/' + this.props.pet.id.$t;
   },
 
   setRef: function (e) {
