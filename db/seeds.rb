@@ -35,14 +35,14 @@ url_base = "http://api.petfinder.com/pet.find?"
      description = pet_hash["description"]["$t"]
      sex = pet_hash["sex"]["$t"]
      if pet_hash["media"]["photos"]
-       image = pet_hash["media"]["photos"]["photo"][3]["$t"]
+       image_url = pet_hash["media"]["photos"]["photo"][3]["$t"]
      else
-       image = "no image"
+       image_url = "no image"
      end
-
+     
      newPet = Pet.new({name: name, animal: animal,
        age: age, breed: breed, contact_email: contact_email, description: description,
-       sex: sex, image: image})
+       sex: sex, image: open(image_url)})
      newPet.save!
   end
 # end

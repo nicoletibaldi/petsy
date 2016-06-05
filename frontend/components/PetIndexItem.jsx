@@ -29,7 +29,7 @@ var PetIndexItem = React.createClass({
     return(
       <div className="pet-index-item" onClick={this.showDetail}>
         <div className="pet-index-item-photo">
-          <img className={this.state.size} onLoad={this.setRef} src={this.props.pet.image}/>
+          <img className={this.state.size} onLoad={this.setRef} src={this.props.pet.image_url}/>
         </div>
         <p>Name: {this.props.pet.name}</p>
         <p>{this.props.pet.animal}</p>
