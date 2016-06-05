@@ -82,10 +82,9 @@ var NavBar = React.createClass({
             <ul className="pet-type-list group">
               <li onClick={this.filterSearch} className="pet-type-item">Dogs</li>
               <li onClick={this.filterSearch} className="pet-type-item">Cats</li>
-              <li onClick={this.filterSearch} className="pet-type-item">Birds</li>
               <li onClick={this.filterSearch} className="pet-type-item">Reptiles</li>
-              <li onClick={this.filterSearch} className="pet-type-item">Horses</li>
-              <li onClick={this.filterSearch} className="pet-type-item">Barnyard</li>
+              <li onClick={this.filterSearch} className="pet-type-item">Rabbits</li>
+              <li onClick={this.filterSearch} className="pet-type-item">Other</li>
             </ul>
           </nav>
           {this.state.modal}
