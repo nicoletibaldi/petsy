@@ -18,7 +18,6 @@ var PetDetail = React.createClass({
   },
 
   componentDidMount: function () {
-    console.log(this.props.params.petId);
     PetApiUtil.fetchSinglePet(this.props.params.petId);
     this.petDetailListener = PetStore.addListener(this._onChange);
   },
@@ -28,8 +27,6 @@ var PetDetail = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    console.log(newProps.params.petId);
-
     PetApiUtil.fetchSinglePet(newProps.params.petId);
     this.setState({pet: PetStore.find(newProps.params.petId)})
   },
