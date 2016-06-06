@@ -10,9 +10,9 @@ Petsy is a web application inspired by Etsy that will be built using Ruby on Rai
 
 - [x] New account creation, login, and guest/demo login
 - [ ] Smooth, bug-free navigation
-- [ ] Adequate seed data to demonstrate the site's features (using Petfinder API)
-- [ ] The minimally necessary features for an Etsy-inspired site: view listings by category, view detailed pet page, and select a pet to add to favorites (equivalent to "cart" on the traditional Etsy site, "checkout" will be contacting the rescue organization)
-- [ ] Hosting on Heroku
+- [x] Adequate seed data to demonstrate the site's features (using Petfinder API)
+- [ ] The minimally necessary features for an Etsy-inspired site: view listings by category, view detailed pet page, create/edit a listing, and select a pet to add to favorites (equivalent to "cart")
+- [x] Hosting on Heroku
 - [ ] CSS styling that is satisfactorily visually appealing
 - [ ] A production README, replacing this README
 
@@ -26,11 +26,13 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [x] Create an account (MVP)
 - [x] Log in / Log out, including as a Guest/Demo User (MVP)
 - [x] View listings by category, each with separate index page (MVP)
+- [ ] Create, read, edit, and delete listings (MVP)
 - [ ] Add a pet to favorites list (equivalent to add to cart) (MVP)
+- [ ] Search pets (MVP)
+
 - [ ] Tag listings with multiple tags (expected feature, but not MVP)
 - [ ] Register using Google or Facebook (expected, but not MVP)
 - [ ] Users can leave reviews (if I have time)
-- [ ] Create, read, edit, and delete listings (if I have time - how to integrate with Petfinder dogs?)
 
 ## Design Docs
 * [View Wireframes][views]
@@ -90,9 +92,9 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 **Objective:** Pets belong to PetTypes, and can be viewed by PetType.
 
-- [ ] create `PetType` model
+- [x] create `PetType` model
 - build out API, Flux loop, and components for:
-  - [ ] viewing pets by pet type
+  - [x] viewing pets by pet type
 - [ ] Use CSS to style new views
 
 (Adds organization to the listings. Pet listings belong to a pet type,

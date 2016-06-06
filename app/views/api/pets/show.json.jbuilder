@@ -1,2 +1,2 @@
-json.extract! @pet, :name, :animal, :age, :breed, :contact_email, :description, :sex
+json.extract! @pet, :name, :animal, :age, :breed, :contact_email, :description, :sex, :id
 json.image_url asset_path(@pet.image.url)
