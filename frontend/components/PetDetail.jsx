@@ -13,6 +13,7 @@ var PetDetail = React.createClass({
     return(
       {
         pet: PetStore.find(this.props.params.petId),
+        size: ""
       }
     );
   },
@@ -35,6 +36,15 @@ var PetDetail = React.createClass({
     this.petDetailListener.remove();
   },
 
+  setRef: function (e) {
+    var image = e.currentTarget;
+      if (image.width > image.height) {
+         this.setState({size: "landscape"});
+      } else {
+        this.setState({size: "portrait"});
+      }
+  },
+
   render: function () {
     if (!this.state.pet) {
       return (<div />);
@@ -43,7 +53,7 @@ var PetDetail = React.createClass({
         <div className="pet-detail-container group">
           <div className="pet-detail-left">
             <div className="pet-detail-photo">
-              <img src={this.state.pet.image_url}/>
+              <img src={this.state.pet.image_url} className={this.state.size} onLoad={this.setRef} />
             </div>
             <p className="detail-description"> {this.state.pet.description}</p>
           </div>
@@ -52,8 +62,10 @@ var PetDetail = React.createClass({
               <li>{this.state.pet.animal}</li>
               <li>Sex: {this.state.pet.sex}</li>
               <li>Age: {this.state.pet.age}</li>
-              <a href="#" className="checkout">Add to favorites</a><br/>
-              <a href="#" className="checkout email">Contact owner/rescue</a>
+              <div className="checkout">
+                  <Link to="#" className="favorites">Add to favorites</Link><br/>
+                  <Link to="#" className="favorites email">Contact owner/rescue</Link>
+              </div>
             </ul>
         </div>
       );
