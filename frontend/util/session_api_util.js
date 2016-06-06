@@ -36,6 +36,7 @@ var SessionApiUtil = {
       method: "GET",
       success: function (currentUser) {
         SessionActions.receiveCurrentUser(currentUser);
+        complete();
       }
     });
   }

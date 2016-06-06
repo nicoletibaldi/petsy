@@ -43,5 +43,19 @@ var PetActions = require('./../actions/pet_actions');
          console.log("Error");
        }
      });
+   },
+
+   createPet: function (data) {
+     $.ajax({
+       type: "POST",
+       url:"/api/pets",
+       dataType: "JSON",
+       contentType: false,
+       processData: false,
+       data: data,
+       success: function(result) {
+         PetActions.receiveSinglePet(result);
+       }
+     });
    }
  };

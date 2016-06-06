@@ -1,10 +1,9 @@
 class Api::PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
-    if params[:pet][:image_url] != ""
-      @pet.image = open(params[:pet][:image_url])
-      @pet.save!
-    end
+    # if params[:pet][:image_url] != ""
+    #   @pet.image = (params[:pet][:image_url])
+    # end
 
     if @pet.save
       render :show
@@ -20,19 +19,19 @@ class Api::PetsController < ApplicationController
   end
 
   def index
-    # if params[:animal] == "dogs"
-    #   @pets = Pet.where({animal: "Dog"})
-    # elsif params[:animal] == "cats"
-    #   @pets = Pet.where({animal: "Cat"})
-    # elsif params[:animal] == "rabbits"
-    #   @pets = Pet.where({animal: "Rabbit"})
-    # elsif params[:animal] == "reptiles"
-    #   @pets = Pet.where({animal: "Scales, Fins & Other"})
-    # elsif params[:animal] == "other"
-    #   @pets = Pet.where({animal: "Small & Furry"})
-    # else
+    if params[:animal] == "dogs"
+      @pets = Pet.where({animal: "Dog"})
+    elsif params[:animal] == "cats"
+      @pets = Pet.where({animal: "Cat"})
+    elsif params[:animal] == "rabbits"
+      @pets = Pet.where({animal: "Rabbit"})
+    elsif params[:animal] == "reptiles"
+      @pets = Pet.where({animal: "Scales, Fins & Other"})
+    elsif params[:animal] == "other"
+      @pets = Pet.where({animal: "Small & Furry"})
+    else
       @pets = Pet.all
-    # end
+    end
     render :index
 
     #<Pet:0x007febbff5ad18 id: nil, animal: "Cat">,
@@ -46,6 +45,6 @@ class Api::PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :animal, :age, :breed, :contact_email, :description, :sex, :image_url)
+    params.require(:pet).permit(:name, :animal, :age, :breed, :contact_email, :description, :sex, :image)
   end
 end

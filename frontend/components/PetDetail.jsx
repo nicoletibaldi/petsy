@@ -37,7 +37,7 @@ var PetDetail = React.createClass({
       return(
         <div className="pet-detail-container">
           <div className="pet-detail-photo">
-            <img src={this.state.pet.image}/>
+            <img src={this.state.pet.image_url}/>
           </div>
           <ul className="detail-right-box">
             <li>Name: {this.state.pet.name}</li>
