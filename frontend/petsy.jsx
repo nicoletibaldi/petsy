@@ -16,12 +16,14 @@ var LoginForm = require('./components/LoginForm');
 var SignupForm = require('./components/SignupForm');
 var PetDetail = require('./components/PetDetail');
 var NavBar = require('./components/NavBar');
+var PetForm = require('./components/PetForm');
 
 var router = (
   <Router history={hashHistory}>
     <Route path="/" component={NavBar}>
       <IndexRoute component={App}/>
       <Route path="pets/:petId" component={PetDetail} />
+      <Route path="new" component={PetForm} onEnter={_ensureLoggedIn}/>
       <Route path=":petType" component={PetIndex} />
     </Route>
   </Router>
@@ -36,7 +38,7 @@ function _ensureLoggedIn(nextState, replace, asyncDoneCallback) {
 
   function redirectIfNotLoggedIn () {
     if (!SessionStore.isUserLoggedIn()) {
-      replace('/login');
+      replace('/');
     }
 
     asyncDoneCallback();

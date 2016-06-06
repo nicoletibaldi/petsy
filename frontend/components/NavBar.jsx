@@ -65,6 +65,14 @@ var NavBar = React.createClass({
     }
   },
 
+  createPet: function () {
+    if (SessionStore.isUserLoggedIn()) {
+      return(
+        <a href="/#/new" className="create-pet pet-type-item">Add a listing</a>
+      );
+    }
+  },
+
   filterSearch: function (e) {
     var petType = e.currentTarget.innerHTML.toLowerCase();
     this.context.router.push("/" + petType);
@@ -86,6 +94,7 @@ var NavBar = React.createClass({
               <li onClick={this.filterSearch} className="pet-type-item">Rabbits</li>
               <li onClick={this.filterSearch} className="pet-type-item">Other</li>
             </ul>
+        {this.createPet()}
           </nav>
           {this.state.modal}
         {this.props.children}
