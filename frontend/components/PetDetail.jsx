@@ -41,17 +41,20 @@ var PetDetail = React.createClass({
     } else {
       return(
         <div className="pet-detail-container group">
-          <div className="pet-detail-photo">
-            <img src={this.state.pet.image_url}/>
+          <div className="pet-detail-left">
+            <div className="pet-detail-photo">
+              <img src={this.state.pet.image_url}/>
+            </div>
+            <p className="detail-description"> {this.state.pet.description}</p>
           </div>
-          <ul className="detail-right-box">
-            <li>Name: {this.state.pet.name}</li>
-            <li>{this.state.pet.animal}</li>
-            <li>Sex: {this.state.pet.sex}</li>
-            <li>Age: {this.state.pet.age}</li>
-            <a href="#" className="checkout">Add to favorites</a>
-          </ul>
-          <p className="detail-description"> {this.state.pet.description}</p>
+            <ul className="checkout-box">
+              <li>Name: {this.state.pet.name}</li>
+              <li>{this.state.pet.animal}</li>
+              <li>Sex: {this.state.pet.sex}</li>
+              <li>Age: {this.state.pet.age}</li>
+              <a href="#" className="checkout">Add to favorites</a><br/>
+              <a href="#" className="checkout email">Contact owner/rescue</a>
+            </ul>
         </div>
       );
     }

@@ -15,6 +15,10 @@ div {
   background: #f5f5f1;
 }
 
+main{
+  background: #f5f5f1;
+}
+
 header {
   height: 55px;
   margin-top: 10px;
@@ -190,59 +194,71 @@ input {
 /*pet show page*/
 
 .pet-detail-container {
-  position: relative;
+  margin: 0 auto;
   margin-top: 20px;
+  top: 150px;
   background: white;
-  max-width: 85%;
-  height: 75%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 85%;
   border: 1px solid #ececec;
   border-radius: 4px;
+  height: 95%
+}
+
+.pet-detail-left{
+  float: left;
+  width: 50%;
+  margin: 20px;
+  background: white;
 }
 
 .pet-detail-photo {
-  position: absolute;
   overflow: hidden;
   height: 300px;
-  width: 350px;
-  margin-bottom: 10px;
-  display: block;
+  width: 300px;
   border: 5px solid white;
+  margin: 0 auto;
 }
 
-.detail-right-box {
-  float: right;
+.checkout-box {
   border: 10px solid #e4f3d9;
-  background: red;
   font-family: 'Raleway', sans-serif;
   list-style: none;
   text-align: left;
-  padding: 10px 10px 0px 10px;
+  padding: 20px;
   border-radius: 4px;
   box-sizing: content-box;
+  line-height: 190%;
+  float: right;
+  width: 30%;
+  margin: 0 auto;
+  margin-right: 55px;
+  margin-top: 55px;
 }
 
 .detail-description {
-  position: absolute;
   font-family: 'Raleway', sans-serif;
   text-align: center;
-  top: 370px;
-  width: 350px;
-  margin-right: auto;
   border: 1px solid #ececec;
-  padding: 10px;
+  padding: 20px;
   font-size: 14px;
-  background: purple;
+  line-height: 190%;
+  margin: 20px;
 }
 
 .checkout {
   background: #7ac142;
-  font-family: 'Raleway', sans-serif;
-  border: 5px solid #e4f3d9;
+  font-family: helvetica;
   color: white;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 50px;
+  text-align: center;
+
 }
 
+.email {
+  background: #34a8c4;
+}
 /*search filter bar*/
 
 .pet-type-nav {
