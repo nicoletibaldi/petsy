@@ -214,11 +214,13 @@ input {
 .detail-right-box {
   float: right;
   border: 10px solid #e4f3d9;
-  background: white;
+  background: red;
   font-family: 'Raleway', sans-serif;
   list-style: none;
   text-align: left;
   padding: 10px 10px 0px 10px;
+  border-radius: 4px;
+  box-sizing: content-box;
 }
 
 .detail-description {
@@ -226,12 +228,12 @@ input {
   font-family: 'Raleway', sans-serif;
   text-align: center;
   top: 370px;
-  max-width: 50%;
+  width: 350px;
   margin-right: auto;
   border: 1px solid #ececec;
-  border-radius: 4px;
   padding: 10px;
-  font-size: 12px;
+  font-size: 14px;
+  background: purple;
 }
 
 .checkout {
