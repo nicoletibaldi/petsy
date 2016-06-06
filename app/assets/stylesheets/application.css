@@ -184,11 +184,13 @@ input {
 .landscape {
   height: 100%;
   width: auto;
+  margin: 0 auto;
 }
 
 .portrait {
   width: 100%;
   height: auto;
+  margin: 0 auto;
 }
 
 /*pet show page*/
@@ -214,10 +216,14 @@ input {
 .pet-detail-photo {
   overflow: hidden;
   height: 300px;
-  width: 300px;
+  width: 375px;
   border: 5px solid white;
   margin: 0 auto;
+  background: white;
+  text-align: center;
+  vertical-align: middle;
 }
+
 
 .checkout-box {
   border: 10px solid #e4f3d9;
@@ -242,18 +248,27 @@ input {
   padding: 20px;
   font-size: 14px;
   line-height: 190%;
-  margin: 20px;
 }
 
 .checkout {
-  background: #7ac142;
   font-family: helvetica;
-  color: white;
+  background: white;
   font-size: 16px;
-  padding: 10px;
-  margin-bottom: 50px;
   text-align: center;
+  border-radius: 3px;
+  color: white;
+  line-height: 90%;
+  margin-top: 15px;
+}
 
+.favorites {
+  margin: 0 auto;
+  background: #7ac142;
+  width: 200px;
+  border-radius: 3px;
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .email {
@@ -286,6 +301,14 @@ input {
 .create-pet{
   float: right;
   padding-top: 20px;
+}
+
+/*pet form*/
+
+.create{
+  top: 150px;
+  text-align: left;
+  vertical-align: middle;
 }
 
 /* clearfix*/

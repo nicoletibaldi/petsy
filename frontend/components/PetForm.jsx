@@ -68,7 +68,7 @@ handleSubmit: function (event) {
 
   render: function () {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="login-form create">
         <label>Name
           <input type="text" value={this.state.name} onChange={this.nameChange}/>
         </label><br/>
@@ -87,10 +87,8 @@ handleSubmit: function (event) {
         <label>Sex
           <input type="text" value={this.state.sex} onChange={this.sexChange}/>
         </label><br/>
-        <label>File
-          <input type="file" onChange={this.updateFile}/>
-        </label>
-        <input type="submit" value="List pet!"/>
+          <input type="file" onChange={this.updateFile}/><br/>
+        <input type="submit" value="List pet!" className="login-button"/>
         <img src={this.state.imageUrl} />
       </form>
     );
