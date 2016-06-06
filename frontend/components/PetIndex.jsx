@@ -27,6 +27,17 @@ var PetIndex = React.createClass({
     //componentwillreceive props --> new fetch when URL changes
   },
 
+  componentWillReceiveProps: function (newProps) {
+    if (newProps.params) {
+      var petType = newProps.params.petType;
+      PetApiUtil.fetchFilteredPets(petType);
+      this.petListener = PetStore.addListener(this._onChange);
+    } else {
+      PetApiUtil.fetchAllPets();
+      this.petListener = PetStore.addListener(this._onChange);
+    }
+  },
+
   componentWillUnmount: function () {
     this.petListener.remove();
   },

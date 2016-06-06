@@ -18,12 +18,20 @@ var PetDetail = React.createClass({
   },
 
   componentDidMount: function () {
+    console.log(this.props.params.petId);
     PetApiUtil.fetchSinglePet(this.props.params.petId);
     this.petDetailListener = PetStore.addListener(this._onChange);
   },
 
   _onChange: function () {
     this.setState({pet: PetStore.find(this.props.params.petId)});
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    console.log(newProps.params.petId);
+
+    PetApiUtil.fetchSinglePet(newProps.params.petId);
+    this.setState({pet: PetStore.find(newProps.params.petId)})
   },
 
   componentWillUnmount: function () {
@@ -35,7 +43,7 @@ var PetDetail = React.createClass({
       return (<div />);
     } else {
       return(
-        <div className="pet-detail-container">
+        <div className="pet-detail-container group">
           <div className="pet-detail-photo">
             <img src={this.state.pet.image_url}/>
           </div>

@@ -34,8 +34,7 @@ var PetActions = require('./../actions/pet_actions');
      $.ajax({
        type: "GET",
        dataType: "JSON",
-       data: {id: id},
-       url: "/api/pets",
+       url: "/api/pets/" + id,
        success: function (result) {
          PetActions.receiveSinglePet(result);
        },
