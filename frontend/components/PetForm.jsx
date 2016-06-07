@@ -90,47 +90,34 @@ handleSubmit: function (event) {
     PetApiUtil.createPet(formData);
     this.setState({name: "", animal: "", age: "", breed: "", contact_email: "",
               description: "", sex: "", imageFile: null, imageUrl: null});
-    this.context.router.push("/")
   },
 
   render: function () {
     return (
       <form onSubmit={this.handleSubmit} className="login-form create group">
-      <li>
         <label>Name
           <input type="text" value={this.state.name} onChange={this.nameChange}/>
           { this.fieldErrors("name") }
         </label><br/>
-      </li>
-      <li>
         <label>Animal
           <input type="text" value={this.state.animal} onChange={this.animalChange}/>
           { this.fieldErrors("animal") }
         </label><br/>
-      </li>
-      <li>
         <label>Age
           <input type="text" value={this.state.age} onChange={this.ageChange}/>
           { this.fieldErrors("age") }
         </label><br/>
-      </li>
-      <li>
         <label>Breed
           <input type="text" value={this.state.breed} onChange={this.breedChange}/>
         </label><br/>
-      </li>
-      <li>
         <label>Description
           <input type="text" value={this.state.description} onChange={this.descriptionChange}/>
           { this.fieldErrors("description") }
         </label><br/>
-      </li>
-      <li>
         <label>Sex
           <input type="text" value={this.state.sex} onChange={this.sexChange}/>
           { this.fieldErrors("sex") }
         </label><br/>
-      </li>
           <input type="file" onChange={this.updateFile}/><br/>
         <input type="submit" value="List pet!" className="login-button"/>
         <img src={this.state.imageUrl} className="preview"/>

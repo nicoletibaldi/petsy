@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   # attr_reader :password_digest
   attr_reader :password
 
+  has_many :favorites
+
   validates :username, :password_digest, :session_token,
                   :email, :fname, :lname, presence: true
   validates :username, :email, uniqueness: true
