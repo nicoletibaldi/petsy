@@ -49,11 +49,23 @@ input {
   cursor: pointer;
 }
 
+.greeting{
+  color: #0192b5;
+  margin: 5px 5px;
+  text-decoration: none;
+  float: right;
+}
+
 .h-button {
   color: #0192b5;
   margin: 5px 5px;
   text-decoration: none;
   float: right;
+}
+
+.h-button:hover{
+  color: #777777;
+  cursor: pointer;
 }
 
 .favorite-logo {
@@ -151,6 +163,11 @@ input {
 }
 
 /* pet index items */
+.pet-index{
+  position: absolute;
+  right: 50px;
+  text-align: center;
+}
 .pet-index-item {
   border: 2px solid #ccc;
   box-shadow: 0 0 1em #ccc;

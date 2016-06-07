@@ -1,9 +1,10 @@
 class Api::PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
-    if params[:pet][:image_url] != ""
-      @pet.image = open(params[:pet][:image_url])
-    end
+    # if params[:pet][:image_url] != ""
+    # @pet.image = File.open(params[:pet][:image_url])
+    # @pet.save!
+    # end
 
     if @pet.save
       render :show
