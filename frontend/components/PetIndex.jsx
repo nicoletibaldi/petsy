@@ -55,7 +55,7 @@ var PetIndex = React.createClass({
       )
     } else {
       return(
-        <ul>
+        <ul className="pet-index">
           {this.state.pets.map(function (pet) {
             return(
               <PetIndexItem key={pet.id} pet={pet}/>

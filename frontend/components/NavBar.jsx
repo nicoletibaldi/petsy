@@ -47,7 +47,7 @@ var NavBar = React.createClass({
           <img className="favorite-logo h-button" src={favoriteUrl}/>
           <img className="favorite-logo h-button" src={profileUrl} />
           <Link to="/" className="h-button" onClick={SessionApiUtil.logout}>Log out</Link>
-          <p className="h-button">Hey, {SessionStore.currentUser().fname}!</p>
+          <p className="greeting">Hey, {SessionStore.currentUser().fname}!</p>
         </nav>
       );
     } else if (SessionStore.currentUserHasBeenFetched()) {
