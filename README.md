@@ -17,7 +17,7 @@ Petsy is a web application inspired by Etsy that will be built using Ruby on Rai
   - [x] create a listing
   - [ ] edit a listing
   - [ ] delete a listing
-  - [ ] select a pet to add to favorites (equivalent to "cart")
+  - [x] select a pet to add to favorites (equivalent to "cart")
 - [x] Hosting on Heroku
 - [ ] CSS styling that is satisfactorily visually appealing
 - [ ] A production README, replacing this README
@@ -33,7 +33,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [x] Log in / Log out, including as a Guest/Demo User (MVP)
 - [x] View listings by category, each with separate index page (MVP)
 - [ ] Create, read, edit, and delete listings (MVP)
-- [ ] Add a pet to favorites list (equivalent to add to cart) (MVP)
+- [x] Add a pet to favorites list (equivalent to add to cart) (MVP)
 - [ ] Search pets (MVP)
 
 - [ ] Tag listings with multiple tags (expected feature, but not MVP)
@@ -118,13 +118,13 @@ which has its own `Index` view.)
 
 **Objective:** Users can add pets to favorites
 
-- [ ] create `Favorites` model
+- [x] create `Favorites` model
 - build out API, Flux loop, and components for:
-  - [ ] adding pets to favorites
-  - [ ] viewing all favorites
-  - [ ] contacting the rescue ('checking out - open mail client?')
+  - [x] adding pets to favorites
+  - [x] viewing all favorites
+  - [x] contacting the rescue ('checking out - open mail client?')
   - [ ] removing pets from favorites
-- Use CSS to style new views
+- [x] Use CSS to style new views
 
 
 ### Phase 8: Styling Cleanup and Seeding (1 day)
