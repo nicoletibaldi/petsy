@@ -43,7 +43,9 @@ class Api::PetsController < ApplicationController
   end
 
   def search
-    Pet.find_by_all_columns(params[:query])
+    @pets = Pet.find_by_all_columns(params[:query])
+
+    render :search
   end
 
 
