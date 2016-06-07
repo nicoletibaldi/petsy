@@ -295,6 +295,10 @@ input {
 .email:hover{
   cursor: pointer;
 }
+
+.checkout:hover{
+  cursor: pointer;
+}
 /*search filter bar*/
 
 .pet-type-nav {

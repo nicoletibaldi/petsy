@@ -5,7 +5,7 @@ var PetConstants = require('../constants/pet_constants');
 var PetStore = new Store(AppDispatcher);
 
 var _pets = {};
-window.PetStore = PetStore;
+
 PetStore.all = function () {
   return Object.keys(_pets).map( function (petId) {
     return _pets[petId];

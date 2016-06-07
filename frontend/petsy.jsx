@@ -17,6 +17,7 @@ var SignupForm = require('./components/SignupForm');
 var PetDetail = require('./components/PetDetail');
 var NavBar = require('./components/NavBar');
 var PetForm = require('./components/PetForm');
+var FavoriteIndex = require('./components/FavoriteIndex');
 
 var router = (
   <Router history={hashHistory}>
@@ -24,6 +25,7 @@ var router = (
       <IndexRoute component={App}/>
       <Route path="pets/:petId" component={PetDetail} />
       <Route path="new" component={PetForm} onEnter={_ensureLoggedIn}/>
+      <Route path="favorites" component={FavoriteIndex}/>
       <Route path=":petType" component={PetIndex} />
     </Route>
   </Router>

@@ -8,11 +8,9 @@ var SessionApiUtil = {
       type: "POST",
       data: {user: credentials},
       success: function (currentUser) {
-        console.log("Login succcess - SessionApiUtil");
         SessionActions.receiveCurrentUser(currentUser);
       },
       error: function (xhr) {
-			  console.log("Login error in SessionApiUtil#login");
         var errors = xhr.responseJSON;
 	      ErrorActions.setErrors("login", errors);
 			}
@@ -24,7 +22,6 @@ var SessionApiUtil = {
       url: "/api/session",
       method: 'DELETE',
       success: function () {
-        console.log("Logout success");
         SessionActions.removeCurrentUser();
       }
     });

@@ -4,64 +4,49 @@ var FavoriteConstants = require('./../constants/favorite_constants');
 
 var FavoriteStore = new Store(AppDispatcher);
 
-var _favorites = [];
+var _favorites = {};
 
-FavoriteStore.allFavorites = function () {
-  return _favorites;
+FavoriteStore.all = function () {
+  return Object.keys(_favorites).map( function (favoriteId) {
+    return _favorites[favoriteId];
+  });
 };
 
-FavoriteStore.resetFavorites = function (favorites) {
-  _favorites = favorites;
+FavoriteStore.find = function(id) {
+  return _favorites[id];
 };
 
-FavoriteStore.addFavorite = function (favorite) {
-  _favorites.push(favorite);
-};
+resetFavorites = function (newFavorites) {
+  _favorites = {};
 
-FavoriteStore.removeFavorite = function (favorite) {
-  var id = _favorites.indexOf(favorite);
-  _favorites.splice(id, 1);
-};
-
-FavoriteStore.findFavoriteID = function (dogId) {
-  for (var i = 0; i < _favorites.length; i ++) {
-    if (_favorites[i].dog_id === parseInt(dogId)) {
-      return _favorites[i].id;
-    }
+  for (var i = 0; i < newFavorites.length; i++) {
+    _favorites[newFavorites[i].id] = newFavorites[i];
   }
 };
 
-FavoriteStore.isFavorite = function (dogId) {
-  if (!_favorites) {
-    return false;
-  }
-  for (var i = 0; i < _favorites.length; i ++) {
-    if (_favorites[i].dog_id === parseInt(dogId)) {
-      return true;
-    }
-  }
-  return false;
+addFavorite = function (favorite) {
+  _favorites[favorite.id] = favorite;
 };
 
-
+removeFavorite = function (favorite) {
+  delete _favorites[favorite.id];
+};
 
 FavoriteStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-    case FavoriteConstants.FAVORITE_RECEIVED:
-      FavoriteStore.addFavorite(payload.favorite);
-      FavoriteStore.__emitChange();
-      break;
     case FavoriteConstants.FAVORITES_RECEIVED:
-      FavoriteStore.resetFavorites(payload.favorites);
+      resetFavorites(payload.favorites);
       FavoriteStore.__emitChange();
       break;
-    case FavoriteConstants.FAVORITES_REMOVED:
-      FavoriteStore.removeFavorite(payload.favorite);
+    case FavoriteConstants.FAVORITE_RECEIVED:
+      addFavorite(payload.favorite);
       FavoriteStore.__emitChange();
       break;
-
+    case FavoriteConstants.FAVORITE_REMOVED:
+      removeFavorite(payload.favorite);
+      FavoriteStore.__emitChange();
+      break;
   }
 };
-
 
 module.exports = FavoriteStore;
