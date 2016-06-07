@@ -1,4 +1,6 @@
 var PetActions = require('./../actions/pet_actions');
+var ErrorActions = require('./../actions/error_actions');
+
 
  module.exports = {
    fetchAllPets: function () {
@@ -54,6 +56,10 @@ var PetActions = require('./../actions/pet_actions');
        data: data,
        success: function(result) {
          PetActions.receiveSinglePet(result);
+       },
+       error: function (xhr) {
+         var errors = xhr.responseJSON;
+         ErrorActions.setErrors("new", errors);
        }
      });
    }

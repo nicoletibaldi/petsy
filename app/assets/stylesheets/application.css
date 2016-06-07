@@ -83,7 +83,7 @@ input {
   border: 1px solid #ccc;
   background: white;
   font-family: georgia;
-  width: 400px;
+  width: 425px;
   height: 335px;
   padding: 20px;
   font-size: 14px;
@@ -121,7 +121,7 @@ input {
 .errors {
   color: red;
   list-style: none;
-  float: right;
+  display: inline;
 }
 
 
@@ -291,6 +291,10 @@ input {
 .email {
   background: #34a8c4;
 }
+
+.email:hover{
+  cursor: pointer;
+}
 /*search filter bar*/
 
 .pet-type-nav {
@@ -326,6 +330,11 @@ input {
   top: 150px;
   text-align: left;
   vertical-align: middle;
+}
+
+.preview{
+  width: 150px;
+  height: auto;
 }
 
 /* clearfix*/
