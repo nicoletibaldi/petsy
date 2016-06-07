@@ -21,7 +21,7 @@ var FavoriteIndex = React.createClass({
 
   componentWillReceiveProps: function (newProps) {
       FavoriteApiUtil.fetchAllFavorites();
-      this.favoriteListener = FavoriteStore.addListener(this._onChange);
+      // this.favoriteListener = FavoriteStore.addListener(this._onChange);
   },
 
   componentWillUnmount: function () {

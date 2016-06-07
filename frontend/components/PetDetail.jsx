@@ -56,7 +56,8 @@ var PetDetail = React.createClass({
   addFavorite: function () {
     var userid = SessionStore.currentUser().id;
     var petid = this.state.pet.id;
-    FavoriteApiUtil.addFavorite({user_id: userid, pet_id: petid})
+    FavoriteApiUtil.addFavorite({user_id: userid, pet_id: petid});
+    this.context.router.push("/favorites"); //pass as callback and use callback && callback(); in api util
   },
 
   render: function () {
