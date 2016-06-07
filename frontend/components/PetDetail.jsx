@@ -3,6 +3,9 @@ var Link = require('react-router').Link;
 var PetStore = require('./../stores/pet_store');
 var PetApiUtil = require('./../util/pet_api_util');
 var NavBar = require('./NavBar');
+var FavoriteApiUtil = require('./../util/favorite_api_util');
+var SessionStore = require('./../stores/session_store');
+
 
 var PetDetail = React.createClass({
   contextTypes: {
@@ -50,6 +53,12 @@ var PetDetail = React.createClass({
     window.location = mailto_link
   },
 
+  addFavorite: function () {
+    var userid = SessionStore.currentUser().id;
+    var petid = this.state.pet.id;
+    FavoriteApiUtil.addFavorite({user_id: userid, pet_id: petid})
+  },
+
   render: function () {
     if (!this.state.pet) {
       return (<div />);
@@ -68,7 +77,7 @@ var PetDetail = React.createClass({
               <li>Sex: {this.state.pet.sex}</li>
               <li>Age: {this.state.pet.age}</li>
               <div className="checkout">
-                  <a href="#" className="favorites">Add to favorites</a><br/>
+                  <p onClick={this.addFavorite} className="favorites">Add to favorites</p><br/>
                   <p onClick={this.sendEmail} className="favorites email">Contact owner/rescue</p>
               </div>
             </ul>

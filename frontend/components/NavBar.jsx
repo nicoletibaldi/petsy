@@ -40,11 +40,15 @@ var NavBar = React.createClass({
     this.context.router.push("/");
   },
 
+  favorites: function () {
+    this.context.router.push("favorites");
+  },
+
   greeting: function () {
     if (SessionStore.isUserLoggedIn()) {
       return (
-        <nav className="petsy" onClick={this.goHome}>
-          <img className="favorite-logo h-button" src={favoriteUrl}/>
+        <nav className="petsy">
+          <img onClick={this.favorites} className="favorite-logo h-button" src={favoriteUrl}/>
           <img className="favorite-logo h-button" src={profileUrl} />
           <Link to="/" className="h-button" onClick={SessionApiUtil.logout}>Log out</Link>
           <p className="greeting">Hey, {SessionStore.currentUser().fname}!</p>
@@ -52,7 +56,7 @@ var NavBar = React.createClass({
       );
     } else if (SessionStore.currentUserHasBeenFetched()) {
       return (
-        <nav className="petsy" onClick={this.goHome}>
+        <nav className="petsy">
           <button onClick={this.showRegister} className="h-button">Register </button>
           <button onClick={this.showSignUp} className="h-button sign-in">Sign in</button>
           <a href="#" className="h-button" onClick={this.guestLogin}>Demo User</a>
