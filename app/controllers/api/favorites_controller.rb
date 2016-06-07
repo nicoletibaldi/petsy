@@ -1,6 +1,7 @@
 class Api::FavoritesController < ApplicationController
   def index
-    render json: Favorite.where(user_id: current_user.id)
+    @favorites = Favorite.where(user_id: current_user.id)
+    render :index
   end
 
   def create
