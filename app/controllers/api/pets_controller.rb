@@ -42,6 +42,10 @@ class Api::PetsController < ApplicationController
  #<Pet:0x007febbff59e68 id: nil, animal: "Small & Furry">]
   end
 
+  def search
+    Pet.find_by_all_columns(params[:query])
+  end
+
 
   private
 
