@@ -28,8 +28,11 @@ var Search = React.createClass({
 
   },
 
-  queryChange: function () {
-    // if (event.target.value.length > 0)
+  queryChange: function (event) {
+    debugger
+    if (event.target.value.length > 0) {
+      this.setState({query: event.target.value});
+    }
   },
 
   render: function () {
@@ -40,10 +43,10 @@ var Search = React.createClass({
     });
     return(
       <form className="search">
-        <input className="search-input" type="text" onChange={this.queryChange}/>
+        <input className="search-input" type="text" placeholder="Describe your perfect pet!" value={this.state.query} onChange={this.queryChange}/>
         <input className="search-button" value="Search" type="submit"/>
         <ul>
-
+          {results}
         </ul>
       </form>
     );
