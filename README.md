@@ -11,7 +11,13 @@ Petsy is a web application inspired by Etsy that will be built using Ruby on Rai
 - [x] New account creation, login, and guest/demo login
 - [ ] Smooth, bug-free navigation
 - [x] Adequate seed data to demonstrate the site's features (using Petfinder API)
-- [ ] The minimally necessary features for an Etsy-inspired site: view listings by category, view detailed pet page, create/edit a listing, and select a pet to add to favorites (equivalent to "cart")
+- The minimally necessary features for an Etsy-inspired site:
+  - [x] view listings by category
+  - [x] view detailed pet page
+  - [x] create a listing
+  - [ ] edit a listing
+  - [ ] delete a listing
+  - [ ] select a pet to add to favorites (equivalent to "cart")
 - [x] Hosting on Heroku
 - [ ] CSS styling that is satisfactorily visually appealing
 - [ ] A production README, replacing this README
@@ -95,7 +101,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [x] create `PetType` model
 - build out API, Flux loop, and components for:
   - [x] viewing pets by pet type
-- [ ] Use CSS to style new views
+- [x] Use CSS to style new views
 
 (Adds organization to the listings. Pet listings belong to a pet type,
 which has its own `Index` view.)
