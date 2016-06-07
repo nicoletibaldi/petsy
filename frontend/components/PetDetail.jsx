@@ -45,6 +45,11 @@ var PetDetail = React.createClass({
       }
   },
 
+  sendEmail: function () {
+    var mailto_link = 'mailto:' + this.state.pet.contact_email + '?subject=' + this.state.pet.name;
+    window.location = mailto_link
+  },
+
   render: function () {
     if (!this.state.pet) {
       return (<div />);
@@ -63,8 +68,8 @@ var PetDetail = React.createClass({
               <li>Sex: {this.state.pet.sex}</li>
               <li>Age: {this.state.pet.age}</li>
               <div className="checkout">
-                  <Link to="#" className="favorites">Add to favorites</Link><br/>
-                  <Link to="#" className="favorites email">Contact owner/rescue</Link>
+                  <a href="#" className="favorites">Add to favorites</a><br/>
+                  <p onClick={this.sendEmail} className="favorites email">Contact owner/rescue</p>
               </div>
             </ul>
         </div>

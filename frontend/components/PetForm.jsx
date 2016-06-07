@@ -1,8 +1,21 @@
 var React = require('react');
 var PetApiUtil = require('./../util/pet_api_util');
 var SessionStore = require('./../stores/session_store');
+var ErrorStore = require('./../stores/error_store');
 
 var PetForm = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
+  componentDidMount: function () {
+    this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
+  },
+
+  componentWillUnmount: function () {
+    this.errorListener.remove();
+  },
+
   getInitialState: function () {
       return ({name: "", animal: "", age: "", breed: "", contact_email: "",
                 description: "", sex: "", imageFile: null, imageUrl: null});
@@ -50,6 +63,17 @@ var PetForm = React.createClass({
     }
   },
 
+  fieldErrors: function (field) {
+    var errors = ErrorStore.formErrors("new");
+    if (!errors[field]) { return; }
+
+    var messages = errors[field].map(function (errorMsg, i) {
+      return <li className="errors" key={ i }>{ errorMsg }</li>;
+    });
+
+    return <ul>{ messages }</ul>;
+    },
+
 handleSubmit: function (event) {
     event.preventDefault();
     var formData = new FormData();
@@ -60,36 +84,56 @@ handleSubmit: function (event) {
     formData.append("pet[contact_email]", SessionStore.currentUser().email)
     formData.append("pet[description]", this.state.description)
     formData.append("pet[sex]", this.state.sex)
-    formData.append("pet[image]", this.state.imageFile)
+    if (this.state.imageFile) {
+      formData.append("pet[image]", this.state.imageFile)
+    }
     PetApiUtil.createPet(formData);
     this.setState({name: "", animal: "", age: "", breed: "", contact_email: "",
               description: "", sex: "", imageFile: null, imageUrl: null});
+    this.context.router.push("/")
   },
 
   render: function () {
     return (
-      <form onSubmit={this.handleSubmit} className="login-form create">
+      <form onSubmit={this.handleSubmit} className="login-form create group">
+      <li>
         <label>Name
           <input type="text" value={this.state.name} onChange={this.nameChange}/>
+          { this.fieldErrors("name") }
         </label><br/>
+      </li>
+      <li>
         <label>Animal
           <input type="text" value={this.state.animal} onChange={this.animalChange}/>
+          { this.fieldErrors("animal") }
         </label><br/>
+      </li>
+      <li>
         <label>Age
           <input type="text" value={this.state.age} onChange={this.ageChange}/>
+          { this.fieldErrors("age") }
         </label><br/>
+      </li>
+      <li>
         <label>Breed
           <input type="text" value={this.state.breed} onChange={this.breedChange}/>
         </label><br/>
+      </li>
+      <li>
         <label>Description
           <input type="text" value={this.state.description} onChange={this.descriptionChange}/>
+          { this.fieldErrors("description") }
         </label><br/>
+      </li>
+      <li>
         <label>Sex
           <input type="text" value={this.state.sex} onChange={this.sexChange}/>
+          { this.fieldErrors("sex") }
         </label><br/>
+      </li>
           <input type="file" onChange={this.updateFile}/><br/>
         <input type="submit" value="List pet!" className="login-button"/>
-        <img src={this.state.imageUrl} />
+        <img src={this.state.imageUrl} className="preview"/>
       </form>
     );
   },
