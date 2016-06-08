@@ -39,7 +39,6 @@ progress. Put an x between the brackets for a checkmark: [x] -->
   - [ ] delete
 - [x] Add a pet to favorites list (equivalent to add to cart) (MVP)
 - [x] Search pets (MVP)
-
 - [ ] Tag listings with multiple tags (expected feature, but not MVP)
 - [ ] Register using Google or Facebook (expected, but not MVP)
 - [ ] Users can leave reviews (if I have time)
