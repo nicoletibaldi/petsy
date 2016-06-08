@@ -3,7 +3,7 @@ var SearchConstants = require('./../constants/search_constants');
 
 module.exports = {
   receiveSearchResults: function (results) {
-    Dispatcher.dispatch({
+    AppDispatcher.dispatch({
       actionType: SearchConstants.RESULTS_RECEIVED,
       results: results
     });

@@ -21,7 +21,7 @@ var Search = React.createClass({
   },
 
   _onChange: function () {
-    this.setState({results: SearchStore.all()})
+    this.forceUpdate();
   },
 
   handleClick: function () {
@@ -29,21 +29,26 @@ var Search = React.createClass({
   },
 
   queryChange: function (event) {
-    debugger
-    if (event.target.value.length > 0) {
-      this.setState({query: event.target.value});
+    var query = event.target.value;
+    this.setState({query: query});
+    if (query.length > 0) {
+      SearchApiUtil.search(query)
     }
   },
 
   render: function () {
-    var results = this.state.results.map(function (result) {
+    var results = SearchStore.all().map(function (result) {
       return(
-        <li>result.name</li>
+        <li>{result.name}</li>
       )
     });
     return(
       <form className="search">
-        <input className="search-input" type="text" placeholder="Describe your perfect pet!" value={this.state.query} onChange={this.queryChange}/>
+        <input className="search-input" type="text"
+          placeholder="Describe your perfect pet!"
+          value={this.state.query}
+          onChange={this.queryChange}
+        />
         <input className="search-button" value="Search" type="submit"/>
         <ul>
           {results}

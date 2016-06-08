@@ -10,8 +10,8 @@ SearchStore.all = function () {
   return _searchResults;
 };
 
-resetSearchResults = function (newSearchResults) {
-  _searchResultss = newSearchResults;
+var resetSearchResults = function (newSearchResults) {
+  _searchResults = newSearchResults;
 };
 
 SearchStore.__onDispatch = function (payload) {
