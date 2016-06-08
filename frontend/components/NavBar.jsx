@@ -5,6 +5,7 @@ var SessionApiUtil = require('./../util/session_api_util');
 var SignupForm = require('./SignupForm');
 var LoginForm = require('./LoginForm');
 var PetForm = require('./PetForm');
+var FavoriteApiUtil = require('./../util/favorite_api_util');
 
 var NavBar = React.createClass({
   contextTypes: {
@@ -17,6 +18,7 @@ var NavBar = React.createClass({
 
   componentDidMount: function () {
     SessionApiUtil.fetchCurrentUser();
+    FavoriteApiUtil.fetchAllFavorites();
     SessionStore.addListener(this.forceUpdate.bind(this));
   },
 

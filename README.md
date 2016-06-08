@@ -126,7 +126,7 @@ which has its own `Index` view.)
   - [x] adding pets to favorites
   - [x] viewing all favorites
   - [x] contacting the rescue ('checking out - open mail client?')
-  - [ ] removing pets from favorites
+  - [x] removing pets from favorites
 - [x] Use CSS to style new views
 
 

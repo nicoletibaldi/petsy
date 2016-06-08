@@ -24,6 +24,10 @@ resetFavorites = function (newFavorites) {
   }
 };
 
+FavoriteStore.fetchIds = function () {
+  return Object.keys(_favorites);
+};
+
 addFavorite = function (favorite) {
   _favorites[favorite.id] = favorite;
 };
