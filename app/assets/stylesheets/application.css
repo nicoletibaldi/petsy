@@ -322,6 +322,11 @@ input {
   padding-bottom: 10px;
 }
 
+.remove {
+  background: #ffeeee;
+  color: #a80308;
+}
+
 .email {
   background: #34a8c4;
 }

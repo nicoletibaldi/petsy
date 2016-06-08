@@ -6,4 +6,5 @@ json.array! @favorites do |favorite|
   json.image favorite.pet.image
   json.id favorite.pet.id
   json.image_url asset_path(favorite.pet.image.url)
+  json.favorite_id favorite.id
 end
