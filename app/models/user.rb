@@ -4,10 +4,15 @@ class User < ActiveRecord::Base
 
   has_many :favorites
 
-  validates :username, :password_digest, :session_token,
-                  :email, :fname, :lname, presence: true
+  validates :session_token, :email, :fname, :lname, presence: true
   validates :username, :email, uniqueness: true
   validates :password, length: {minimum: 6}, allow_nil: true
+
+  validates :username, :password_digest, presence: true,
+    unless: Proc.new{ |user| user.google_uid }
+
+  validates :google_uid, presence: true, uniqueness: true,
+    unless: Proc.new{ |user| user.username }
 
   after_initialize :ensure_session_token
 
@@ -30,6 +35,20 @@ class User < ActiveRecord::Base
     self.session_token = SecureRandom.urlsafe_base64(16)
     self.save!
     self.session_token
+  end
+
+  def self.find_or_create_by_auth_hash(auth_hash)
+    user = User.find_by(google_uid: auth_hash[:uid])
+
+    if user.nil?
+      user = User.create!(google_uid: auth_hash[:uid],
+                            fname: auth_hash[:info][:first_name],
+                            lname: auth_hash[:info][:last_name],
+                            email: auth_hash[:info][:email],
+                          )
+    end
+
+    user
   end
 
   private
