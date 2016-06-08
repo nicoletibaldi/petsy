@@ -63,6 +63,7 @@ var NavBar = React.createClass({
         <nav className="petsy">
           <button onClick={this.showRegister} className="h-button">Register </button>
           <button onClick={this.showSignUp} className="h-button sign-in">Sign in</button>
+          <a href="/auth/google_oauth2" className="h-button">Sign in with Google</a>
           <a href="#" className="h-button" onClick={this.guestLogin}>Demo User</a>
         </nav>
       );

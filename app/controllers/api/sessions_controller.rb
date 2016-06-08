@@ -18,6 +18,22 @@ class Api::SessionsController < ApplicationController
     end
   end
 
+  def auth_create
+    @user = User.find_or_create_by_auth_hash(auth_hash)
+
+    if @user
+      login(@user)
+      redirect_to "/"
+    else
+      render(
+        json: {
+          base: ['Invalid username/password combination'],
+        },
+        status: 401
+      )
+    end
+  end
+
   def destroy
     @user = current_user
     if @user
@@ -40,6 +56,12 @@ class Api::SessionsController < ApplicationController
     else
       render json: {}
     end
+  end
+
+  private
+
+  def auth_hash
+    request.env['omniauth.auth']
   end
 
 end
