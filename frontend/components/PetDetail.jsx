@@ -61,6 +61,11 @@ var PetDetail = React.createClass({
   },
 
   render: function () {
+    if (SessionStore.isUserLoggedIn()) {
+      var addFavorites = <p onClick={this.addFavorite}
+                            className="favorites">Add to favorites</p>
+
+    };
     if (!this.state.pet) {
       return (<div />);
     } else {
@@ -78,7 +83,7 @@ var PetDetail = React.createClass({
               <li>Sex: {this.state.pet.sex}</li>
               <li>Age: {this.state.pet.age}</li>
               <div className="checkout">
-                  <p onClick={this.addFavorite} className="favorites">Add to favorites</p><br/>
+                  {addFavorites}<br/>
                   <p onClick={this.sendEmail} className="favorites email">Contact owner/rescue</p>
               </div>
             </ul>
