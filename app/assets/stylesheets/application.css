@@ -84,7 +84,7 @@ input {
   background: white;
   font-family: georgia;
   width: 425px;
-  height: 335px;
+  height: 300px;
   padding: 20px;
   font-size: 14px;
   position:absolute;
@@ -108,6 +108,10 @@ input {
   border: solid;
 }
 
+.login-button:hover{
+  cursor: pointer;
+}
+
 .modal {
   background: rgba(0, 0, 0, 0.7);
   position: fixed;
@@ -119,9 +123,17 @@ input {
 }
 
 .errors {
+  transform: translateY(-50%);
   color: red;
   list-style: none;
-  display: inline;
+  float: left;
+  margin: 0 auto;
+  /*background: #ffeeee;
+  border: 1px solid #ffc0cb;*/
+}
+
+.form-input{
+  float: left;
 }
 
 
@@ -330,10 +342,20 @@ input {
 
 /*pet form*/
 
-.create{
-  top: 150px;
-  text-align: left;
-  vertical-align: middle;
+.create {
+  top: 100px;
+  border: 1px solid #ccc;
+  background: white;
+  font-family: georgia;
+  width: 425px;
+  height: 450px;
+  padding: 20px;
+  font-size: 14px;
+  position:absolute;
+  left:50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  z-index: 1000;
 }
 
 .preview{

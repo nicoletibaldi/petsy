@@ -4,6 +4,7 @@ var SessionApiUtil = require('./../util/session_api_util');
 var SessionStore = require('./../stores/session_store');
 var UserApiUtil = require('./../util/user_api_util');
 var ErrorStore = require('./../stores/error_store');
+var ErrorActions = require('./../actions/error_actions');
 
 
 var LoginForm = React.createClass({
@@ -36,6 +37,7 @@ var LoginForm = React.createClass({
   },
 
   handleModalClick: function () {
+      ErrorActions.clearErrors();
       this.props.close();
   },
 
@@ -60,7 +62,7 @@ var LoginForm = React.createClass({
       email: this.state.email,
       password: this.state.password
     };
-      SessionApiUtil.login(formData);
+      SessionApiUtil.login(formData, this.handleModalClick);
   },
 
   baseErrors: function (field) {

@@ -4,6 +4,8 @@ var SessionApiUtil = require('./../util/session_api_util');
 var SessionStore = require('./../stores/session_store');
 var UserApiUtil = require('./../util/user_api_util');
 var ErrorStore = require('./../stores/error_store');
+var ErrorActions = require('./../actions/error_actions');
+
 
 
 var SignupForm = React.createClass({
@@ -72,11 +74,12 @@ var SignupForm = React.createClass({
       fname: this.state.fname,
       lname: this.state.lname
     };
-      UserApiUtil.signup(formData);
+    UserApiUtil.signup(formData, this.handleModalClick);
   },
 
   handleModalClick: function () {
-      this.props.close();
+    ErrorActions.clearErrors();
+    this.props.close();
   },
 
   stopProp: function (e) {
@@ -85,11 +88,16 @@ var SignupForm = React.createClass({
 
   fieldErrors: function (field) {
     var errors = ErrorStore.formErrors("signup");
-    if (!errors[field]) { return; }
-
-    var messages = errors[field].map(function (errorMsg, i) {
-      return <li className="errors" key={ i }>{ errorMsg }</li>;
-    });
+    var array = [1, 2, 3, 4, 5]
+    if (!errors[field]) {
+      var messages = array.map(function (i) {
+        return <li className="errors" key={i}/>
+      });
+    } else {
+      var messages = errors[field].map(function (errorMsg, i) {
+        return <li className="errors" key={ i }>{ errorMsg }</li>;
+      });
+    }
 
     return <ul>{ messages }</ul>;
   },
@@ -97,32 +105,33 @@ var SignupForm = React.createClass({
   render: function () {
     return (
       <div className="modal" onClick={this.handleModalClick}>
-        <form className="login-form" onSubmit={this.handleSubmit} onEnter={this.handleSubmit} onClick={this.stopProp}>
+        <form className="login-form group" onSubmit={this.handleSubmit} onEnter={this.handleSubmit} onClick={this.stopProp}>
             <br/>
             <label>First name<br/>
+            <input type="text" className="form-input" value={this.state.fname} onChange={this.fnameChange}/>
             { this.fieldErrors("fname") }
-              <input type="text" value={this.state.fname} onChange={this.fnameChange}/>
             </label>
             <br/>
             <label>Last name<br/>
+            <input type="text" className="form-input" value={this.state.lname} onChange={this.lnameChange}/>
             { this.fieldErrors("lname") }
-              <input type="text" value={this.state.lname} onChange={this.lnameChange}/>
             </label>
             <br/>
             <label> Email<br/>
+            <input type="text" className="form-input" value={this.state.email} onChange={this.emailChange}/>
             { this.fieldErrors("email") }
-              <input type="text" value={this.state.email} onChange={this.emailChange}/>
             </label>
             <br/>
             <label> Password<br/>
+            <input type="password" className="form-input" value={this.state.password} onChange={this.passwordChange}/>
             { this.fieldErrors("password") }
-            <input type="password" value={this.state.password} onChange={this.passwordChange}/>
             </label>
             <br/>
             <label> Username<br/>
+            <input type="text" className="form-input" value={this.state.username} onChange={this.usernameChange}/>
             { this.fieldErrors("username") }
-              <input type="text" value={this.state.username} onChange={this.usernameChange}/>
             </label>
+            <br/>
             <br/>
             <input type="submit" value="Register" className="login-button" />
           </form>

@@ -2,13 +2,14 @@ var SessionActions = require('./../actions/session_actions');
 var ErrorActions = require('./../actions/error_actions');
 
 var SessionApiUtil = {
-  login: function (credentials) {
+  login: function (credentials, callback) {
     $.ajax({
       url: "/api/session",
       type: "POST",
       data: {user: credentials},
       success: function (currentUser) {
         SessionActions.receiveCurrentUser(currentUser);
+        callback && callback();
       },
       error: function (xhr) {
         var errors = xhr.responseJSON;
