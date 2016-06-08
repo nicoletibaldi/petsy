@@ -25,6 +25,7 @@ var PetDetail = React.createClass({
   componentDidMount: function () {
     PetApiUtil.fetchSinglePet(this.props.params.petId);
     this.petDetailListener = PetStore.addListener(this._onChange);
+    this.favoriteListener = FavoriteStore.addListener(this._onChange);
   },
 
   _onChange: function () {
@@ -38,6 +39,7 @@ var PetDetail = React.createClass({
 
   componentWillUnmount: function () {
     this.petDetailListener.remove();
+    this.favoriteListener.remove();
   },
 
   setRef: function (e) {
@@ -68,17 +70,18 @@ var PetDetail = React.createClass({
   },
 
   checkIfFavorite: function (id) {
-    var favorites = FavoriteStore.all();
-    if (favorites.hasOwnProperty(id)) {
-      return <p onClick={this.addFavorite} className="favorites">Add to favorites</p>
-    } else {
+    var idString = id.toString();
+    var favorites = FavoriteStore.fetchIds();
+    if (favorites.includes(idString)) {
       return <p onClick={this.removeFavorite} className="favorites remove">Remove from favorites</p>
+    } else {
+      return <p onClick={this.addFavorite} className="favorites">Add to favorites</p>
     }
   },
 
   render: function () {
     if (SessionStore.isUserLoggedIn()) {
-      var addFavorites = this.checkIfFavorite();
+      var addFavorites = this.checkIfFavorite(this.state.pet.id);
 
     };
     if (!this.state.pet) {
