@@ -92,6 +92,8 @@ var LoginForm = React.createClass({
           <a href="/auth/google_oauth2" onClick={this.handleModalClick}>
           <img src={googleUrl}/>
           </a>
+          <br/>
+          <br/>
           { this.baseErrors("username") }
             <br/>
             <label> Username<br/>
