@@ -176,8 +176,8 @@ input {
 
 /* pet index items */
 .pet-index{
-  position: absolute;
-  right: 50px;
+  /*position: absolute;
+  right: 50px;*/
   text-align: center;
 }
 .pet-index-item {
