@@ -106,6 +106,10 @@ var SignupForm = React.createClass({
     return (
       <div className="modal" onClick={this.handleModalClick}>
         <form className="login-form group" onSubmit={this.handleSubmit} onEnter={this.handleSubmit} onClick={this.stopProp}>
+            <a href="/auth/google_oauth2" onClick={this.handleModalClick}>
+            <img src={googleUrl}/>
+            </a>
+            <br/>
             <br/>
             <label>First name<br/>
             <input type="text" className="form-input" value={this.state.fname} onChange={this.fnameChange}/>
