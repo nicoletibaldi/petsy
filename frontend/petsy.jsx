@@ -24,7 +24,6 @@ var router = (
     <Route path="/" component={NavBar}>
       <IndexRoute component={App}/>
       <Route path="pets/:petId" component={PetDetail} />
-      <Route path="new" component={PetForm} onEnter={_ensureLoggedIn}/>
       <Route path="favorites" component={FavoriteIndex}/>
       <Route path=":petType" component={PetIndex} />
     </Route>

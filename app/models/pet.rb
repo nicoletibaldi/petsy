@@ -2,7 +2,7 @@ class Pet < ActiveRecord::Base
   include PgSearch
   pg_search_scope :search_by_all_columns, :against => [:name, :animal, :description, :age]
 
-  validates :name, :animal, :description, :sex, :age, presence: true
+  validates :name, :animal, :description, :sex, :age, :breed, presence: true
 
   has_many :favorites
 

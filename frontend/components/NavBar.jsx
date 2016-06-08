@@ -4,6 +4,7 @@ var SessionStore = require('./../stores/session_store');
 var SessionApiUtil = require('./../util/session_api_util');
 var SignupForm = require('./SignupForm');
 var LoginForm = require('./LoginForm');
+var PetForm = require('./PetForm');
 
 var NavBar = React.createClass({
   contextTypes: {
@@ -32,6 +33,10 @@ var NavBar = React.createClass({
     this.setState({modal: <LoginForm close={this.closeModal}/>})
   },
 
+  showNewPet: function () {
+    this.setState({modal: <PetForm close={this.closeModal}/>})
+  },
+
   closeModal: function () {
     this.setState({modal: null})
   },
@@ -49,7 +54,6 @@ var NavBar = React.createClass({
       return (
         <nav className="petsy">
           <img onClick={this.favorites} className="favorite-logo h-button" src={favoriteUrl}/>
-          <img className="favorite-logo h-button" src={profileUrl} />
           <Link to="/" className="h-button" onClick={SessionApiUtil.logout}>Log out</Link>
           <p className="greeting">Hey, {SessionStore.currentUser().fname}!</p>
         </nav>
@@ -72,7 +76,7 @@ var NavBar = React.createClass({
   createPet: function () {
     if (SessionStore.isUserLoggedIn()) {
       return(
-        <a href="/#/new" className="create-pet pet-type-item">Add a listing</a>
+        <p onClick={this.showNewPet} className="create-pet pet-type-item">Add a listing</p>
       );
     }
   },
