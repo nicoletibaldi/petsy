@@ -20,6 +20,10 @@ SearchStore.__onDispatch = function (payload) {
       resetSearchResults(payload.results);
       SearchStore.__emitChange();
       break;
+    case SearchConstants.CLEAR_RESULTS:
+      _searchResults = [];
+      SearchStore.__emitChange();
+      break;
   }
 };
 

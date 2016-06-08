@@ -1,6 +1,7 @@
 var React = require('react');
 var SearchStore = require('./../stores/search_store');
 var SearchApiUtil = require('./../util/search_api_util');
+var SearchActions = require('./../actions/search_actions');
 
 
 var Search = React.createClass({
@@ -9,7 +10,7 @@ var Search = React.createClass({
   },
 
   getInitialState: function () {
-    return({results: [], query: ""});
+    return({query: ""});
   },
 
   componentDidMount: function () {
@@ -17,6 +18,7 @@ var Search = React.createClass({
   },
 
   componentWillUnmount: function () {
+    SearchActions.clearResults();
     this.searchListener.remove();
   },
 
@@ -25,12 +27,7 @@ var Search = React.createClass({
   },
 
   handleSubmit: function () {
-
-  },
-
-  goToDetail: function (event) {
-    debugger
-    this.context.router.push("/pets/")
+    this.context.router.push("/search")
   },
 
   queryChange: function (event) {
@@ -52,7 +49,7 @@ var Search = React.createClass({
       )
     });
     return(
-      <form className="search">
+      <form className="search" onSubmit={this.handleSubmit}>
         <input className="search-input" type="text"
           placeholder="Describe your perfect pet!"
           value={this.state.query}
