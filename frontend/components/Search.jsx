@@ -24,8 +24,13 @@ var Search = React.createClass({
     this.forceUpdate();
   },
 
-  handleClick: function () {
+  handleSubmit: function () {
 
+  },
+
+  goToDetail: function (event) {
+    debugger
+    this.context.router.push("/pets/")
   },
 
   queryChange: function (event) {
@@ -37,9 +42,13 @@ var Search = React.createClass({
   },
 
   render: function () {
-    var results = SearchStore.all().map(function (result) {
+    var results = SearchStore.all()
+    if (results.length > 10) {
+      results = SearchStore.all().slice(0, 10);
+    }
+    var resultLis = results.map(function (result) {
       return(
-        <li>{result.name}</li>
+        <a href={"/#/pets/" + result.id} className="search-result" key={result.id}>{result.name}</a>
       )
     });
     return(
@@ -50,8 +59,8 @@ var Search = React.createClass({
           onChange={this.queryChange}
         />
         <input className="search-button" value="Search" type="submit"/>
-        <ul>
-          {results}
+        <ul className="search-results">
+          {resultLis}
         </ul>
       </form>
     );

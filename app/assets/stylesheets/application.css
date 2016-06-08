@@ -174,10 +174,32 @@ input {
   border-radius: 4px;
 }
 
+
+.search-results{
+  position: absolute;
+  right: 77%;
+  top: 30px;
+
+}
+
+.search-result{
+  display: block;
+  background: white;
+  width: 250px;
+  height: 25px;
+  padding: 5px;
+  border: 1px solid #dadedd;
+  color: #0192b5;
+  font-family: georgia;
+}
+
+.search-result:hover{
+  background: #e9f6fc;
+}
+
 /* pet index items */
+
 .pet-index{
-  /*position: absolute;
-  right: 50px;*/
   text-align: center;
 }
 .pet-index-item {
