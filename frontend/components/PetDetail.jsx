@@ -5,6 +5,7 @@ var PetApiUtil = require('./../util/pet_api_util');
 var NavBar = require('./NavBar');
 var FavoriteApiUtil = require('./../util/favorite_api_util');
 var SessionStore = require('./../stores/session_store');
+var FavoriteStore = require('./../stores/favorite_store');
 
 
 var PetDetail = React.createClass({
@@ -60,10 +61,24 @@ var PetDetail = React.createClass({
     this.context.router.push("/favorites"); //pass as callback and use callback && callback(); in api util
   },
 
+  removeFavorite: function () {
+    var petid = this.state.pet.id;
+    FavoriteApiUtil.removeFavorite(petid);
+    this.context.router.push("/favorites");
+  },
+
+  checkIfFavorite: function (id) {
+    var favorites = FavoriteStore.all();
+    if (favorites.hasOwnProperty(id)) {
+      return <p onClick={this.addFavorite} className="favorites">Add to favorites</p>
+    } else {
+      return <p onClick={this.removeFavorite} className="favorites remove">Remove from favorites</p>
+    }
+  },
+
   render: function () {
     if (SessionStore.isUserLoggedIn()) {
-      var addFavorites = <p onClick={this.addFavorite}
-                            className="favorites">Add to favorites</p>
+      var addFavorites = this.checkIfFavorite();
 
     };
     if (!this.state.pet) {
