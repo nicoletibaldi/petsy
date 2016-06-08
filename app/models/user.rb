@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :favorites
 
   validates :session_token, :email, :fname, :lname, presence: true
-  validates :username, :email, uniqueness: true
+  validates :username, :email, uniqueness: true, allow_nil: true
   validates :password, length: {minimum: 6}, allow_nil: true
 
   validates :username, :password_digest, presence: true,
