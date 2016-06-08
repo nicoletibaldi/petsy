@@ -177,7 +177,7 @@ input {
 
 .search-results{
   position: absolute;
-  right: 77%;
+  left: -33px;
   top: 30px;
 
 }
