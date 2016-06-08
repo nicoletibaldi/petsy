@@ -9,7 +9,7 @@
 Petsy is a web application inspired by Etsy that will be built using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
 - [x] New account creation, login, and guest/demo login
-- [ ] Smooth, bug-free navigation
+- [x] Smooth, bug-free navigation
 - [x] Adequate seed data to demonstrate the site's features (using Petfinder API)
 - The minimally necessary features for an Etsy-inspired site:
   - [x] view listings by category
@@ -19,7 +19,7 @@ Petsy is a web application inspired by Etsy that will be built using Ruby on Rai
   - [ ] delete a listing
   - [x] select a pet to add to favorites (equivalent to "cart")
 - [x] Hosting on Heroku
-- [ ] CSS styling that is satisfactorily visually appealing
+- [x] CSS styling that is satisfactorily visually appealing
 - [ ] A production README, replacing this README
 
 ## Product Goals and Priorities
@@ -33,8 +33,12 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [x] Log in / Log out, including as a Guest/Demo User (MVP)
 - [x] View listings by category, each with separate index page (MVP)
 - [ ] Create, read, edit, and delete listings (MVP)
+  - [x] create
+  - [x] read
+  - [ ] edit
+  - [ ] delete
 - [x] Add a pet to favorites list (equivalent to add to cart) (MVP)
-- [ ] Search pets (MVP)
+- [x] Search pets (MVP)
 
 - [ ] Tag listings with multiple tags (expected feature, but not MVP)
 - [ ] Register using Google or Facebook (expected, but not MVP)
@@ -111,8 +115,8 @@ which has its own `Index` view.)
 **Objective:** Pets are searchable
 
 - build out API, Flux loop, and components for:
-- [ ] fetching pets by search
-- [ ] Style new elements
+- [x] fetching pets by search
+- [x] Style new elements
 
 ### Phase 7: Favorites (1 day)
 
@@ -137,7 +141,7 @@ which has its own `Index` view.)
 - [ ] Try to match UI more closely to Etsy
 
 ### Bonus Features (TBD)
-- [ ] Google/Facebook authentication
+- [x] Google/Facebook authentication
 - [ ] Users can create and edit their profile pages
 - [ ] User reviews/comments
 - [ ] Show 'similar pets' in bottom right corner of show page
