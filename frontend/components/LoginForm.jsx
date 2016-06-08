@@ -77,10 +77,21 @@ var LoginForm = React.createClass({
     return <ul>{ messages }</ul>;
   },
 
+  google: function () {
+    this.context.router.push("/auth/google_oauth2");
+  },
+
   render: function () {
     return (
         <div className="modal" onClick={this.handleModalClick}>
-          <form className="login-form" onSubmit={this.handleSubmit} onEnter={this.handleSubmit} onClick={this.stopProp}>
+          <form className="login-form"
+            onSubmit={this.handleSubmit}
+            onEnter={this.handleSubmit}
+            onClick={this.stopProp}
+          >
+          <a href="/auth/google_oauth2" onClick={this.handleModalClick}>
+          <img src={googleUrl}/>
+          </a>
           { this.baseErrors("username") }
             <br/>
             <label> Username<br/>
