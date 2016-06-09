@@ -46,7 +46,7 @@ var ErrorActions = require('./../actions/error_actions');
      });
    },
 
-   createPet: function (data) {
+   createPet: function (data, callback) {
      $.ajax({
        type: "POST",
        url:"/api/pets",
@@ -56,6 +56,7 @@ var ErrorActions = require('./../actions/error_actions');
        data: data,
        success: function(result) {
          PetActions.receiveSinglePet(result);
+         callback && callback();
        },
        error: function (xhr) {
          var errors = xhr.responseJSON;

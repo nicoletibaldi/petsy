@@ -95,7 +95,7 @@ input {
 }
 
 .log-in{
-  height: 275px;
+  height: 290px;
 }
 
 .login-button {
@@ -150,7 +150,8 @@ input {
   height: 50px;
 }
 
-.facebook{
+.pet-form{
+  height: 900px;
 }
 
 /*scaling image*/
@@ -394,7 +395,7 @@ input {
   background: white;
   font-family: georgia;
   width: 425px;
-  height: 450px;
+  height: 650px;
   padding: 20px;
   font-size: 14px;
   position:absolute;
@@ -405,8 +406,9 @@ input {
 }
 
 .preview{
-  width: 150px;
-  height: auto;
+  width: auto;
+  height: 100px;
+  float: right;
 }
 
 /* clearfix*/
