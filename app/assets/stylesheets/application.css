@@ -411,6 +411,18 @@ input {
   float: right;
 }
 
+/*created pets index*/
+.er {
+  width: 200px;
+  border: none;
+  margin-left: 30px;
+}
+
+.created-pet{
+  width: 300px;
+  text-align: center;
+}
+
 /* clearfix*/
 .group:after{
   content: "";
