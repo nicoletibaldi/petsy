@@ -18,7 +18,9 @@ var NavBar = React.createClass({
 
   componentDidMount: function () {
     SessionApiUtil.fetchCurrentUser();
-    FavoriteApiUtil.fetchAllFavorites();
+    if (SessionStore.isUserLoggedIn()){
+      FavoriteApiUtil.fetchAllFavorites();
+    }
     SessionStore.addListener(this.forceUpdate.bind(this));
   },
 

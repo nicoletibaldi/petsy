@@ -16,7 +16,6 @@ var PetIndex = React.createClass({
   },
 
   componentDidMount: function () {
-    FavoriteApiUtil.fetchAllFavorites();
     if (this.props.params) {
       var petType = this.props.params.petType;
       PetApiUtil.fetchFilteredPets(petType);
