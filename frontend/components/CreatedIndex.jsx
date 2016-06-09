@@ -66,10 +66,10 @@ var CreatedIndex = React.createClass({
             return(
               //bind if you're going to show modal
 
-              <div key={pet.id}>
+              <div className="created-pet" key={pet.id}>
                 <PetIndexItem pet={pet}/>
-                <p value={pet.id} onClick={el.showEdit}>Edit</p>
-                <p value={pet.id} onClick={el.deleteListing}>Remove</p>
+                <p className="login-button er" value={pet.id} onClick={el.showEdit}>Edit</p>
+                <p className="login-button er" value={pet.id} onClick={el.deleteListing}>Remove</p>
               </div>
             )
           })}
