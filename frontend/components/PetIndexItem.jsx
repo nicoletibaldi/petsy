@@ -10,9 +10,9 @@ var PetIndexItem = React.createClass({
     return({size: ""});
   },
 
-  showDetail: function () {
-    this.context.router.push('/pets/'+ this.props.pet.id);
-    // window.location.href = 'http://localhost:3000/#/pets/' + this.props.pet.id.$t;
+  showDetail: function (event) {
+    var pet = event.currentTarget.value;
+    this.context.router.push('/pets/'+ pet);
   },
 
   setRef: function (e) {
@@ -25,9 +25,8 @@ var PetIndexItem = React.createClass({
   },
 
   render: function () {
-    //onClick of div (make it a link?) do this.showDetail
     return(
-      <div className="pet-index-item" onClick={this.showDetail}>
+      <div value={this.props.pet.id} className="pet-index-item" onClick={this.showDetail}>
         <div className="pet-index-item-photo">
           <img className={this.state.size} onLoad={this.setRef} src={this.props.pet.image_url}/>
         </div>

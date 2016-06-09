@@ -18,8 +18,13 @@ var PetForm = React.createClass({
   },
 
   getInitialState: function () {
-      return ({user_id: "", name: "", animal: "", age: "", breed: "", contact_email: "",
-                description: "", sex: "", imageFile: null, imageUrl: null});
+
+    var potentialPet = PetStore.find(this.props.params.petId);
+    var pet = potentialPet ? potentialPet : {};
+    return ({user_id: pet.user_id, name: pet.name, animal: pet.animal,
+      age: pet.age, breed: pet.breed, contact_email: pet.contact_email,
+      description: pet.description, sex: pet.sex, imageFile: null,
+      imageUrl: null});
   },
 
   nameChange: function (event) {
@@ -65,7 +70,7 @@ var PetForm = React.createClass({
   },
 
   fieldErrors: function (field) {
-    var errors = ErrorStore.formErrors("new");
+    var errors = ErrorStore.formErrors("update");
     var array = [1, 2, 3, 4, 5, 6]
     if (!errors[field]) {
       var messages = array.map(function (i) {
@@ -169,4 +174,4 @@ handleSubmit: function (event) {
   },
 });
 
-module.exports = PetForm;
+module.exports = PetEdit;

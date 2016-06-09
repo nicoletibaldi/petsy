@@ -78,7 +78,10 @@ var NavBar = React.createClass({
   createPet: function () {
     if (SessionStore.isUserLoggedIn()) {
       return(
+        <div>
+        <a href="/#/created_pets" className="create-pet pet-type-item">My listings</a>
         <p onClick={this.showNewPet} className="create-pet pet-type-item">Add a listing</p>
+        </div>
       );
     }
   },
