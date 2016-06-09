@@ -37,7 +37,9 @@ var Search = React.createClass({
   },
 
   collapse: function () {
-    this.setState({expanded: false});
+    setTimeout(function () {
+      this.setState({expanded: false});
+    }.bind(this), 100)
   },
 
   queryChange: function (event) {
