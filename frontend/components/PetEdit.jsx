@@ -3,8 +3,9 @@ var PetApiUtil = require('./../util/pet_api_util');
 var SessionStore = require('./../stores/session_store');
 var ErrorStore = require('./../stores/error_store');
 var ErrorActions = require('./../actions/error_actions');
+var PetStore = require('./../stores/pet_store');
 
-var PetForm = React.createClass({
+var PetEdit = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
@@ -19,7 +20,7 @@ var PetForm = React.createClass({
 
   getInitialState: function () {
 
-    var potentialPet = PetStore.find(this.props.params.petId);
+    var potentialPet = PetStore.find(this.props.id);
     var pet = potentialPet ? potentialPet : {};
     return ({user_id: pet.user_id, name: pet.name, animal: pet.animal,
       age: pet.age, breed: pet.breed, contact_email: pet.contact_email,
@@ -87,6 +88,7 @@ var PetForm = React.createClass({
 
 handleSubmit: function (event) {
     event.preventDefault();
+    var id = this.props.id;
     var formData = new FormData();
     formData.append("pet[name]", this.state.name)
     formData.append("pet[animal]", this.state.animal)
@@ -99,7 +101,7 @@ handleSubmit: function (event) {
     if (this.state.imageFile) {
       formData.append("pet[image]", this.state.imageFile)
     }
-    PetApiUtil.createPet(formData, this.handleModalClick);
+    PetApiUtil.updatePet(formData, id, this.handleModalClick);
     this.setState({user_id: "", name: "", animal: "", age: "", breed: "", contact_email: "",
               description: "", sex: "", imageFile: null, imageUrl: null});
   },

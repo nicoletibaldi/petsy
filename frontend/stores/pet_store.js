@@ -39,6 +39,11 @@ addPet = function (pet) {
   _pets[pet.id] = pet;
 };
 
+removePet = function (pet) {
+  delete _pets[pet.id];
+};
+
+
 PetStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case PetConstants.PETS_RECEIVED:
@@ -47,6 +52,10 @@ PetStore.__onDispatch = function (payload) {
       break;
     case PetConstants.PET_RECEIVED:
       addPet(payload.pet);
+      PetStore.__emitChange();
+      break;
+    case PetConstants.PET_REMOVED:
+      removePet(payload.pet);
       PetStore.__emitChange();
       break;
   }

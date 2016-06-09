@@ -3,6 +3,7 @@ var PetStore = require('./../stores/pet_store');
 var PetApiUtil = require('./../util/pet_api_util');
 var PetIndexItem = require('./PetIndexItem');
 var SessionStore = require('./../stores/session_store');
+var PetEdit = require('./PetEdit');
 
 var CreatedIndex = React.createClass({
   contextTypes: {
@@ -11,7 +12,8 @@ var CreatedIndex = React.createClass({
 
   getInitialState: function () {
     return ({
-      pets: PetStore.createdPets(SessionStore.currentUser().id)
+      pets: PetStore.createdPets(SessionStore.currentUser().id),
+      modal: null
     });
   },
 
@@ -34,8 +36,19 @@ var CreatedIndex = React.createClass({
     });
   },
 
-  editPet: function (event) {
-    
+  closeModal: function () {
+    this.setState({modal: null})
+  },
+
+  showEdit: function (e) {
+    var petId = e.currentTarget.value
+    this.setState({modal: <PetEdit id={petId} close={this.closeModal}/>})
+  },
+
+  deleteListing: function (e) {
+    var petId = e.currentTarget.value
+    PetApiUtil.deletePet(petId);
+    this.context.router.push("/")
   },
 
   render: function () {
@@ -44,17 +57,24 @@ var CreatedIndex = React.createClass({
         <div>Fetching pets...</div>
       )
     } else {
+      var el = this;
       return(
+        <div>
+        {this.state.modal}
         <ul className="pet-index">
           {this.state.pets.map(function (pet) {
             return(
-              <div>
-              <PetIndexItem key={pet.id} pet={pet}/>
-              <p value={pet.id} onClick={this.editPet}>Edit</p>
+              //bind if you're going to show modal
+
+              <div key={pet.id}>
+                <PetIndexItem pet={pet}/>
+                <p value={pet.id} onClick={el.showEdit}>Edit</p>
+                <p value={pet.id} onClick={el.deleteListing}>Remove</p>
               </div>
             )
           })}
         </ul>
+        </div>
       );
     }
 
