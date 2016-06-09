@@ -14,5 +14,12 @@ module.exports = {
       actionType: PetConstants.PET_RECEIVED,
       pet: pet
     });
+  },
+
+  removePet: function (pet) {
+    Dispatcher.dispatch({
+      actionType: PetConstants.PET_REMOVED,
+      pet: pet
+    });
   }
 };

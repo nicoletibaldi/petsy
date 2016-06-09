@@ -19,6 +19,7 @@ var NavBar = require('./components/NavBar');
 var PetForm = require('./components/PetForm');
 var FavoriteIndex = require('./components/FavoriteIndex');
 var CreatedIndex = require('./components/CreatedIndex');
+var PetEdit = require('./components/PetEdit');
 
 var router = (
   <Router history={hashHistory}>

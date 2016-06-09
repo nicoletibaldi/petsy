@@ -77,10 +77,10 @@ var ErrorActions = require('./../actions/error_actions');
      });
    },
 
-   updatePet: function (data, callback) {
+   updatePet: function (data, id, callback) {
      $.ajax({
        type: "PATCH",
-       url:"/api/pets" + data.id,
+       url:"/api/pets/" + id,
        dataType: "JSON",
        contentType: false,
        processData: false,
@@ -92,6 +92,16 @@ var ErrorActions = require('./../actions/error_actions');
          var errors = xhr.responseJSON;
          ErrorActions.setErrors("update", errors);
        }
-     })
+     });
+   },
+
+   deletePet: function (id) {
+     $.ajax({
+       type: "DELETE",
+       url:"/api/pets/" + id,
+       success: function () {
+
+       }
+     });
    }
  };
