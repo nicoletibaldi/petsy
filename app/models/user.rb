@@ -5,14 +5,14 @@ class User < ActiveRecord::Base
   has_many :favorites
 
   validates :session_token, :email, :fname, :lname, presence: true
-  validates :username, :email, uniqueness: true, allow_nil: true
+  validates :username, uniqueness: true, allow_nil: true
   validates :password, length: {minimum: 6}, allow_nil: true
 
   validates :username, :password_digest, presence: true,
-    unless: Proc.new{ |user| user.google_uid }
+    unless: Proc.new{ |user| user.google_uid || user.facebook_uid }
 
-  validates :google_uid, presence: true, uniqueness: true,
-    unless: Proc.new{ |user| user.username }
+  validates :google_uid, uniqueness: true, allow_nil: true
+  validates :facebook_uid, uniqueness: true, allow_nil: true
 
   after_initialize :ensure_session_token
 
@@ -38,16 +38,28 @@ class User < ActiveRecord::Base
   end
 
   def self.find_or_create_by_auth_hash(auth_hash)
-    user = User.find_by(google_uid: auth_hash[:uid])
+    if auth_hash[:provider] == "facebook"
+      user = User.find_by(facebook_uid: auth_hash[:uid])
 
-    if user.nil?
-      user = User.create!(google_uid: auth_hash[:uid],
-                            fname: auth_hash[:info][:first_name],
-                            lname: auth_hash[:info][:last_name],
-                            email: auth_hash[:info][:email],
-                          )
+      name = auth_hash[:info][:name].split(" ")
+      if user.nil?
+        user = User.create!(facebook_uid: auth_hash[:uid],
+                              fname: name[0],
+                              lname: name[-1],
+                              email: auth_hash[:info][:email],
+                              )
+      end
+    else
+      user = User.find_by(google_uid: auth_hash[:uid])
+
+      if user.nil?
+        user = User.create!(google_uid: auth_hash[:uid],
+                              fname: auth_hash[:info][:first_name],
+                              lname: auth_hash[:info][:last_name],
+                              email: auth_hash[:info][:email],
+                              )
+      end
     end
-
     user
   end
 

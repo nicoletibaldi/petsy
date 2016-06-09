@@ -1,3 +1,11 @@
+<script>
+{ var redirect = window.location.hash.slice(0,4)
+  if (redirect === "#_=_") {
+    history.replaceState(null, null, "/")
+  }
+}
+</script>
+
 <main id='content'>
 </main>
 
@@ -8,4 +16,6 @@
   window.favoriteUrl = '<%= image_url('favorites.png')%>'
   window.profileUrl = '<%= image_url('profile.png') %>'
   window.googleUrl = '<%= image_url('google.png')%>'
+  window.facebookUrl = '<%= image_url('facebook.png')%>'
+
 </script>
