@@ -93,7 +93,7 @@ handleSubmit: function (event) {
     if (this.state.imageFile) {
       formData.append("pet[image]", this.state.imageFile)
     }
-    PetApiUtil.createPet(formData);
+    PetApiUtil.createPet(formData, this.handleModalClick);
     this.setState({name: "", animal: "", age: "", breed: "", contact_email: "",
               description: "", sex: "", imageFile: null, imageUrl: null});
   },
@@ -118,22 +118,24 @@ handleSubmit: function (event) {
           </label>
           <br/>
           <label>Animal<br/>
-              <select className="form-input">
-                <option value="Cat" onChange={this.animalChange}>cat</option>
-                <option value="Dog" onChange={this.animalChange}>dog</option>
-                <option value="Rabbit" onChange={this.animalChange}>rabbit</option>
-                <option value="Scales, Fins & Other" onChange={this.animalChange}>reptile</option>
-                <option value="Small & Furry" onChange={this.animalChange}>other</option>
+              <select className="form-input" onChange={this.animalChange}>
+                <option value=""/>
+                <option value="Cat" >cat</option>
+                <option value="Dog" >dog</option>
+                <option value="Rabbit" >rabbit</option>
+                <option value="Scales, Fins & Other" >reptile</option>
+                <option value="Small & Furry" >other</option>
               </select>
               { this.fieldErrors("animal") }
           </label>
           <br/>
           <label>Age<br/>
-              <select className="form-input">
-                <option value="Baby" onChange={this.ageChange}>baby</option>
-                <option value="Young" onChange={this.ageChange}>adult</option>
-                <option value="Adult" onChange={this.ageChange}>young</option>
-                <option value="Senior" onChange={this.ageChange}>senior</option>
+              <select className="form-input" onChange={this.ageChange}>
+              <option value=""/>
+                <option value="Baby">baby</option>
+                <option value="Young">adult</option>
+                <option value="Adult">young</option>
+                <option value="Senior">senior</option>
               </select>
               { this.fieldErrors("age") }
           </label>
@@ -149,9 +151,10 @@ handleSubmit: function (event) {
           </label>
           <br/>
           <label>Sex<br/>
-              <select className="form-input">
-              <option value="M" onChange={this.sexChange}>male</option>
-              <option value="F" onChange={this.sexChange}>female</option>
+              <select className="form-input" onChange={this.sexChange}>
+              <option value=""/>
+              <option value="M" >male</option>
+              <option value="F" >female</option>
               </select>
               { this.fieldErrors("sex") }
           </label>
