@@ -119,7 +119,7 @@ handleSubmit: function (event) {
           </label>
           <br/>
           <label>Animal<br/>
-              <select className="form-input" onChange={this.animalChange}>
+              <select className="form-input" value={this.state.animal} onChange={this.animalChange}>
                 <option value=""/>
                 <option value="Cat" >cat</option>
                 <option value="Dog" >dog</option>
@@ -131,11 +131,11 @@ handleSubmit: function (event) {
           </label>
           <br/>
           <label>Age<br/>
-              <select className="form-input" onChange={this.ageChange}>
+              <select className="form-input" value={this.state.age} onChange={this.ageChange}>
               <option value=""/>
                 <option value="Baby">baby</option>
-                <option value="Young">adult</option>
-                <option value="Adult">young</option>
+                <option value="Young">young</option>
+                <option value="Adult">adult</option>
                 <option value="Senior">senior</option>
               </select>
               { this.fieldErrors("age") }
@@ -152,7 +152,7 @@ handleSubmit: function (event) {
           </label>
           <br/>
           <label>Sex<br/>
-              <select className="form-input" onChange={this.sexChange}>
+              <select className="form-input" value={this.state.sex} onChange={this.sexChange}>
               <option value=""/>
               <option value="M" >male</option>
               <option value="F" >female</option>
