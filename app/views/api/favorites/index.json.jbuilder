@@ -1,3 +1,4 @@
+debugger
 json.array! @favorites do |favorite|
   json.name favorite.pet.name
   json.animal favorite.pet.animal

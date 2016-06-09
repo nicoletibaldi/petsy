@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # attr_reader :password_digest
   attr_reader :password
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
 
   validates :session_token, :email, :fname, :lname, presence: true
   validates :username, uniqueness: true, allow_nil: true
@@ -41,8 +41,8 @@ class User < ActiveRecord::Base
     if auth_hash[:provider] == "facebook"
       user = User.find_by(facebook_uid: auth_hash[:uid])
 
-      name = auth_hash[:info][:name].split(" ")
       if user.nil?
+        name = auth_hash[:info][:name].split(" ")
         user = User.create!(facebook_uid: auth_hash[:uid],
                               fname: name[0],
                               lname: name[-1],
