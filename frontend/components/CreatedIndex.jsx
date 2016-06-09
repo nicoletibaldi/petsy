@@ -34,6 +34,10 @@ var CreatedIndex = React.createClass({
     });
   },
 
+  editPet: function (event) {
+    
+  },
+
   render: function () {
     if (!this.state.pets) {
       return (
@@ -44,7 +48,10 @@ var CreatedIndex = React.createClass({
         <ul className="pet-index">
           {this.state.pets.map(function (pet) {
             return(
+              <div>
               <PetIndexItem key={pet.id} pet={pet}/>
+              <p value={pet.id} onClick={this.editPet}>Edit</p>
+              </div>
             )
           })}
         </ul>
