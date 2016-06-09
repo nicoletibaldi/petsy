@@ -87,6 +87,7 @@ var ErrorActions = require('./../actions/error_actions');
        data: data,
        success: function (result) {
          PetActions.receiveSinglePet(result);
+         callback && callback();
        },
        error: function (xhr) {
          var errors = xhr.responseJSON;
