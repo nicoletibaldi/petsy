@@ -106,12 +106,14 @@ var SignupForm = React.createClass({
     return (
       <div className="modal" onClick={this.handleModalClick}>
         <form className="login-form group" onSubmit={this.handleSubmit} onEnter={this.handleSubmit} onClick={this.stopProp}>
+            <div className="oauth">
             <a href="/auth/google_oauth2" onClick={this.handleModalClick}>
-            <img src={googleUrl}/>
+            <img src={googleUrl} className="google" />
             </a><br/>
             <a href="/auth/facebook" onClick={this.handleModalClick}>
-            <img src={facebookUrl}/>
+            <img src={facebookUrl} className="facebook"/>
             </a>
+            </div>
             <br/>
             <br/>
             <label>First name<br/>

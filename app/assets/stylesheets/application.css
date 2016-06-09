@@ -84,7 +84,7 @@ input {
   background: white;
   font-family: georgia;
   width: 425px;
-  height: 350px;
+  height: 410px;
   padding: 20px;
   font-size: 14px;
   position:absolute;
@@ -92,6 +92,10 @@ input {
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   z-index: 1000;
+}
+
+.log-in{
+  height: 275px;
 }
 
 .login-button {
@@ -135,6 +139,21 @@ input {
 .form-input{
   float: left;
 }
+
+.oauth{
+  text-align: center;
+  background: white;
+}
+
+.google{
+  width: 210px;
+  height: 50px;
+}
+
+.facebook{
+}
+
+/*scaling image*/
 
 
 .scaling-image {
