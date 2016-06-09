@@ -141,8 +141,8 @@ handleSubmit: function (event) {
               <select className="form-input" value={this.state.age} onChange={this.ageChange}>
               <option value=""/>
                 <option value="Baby">baby</option>
-                <option value="Young">adult</option>
-                <option value="Adult">young</option>
+                <option value="Young">young</option>
+                <option value="Adult">adult</option>
                 <option value="Senior">senior</option>
               </select>
               { this.fieldErrors("age") }
@@ -168,7 +168,7 @@ handleSubmit: function (event) {
           </label>
           <br/>
             <input type="file" onChange={this.updateFile}/><br/>
-          <input type="submit" value="List pet!" className="login-button"/>
+          <input type="submit" value="Edit listing" className="login-button"/>
           <img src={this.state.imageUrl} className="preview"/>
         </form>
         </div>
