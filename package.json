@@ -28,12 +28,14 @@
     "babel-preset-react": "^6.5.0",
     "flux": "^2.1.1",
     "react": "^15.1.0",
+    "react-click-outside": "^2.1.0",
     "react-dom": "^15.1.0",
+    "react-onclickoutside": "^5.2.0",
     "react-router": "^2.4.1",
     "webpack": "^1.13.1"
   },
   "engines": {
     "node": "5.9.1",
-    "npm": "3.7.3" 
+    "npm": "3.7.3"
   }
 }
