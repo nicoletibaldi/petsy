@@ -18,6 +18,7 @@ var PetDetail = require('./components/PetDetail');
 var NavBar = require('./components/NavBar');
 var PetForm = require('./components/PetForm');
 var FavoriteIndex = require('./components/FavoriteIndex');
+var CreatedIndex = require('./components/CreatedIndex');
 
 var router = (
   <Router history={hashHistory}>
@@ -25,6 +26,7 @@ var router = (
       <IndexRoute component={App}/>
       <Route path="pets/:petId" component={PetDetail} />
       <Route path="favorites" component={FavoriteIndex}/>
+      <Route path="created_pets" component={CreatedIndex}/>
       <Route path=":petType" component={PetIndex} />
     </Route>
   </Router>

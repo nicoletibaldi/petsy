@@ -12,6 +12,16 @@ PetStore.all = function () {
   });
 };
 
+PetStore.createdPets = function (id) {
+  var result = [];
+  Object.keys(_pets).forEach( function (petId) {
+    if (_pets[petId].user_id === id) {
+      result.push(_pets[petId]);
+    }
+  });
+  return result;
+};
+
 PetStore.find = function(id) {
   return _pets[id];
 };

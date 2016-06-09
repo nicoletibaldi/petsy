@@ -80,13 +80,12 @@ var PetDetail = React.createClass({
   },
 
   render: function () {
-    if (SessionStore.isUserLoggedIn()) {
-      var addFavorites = this.checkIfFavorite(this.state.pet.id);
-
-    };
     if (!this.state.pet) {
       return (<div />);
     } else {
+      if (SessionStore.isUserLoggedIn()) {
+        var addFavorites = this.checkIfFavorite(this.state.pet.id);
+      };
       return(
         <div className="pet-detail-container group">
           <div className="pet-detail-left">

@@ -32,6 +32,18 @@ var ErrorActions = require('./../actions/error_actions');
         });
       },
 
+    fetchCreatedPets: function (userId) {
+      $.ajax({
+        type: "GET",
+        dataType: "JSON",
+        data: {user_id: userId},
+        url: "/api/pets",
+        success: function (result) {
+          PetActions.receivePets(result);
+        }
+      });
+    },
+
    fetchSinglePet: function (id) {
      $.ajax({
        type: "GET",
@@ -63,5 +75,23 @@ var ErrorActions = require('./../actions/error_actions');
          ErrorActions.setErrors("new", errors);
        }
      });
+   },
+
+   updatePet: function (data, callback) {
+     $.ajax({
+       type: "PATCH",
+       url:"/api/pets" + data.id,
+       dataType: "JSON",
+       contentType: false,
+       processData: false,
+       data: data,
+       success: function (result) {
+         PetActions.receiveSinglePet(result);
+       },
+       error: function (xhr) {
+         var errors = xhr.responseJSON;
+         ErrorActions.setErrors("update", errors);
+       }
+     })
    }
  };

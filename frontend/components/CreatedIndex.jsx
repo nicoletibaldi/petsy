@@ -2,38 +2,26 @@ var React = require('react');
 var PetStore = require('./../stores/pet_store');
 var PetApiUtil = require('./../util/pet_api_util');
 var PetIndexItem = require('./PetIndexItem');
-var FavoriteApiUtil = require('./../util/favorite_api_util');
+var SessionStore = require('./../stores/session_store');
 
-var PetIndex = React.createClass({
+var CreatedIndex = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
 
   getInitialState: function () {
     return ({
-      pets: PetStore.all()
+      pets: PetStore.createdPets(SessionStore.currentUser().id)
     });
   },
 
   componentDidMount: function () {
-    FavoriteApiUtil.fetchAllFavorites();
-    if (this.props.params) {
-      var petType = this.props.params.petType;
-      PetApiUtil.fetchFilteredPets(petType);
+      PetApiUtil.fetchCreatedPets();
       this.petListener = PetStore.addListener(this._onChange);
-    } else {
-      PetApiUtil.fetchAllPets();
-      this.petListener = PetStore.addListener(this._onChange);
-    }
   },
 
   componentWillReceiveProps: function (newProps) {
-    if (newProps.params) {
-      var petType = newProps.params.petType;
-      PetApiUtil.fetchFilteredPets(petType);
-    } else {
-      PetApiUtil.fetchAllPets();
-    }
+      PetApiUtil.fetchCreatedPets(SessionStore.currentUser().id);
   },
 
   componentWillUnmount: function () {
@@ -42,7 +30,7 @@ var PetIndex = React.createClass({
 
   _onChange: function () {
     this.setState({
-      pets: PetStore.all()
+      pets: PetStore.createdPets(SessionStore.currentUser().id)
     });
   },
 
@@ -68,4 +56,4 @@ var PetIndex = React.createClass({
 
 
 
-module.exports = PetIndex;
+module.exports = CreatedIndex;

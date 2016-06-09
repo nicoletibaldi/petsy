@@ -1,10 +1,6 @@
 class Api::PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
-    # if params[:pet][:image_url] != ""
-    # @pet.image = File.open(params[:pet][:image_url])
-    # @pet.save!
-    # end
 
     if @pet.save
       render :show
@@ -34,12 +30,6 @@ class Api::PetsController < ApplicationController
       @pets = Pet.all
     end
     render :index
-
-    #<Pet:0x007febbff5ad18 id: nil, animal: "Cat">,
- #<Pet:0x007febbff5a7c8 id: nil, animal: "Rabbit">,
- #<Pet:0x007febbff5a368 id: nil, animal: "Scales, Fins & Other">,
- #<Pet:0x007febbff5a0e8 id: nil, animal: "Dog">,
- #<Pet:0x007febbff59e68 id: nil, animal: "Small & Furry">]
   end
 
   def search
@@ -47,10 +37,25 @@ class Api::PetsController < ApplicationController
     render :search
   end
 
+  def update
+    @pet = Pet.where(user_id: current_user.id).find(params[:id])
+    if @pet.update(pet_params)
+      render :show
+    else
+      render json: @pet.errors, status: 422
+    end
+  end
 
+  def destroy
+    @pet = Pet.where(user_id: current_user.id).find(params[:id])
+    @pet.destroy
+    render :index
+  end
+                 
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :animal, :age, :breed, :contact_email, :description, :sex, :image)
+    params.require(:pet).permit(:name, :animal, :age, :breed,
+      :contact_email, :description, :sex, :image, :user_id)
   end
 end
