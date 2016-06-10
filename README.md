@@ -15,6 +15,10 @@
 ![Image of Favorites Page]
 (https://github.com/ntibaldi92/petsy/blob/master/docs/images/favorites.png)
 
+###Pet Page:
+![Image of Pet Page]
+(https://github.com/ntibaldi92/petsy/blob/master/docs/images/show.png)
+
 ##Technical
 
 ##Features
