@@ -51,6 +51,13 @@ var CreatedIndex = React.createClass({
     this.context.router.push("/")
   },
 
+  _onChange: function () {
+    this.setState({
+      pets: PetStore.createdPets(SessionStore.currentUser().id),
+      modal: null
+    });
+  },
+
   render: function () {
     if (!this.state.pets) {
       return (

@@ -21,8 +21,12 @@ var FavoriteIndex = require('./components/FavoriteIndex');
 var CreatedIndex = require('./components/CreatedIndex');
 var PetEdit = require('./components/PetEdit');
 
+var _scrollToTop = function() {
+ window.scrollTo(0,0);
+};
+
 var router = (
-  <Router history={hashHistory}>
+  <Router history={hashHistory} onUpdate={ _scrollToTop }>
     <Route path="/" component={NavBar}>
       <IndexRoute component={App}/>
       <Route path="pets/:petId" component={PetDetail} />
