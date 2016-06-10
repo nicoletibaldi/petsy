@@ -18,8 +18,8 @@ var CreatedIndex = React.createClass({
   },
 
   componentDidMount: function () {
-    this.petListener = PetStore.addListener(this._onChange);
       PetApiUtil.fetchCreatedPets();
+      this.petListener = PetStore.addListener(this._onChange);
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -53,6 +53,9 @@ var CreatedIndex = React.createClass({
   },
 
   render: function () {
+    if (!this.state.pets) {
+      return(<div></div>);
+    }
     if (this.state.pets.length < 1) {
       return (
         <div className="blank-page">
@@ -67,8 +70,6 @@ var CreatedIndex = React.createClass({
         <ul className="pet-index">
           {this.state.pets.map(function (pet) {
             return(
-              //bind if you're going to show modal
-
               <div className="created-pet" key={pet.id}>
                 <PetIndexItem pet={pet}/>
                 <p className="login-button er" value={pet.id} onClick={el.showEdit}>Edit</p>

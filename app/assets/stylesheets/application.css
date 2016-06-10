@@ -429,7 +429,8 @@ input {
 }
 
 .created-pet{
-  width: 300px;
+  display: block;
+  max-width: 300px;
   text-align: center;
 }
 
