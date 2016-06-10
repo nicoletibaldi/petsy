@@ -173,7 +173,7 @@ input {
 .search {
   position: relative;
   z-index: 100;
-  bottom: 335px;
+  bottom: 125px;
   left: 10px;
 }
 
