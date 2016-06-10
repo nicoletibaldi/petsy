@@ -20,6 +20,9 @@
 (https://github.com/ntibaldi92/petsy/blob/master/docs/images/show.png)
 
 ##Technical
+Petsy uses a single flexible React component to render the indexes on the various display pages (created pets, favorite pets, filtered pets, and index). This was somewhat difficult to implement initially, but allows for easy addition of new features.
+
+Petsy makes regular calls to the Petfinder API to display real adoptable pets in the NYC area. Users can email the rescue organization directly to inquire about a pet.
 
 ##Features
 - Sign up/in, with optional Google/Facebook authentication
