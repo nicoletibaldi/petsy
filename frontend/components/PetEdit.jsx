@@ -153,11 +153,6 @@ handleSubmit: function (event) {
             { this.fieldErrors("breed") }
           </label>
           <br/>
-          <label>Description<br/>
-            <input className="form-input" type="text" value={this.state.description} onChange={this.descriptionChange}/>
-            { this.fieldErrors("description") }
-          </label>
-          <br/>
           <label>Sex<br/>
               <select className="form-input" value={this.state.sex} onChange={this.sexChange}>
               <option value=""/>
@@ -167,6 +162,11 @@ handleSubmit: function (event) {
               { this.fieldErrors("sex") }
           </label>
           <br/>
+          <label>Description<br/>
+          <textarea className="form-input" value={this.state.description} onChange={this.descriptionChange}/>
+          { this.fieldErrors("description") }
+          </label>
+          <br/><br/>
             <input type="file" onChange={this.updateFile}/><br/>
           <input type="submit" value="Edit listing" className="login-button"/>
           <img src={this.state.imageUrl} className="preview"/>
