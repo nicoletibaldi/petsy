@@ -32,6 +32,9 @@ var SearchResultsIndex = React.createClass({
   },
 
   render: function () {
+    if (!this.state.pets) {
+      return(<div></div>);
+    }
     if (this.state.pets.length < 1) {
       return (
         <div className="blank-page">

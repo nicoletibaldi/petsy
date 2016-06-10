@@ -35,6 +35,9 @@ var FavoriteIndex = React.createClass({
   },
 
   render: function () {
+    if (!this.state.favorites) {
+      return(<div></div>);
+    }
     if (this.state.favorites.length < 1) {
       return (
         <div className="blank-page">
