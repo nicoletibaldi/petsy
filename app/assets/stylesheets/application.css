@@ -442,7 +442,7 @@ input {
 
 /*no results*/
 .blank-page{
-  margin-top: 20px;
+  margin-top: 40px;
   margin-left: 25%;
   width: 50%;
   opacity: 0.5;
