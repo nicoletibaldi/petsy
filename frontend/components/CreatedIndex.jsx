@@ -55,7 +55,9 @@ var CreatedIndex = React.createClass({
   render: function () {
     if (this.state.pets.length < 1) {
       return (
-        <div>You haven't listed any pets!</div>
+        <div>
+          <img src={nolistingsUrl}/>
+        </div>
       );
     } else {
       var el = this;

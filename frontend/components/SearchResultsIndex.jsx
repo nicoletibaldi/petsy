@@ -32,9 +32,11 @@ var SearchResultsIndex = React.createClass({
   },
 
   render: function () {
-    if (!this.state.pets) {
+    if (this.state.pets.length < 1) {
       return (
-        <div>Fetching pets...</div>
+        <div>
+          <img src={noresultsUrl}/>
+        </div>
       );
     } else {
       return(

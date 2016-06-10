@@ -37,7 +37,9 @@ var FavoriteIndex = React.createClass({
   render: function () {
     if (this.state.favorites.length < 1) {
       return (
-        <div>You haven't added any favorites!</div>
+        <div>
+          <img src={nofavoritesUrl}/>
+        </div>
       );
     } else {
       return(
