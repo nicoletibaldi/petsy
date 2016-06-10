@@ -11,6 +11,10 @@
 ![Image of Registration Page]
 (https://github.com/ntibaldi92/petsy/blob/master/docs/images/Screen%20Shot%202016-06-09%20at%204.35.29%20PM.png)
 
+###Favorites Page:
+![Image of Favorites Page]
+(https://github.com/ntibaldi92/petsy/blob/master/docs/images/favorites.png)
+
 ##Technical
 
 ##Features

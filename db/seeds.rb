@@ -39,7 +39,9 @@ url_base = "http://api.petfinder.com/pet.find?"
      else
        image_url = "no image"
      end
-     
+     if description.nil?
+       next
+     end
      newPet = Pet.new({name: name, animal: animal,
        age: age, breed: breed, contact_email: contact_email, description: description,
        sex: sex, image: open(image_url)})
