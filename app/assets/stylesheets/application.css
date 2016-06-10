@@ -164,7 +164,9 @@ input {
 }
 
 .ad{
-  margin-top: 35px;
+  width: 80%;
+  min-width: 80%;
+  margin-left: 10%;
 }
 
 
@@ -399,7 +401,7 @@ input {
   background: white;
   font-family: georgia;
   width: 425px;
-  height: 650px;
+  height: 525px;
   padding: 20px;
   font-size: 14px;
   position:absolute;
@@ -412,7 +414,6 @@ input {
 .preview{
   width: auto;
   height: 100px;
-  float: right;
 }
 
 /*created pets index*/

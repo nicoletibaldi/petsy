@@ -35,17 +35,17 @@ var FavoriteIndex = React.createClass({
   },
 
   render: function () {
-    if (!this.state.favorites) {
+    if (this.state.favorites.length < 1) {
       return (
-        <div>Fetching pets...</div>
-      )
+        <div>You haven't added any favorites!</div>
+      );
     } else {
       return(
         <ul className="pet-index">
           {this.state.favorites.map(function (pet) {
             return(
               <PetIndexItem key={pet.id} pet={pet}/>
-            )
+            );
           })}
         </ul>
       );
