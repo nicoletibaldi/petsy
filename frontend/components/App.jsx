@@ -11,8 +11,8 @@ var App = React.createClass({
       <div>
         <div>
           <img src={ursaUrl} className="scaling-image"/>
+          <Search />
           <img src={itemsUrl} className="scaling-image ad"/>
-            <Search />
           <PetIndex />
         </div>
       </div>
