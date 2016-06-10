@@ -49,14 +49,14 @@ var PetIndex = React.createClass({
     if (!this.state.pets) {
       return (
         <div>Fetching pets...</div>
-      )
+      );
     } else {
       return(
         <ul className="pet-index">
           {this.state.pets.map(function (pet) {
             return(
               <PetIndexItem key={pet.id} pet={pet}/>
-            )
+            );
           })}
         </ul>
       );

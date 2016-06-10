@@ -20,6 +20,7 @@ var PetForm = require('./components/PetForm');
 var FavoriteIndex = require('./components/FavoriteIndex');
 var CreatedIndex = require('./components/CreatedIndex');
 var PetEdit = require('./components/PetEdit');
+var SearchResultsIndex = require('./components/SearchResultsIndex');
 
 var _scrollToTop = function() {
  window.scrollTo(0,0);
@@ -32,6 +33,7 @@ var router = (
       <Route path="pets/:petId" component={PetDetail} />
       <Route path="favorites" component={FavoriteIndex}/>
       <Route path="created_pets" component={CreatedIndex}/>
+      <Route path="search/:query" component={SearchResultsIndex} />
       <Route path=":petType" component={PetIndex} />
     </Route>
   </Router>

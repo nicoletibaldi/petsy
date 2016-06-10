@@ -29,7 +29,7 @@ var Search = React.createClass({
   },
 
   handleSubmit: function () {
-    this.context.router.push("/search")
+    this.context.router.push("/search/" + this.state.query);
   },
 
   expand: function () {
@@ -39,20 +39,20 @@ var Search = React.createClass({
   collapse: function () {
     setTimeout(function () {
       this.setState({expanded: false});
-    }.bind(this), 200)
+    }.bind(this), 200);
   },
 
   queryChange: function (event) {
     var query = event.target.value;
     this.setState({query: query});
     if (query.length > 0) {
-      SearchApiUtil.search(query)
+      SearchApiUtil.search(query);
     }
   },
 
 
   render: function () {
-    var results = SearchStore.all()
+    var results = SearchStore.all();
     if (results.length > 10) {
       results = SearchStore.all().slice(0, 10);
     }
@@ -61,7 +61,7 @@ var Search = React.createClass({
       var resultLis = results.map(function (result) {
         return(
           <a href={"/#/pets/" + result.id} className="search-result" key={result.id}>{result.name}</a>
-        )
+        );
       });
     } else {
       var resultLis = undefined;
