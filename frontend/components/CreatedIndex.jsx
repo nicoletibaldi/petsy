@@ -55,7 +55,7 @@ var CreatedIndex = React.createClass({
   render: function () {
     if (this.state.pets.length < 1) {
       return (
-        <div>
+        <div className="blank-page">
           <img src={nolistingsUrl}/>
         </div>
       );

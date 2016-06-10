@@ -37,7 +37,7 @@ var FavoriteIndex = React.createClass({
   render: function () {
     if (this.state.favorites.length < 1) {
       return (
-        <div>
+        <div className="blank-page">
           <img src={nofavoritesUrl}/>
         </div>
       );
