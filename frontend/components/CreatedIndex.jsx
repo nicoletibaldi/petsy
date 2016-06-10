@@ -30,13 +30,6 @@ var CreatedIndex = React.createClass({
     this.petListener.remove();
   },
 
-  _onChange: function () {
-    debugger
-    this.setState({
-      pets: PetStore.createdPets(SessionStore.currentUser().id)
-    });
-  },
-
   closeModal: function () {
     this.setState({modal: null});
   },
@@ -47,9 +40,9 @@ var CreatedIndex = React.createClass({
   },
 
   deleteListing: function (e) {
-    var petId = e.currentTarget.value
+    var petId = e.currentTarget.value;
     PetApiUtil.deletePet(petId);
-    this.context.router.push("/")
+    this.context.router.push("/created_pets");
   },
 
   _onChange: function () {
@@ -60,10 +53,10 @@ var CreatedIndex = React.createClass({
   },
 
   render: function () {
-    if (!this.state.pets) {
+    if (this.state.pets.length < 1) {
       return (
-        <div>Fetching pets...</div>
-      )
+        <div>You haven't listed any pets!</div>
+      );
     } else {
       var el = this;
       return(
@@ -79,7 +72,7 @@ var CreatedIndex = React.createClass({
                 <p className="login-button er" value={pet.id} onClick={el.showEdit}>Edit</p>
                 <p className="login-button er" value={pet.id} onClick={el.deleteListing}>Remove</p>
               </div>
-            )
+            );
           })}
         </ul>
         </div>

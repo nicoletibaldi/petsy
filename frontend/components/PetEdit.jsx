@@ -49,20 +49,20 @@ var PetEdit = React.createClass({
   },
 
   descriptionChange: function (event) {
-    var newDesc = event.target.value
+    var newDesc = event.target.value;
     this.setState({description: newDesc});
   },
 
   sexChange: function (event) {
-    var newSex = event.target.value
+    var newSex = event.target.value;
     this.setState({sex: newSex});
   },
 
   updateFile: function (e) {
-    var file = e.currentTarget.files[0]
+    var file = e.currentTarget.files[0];
     var fileReader = new FileReader();
     fileReader.onloadend = function () {
-      this.setState({imageFile: file, imageUrl: fileReader.result})
+      this.setState({imageFile: file, imageUrl: fileReader.result});
     }.bind(this);
 
     if (file) {
@@ -72,13 +72,14 @@ var PetEdit = React.createClass({
 
   fieldErrors: function (field) {
     var errors = ErrorStore.formErrors("update");
-    var array = [1, 2, 3, 4, 5, 6]
+    var array = [1, 2, 3, 4, 5, 6];
+    var messages;
     if (!errors[field]) {
-      var messages = array.map(function (i) {
-        return <li className="errors" key={i}/>
+      messages = array.map(function (i) {
+        return <li className="errors" key={i}/>;
       });
     } else {
-      var messages = errors[field].map(function (errorMsg, i) {
+      messages = errors[field].map(function (errorMsg, i) {
         return <li className="errors" key={ i }>{ errorMsg }</li>;
       });
     }
@@ -90,16 +91,16 @@ handleSubmit: function (event) {
     event.preventDefault();
     var id = this.props.id;
     var formData = new FormData();
-    formData.append("pet[name]", this.state.name)
-    formData.append("pet[animal]", this.state.animal)
-    formData.append("pet[age]", this.state.age)
-    formData.append("pet[breed]", this.state.breed)
-    formData.append("pet[contact_email]", SessionStore.currentUser().email)
-    formData.append("pet[description]", this.state.description)
-    formData.append("pet[sex]", this.state.sex)
-    formData.append("pet[user_id]", SessionStore.currentUser().id)
+    formData.append("pet[name]", this.state.name);
+    formData.append("pet[animal]", this.state.animal);
+    formData.append("pet[age]", this.state.age);
+    formData.append("pet[breed]", this.state.breed);
+    formData.append("pet[contact_email]", SessionStore.currentUser().email);
+    formData.append("pet[description]", this.state.description);
+    formData.append("pet[sex]", this.state.sex);
+    formData.append("pet[user_id]", SessionStore.currentUser().id);
     if (this.state.imageFile) {
-      formData.append("pet[image]", this.state.imageFile)
+      formData.append("pet[image]", this.state.imageFile);
     }
     PetApiUtil.updatePet(formData, id, this.handleModalClick);
     this.setState({user_id: "", name: "", animal: "", age: "", breed: "", contact_email: "",
@@ -167,9 +168,9 @@ handleSubmit: function (event) {
           { this.fieldErrors("description") }
           </label>
           <br/><br/>
+          <img src={this.state.imageUrl} className="preview"/>
             <input type="file" onChange={this.updateFile}/><br/>
           <input type="submit" value="Edit listing" className="login-button"/>
-          <img src={this.state.imageUrl} className="preview"/>
         </form>
         </div>
     );
