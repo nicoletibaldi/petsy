@@ -11,21 +11,25 @@ html, body, section, article, h1, h2, p, strong, em, a, button {
   background: transparent;
 }
 
-div {
+/*div {
   background: #f5f5f1;
-}
+}*/
 
-main{
+/*main{
   background: #f5f5f1;
-}
+}*/
 
 header {
   height: 55px;
-  margin-top: 10px;
+  padding-top: 10px;
   border-bottom: 1px solid #ccc;
   background: white;
 }
 
+html{
+  background: #f5f5f1;
+  min-height: 100%;
+}
 
 input {
   margin: 5px;
