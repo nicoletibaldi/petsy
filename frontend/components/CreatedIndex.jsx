@@ -18,8 +18,8 @@ var CreatedIndex = React.createClass({
   },
 
   componentDidMount: function () {
+    this.petListener = PetStore.addListener(this._onChange);
       PetApiUtil.fetchCreatedPets();
-      this.petListener = PetStore.addListener(this._onChange);
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -31,18 +31,19 @@ var CreatedIndex = React.createClass({
   },
 
   _onChange: function () {
+    debugger
     this.setState({
       pets: PetStore.createdPets(SessionStore.currentUser().id)
     });
   },
 
   closeModal: function () {
-    this.setState({modal: null})
+    this.setState({modal: null});
   },
 
   showEdit: function (e) {
-    var petId = e.currentTarget.value
-    this.setState({modal: <PetEdit id={petId} close={this.closeModal}/>})
+    var petId = e.currentTarget.value;
+    this.setState({modal: <PetEdit id={petId} close={this.closeModal}/>});
   },
 
   deleteListing: function (e) {
