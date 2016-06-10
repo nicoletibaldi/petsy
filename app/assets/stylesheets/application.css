@@ -163,13 +163,17 @@ input {
     min-width: 100%;
 }
 
+.ad{
+  margin-top: 35px;
+}
+
 
 /*search bar */
 
 .search {
   position: relative;
   z-index: 100;
-  bottom: 100px;
+  bottom: 335px;
   left: 10px;
 }
 
