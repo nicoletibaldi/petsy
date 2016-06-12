@@ -1,0 +1,25 @@
+<script>
+{ var redirect = window.location.hash.slice(0,4)
+  if (redirect === "#_=_") {
+    history.replaceState(null, null, "/")
+  }
+}
+</script>
+
+<main id='content'>
+</main>
+
+
+<script type="text/javascript">
+  window.petsyUrl = '<%= image_url('petsy.png')  %>'
+  window.ursaUrl = '<%= image_url('petsy_background_3.png')%>'
+  window.favoriteUrl = '<%= image_url('favorites.png')%>'
+  window.profileUrl = '<%= image_url('profile.png') %>'
+  window.googleUrl = '<%= image_url('google.png')%>'
+  window.facebookUrl = '<%= image_url('facebook.png')%>'
+  window.itemsUrl = '<%= image_url('adstuff.png')%>'
+  window.nofavoritesUrl = '<%= image_url('nofavorites.png')%>'
+  window.nolistingsUrl = '<%= image_url('nolistings.png')%>'
+  window.noresultsUrl = '<%= image_url('noresults.png')%>'
+
+</script>
