@@ -11,14 +11,6 @@ html, body, section, article, h1, h2, p, strong, em, a, button {
   background: transparent;
 }
 
-/*div {
-  background: #f5f5f1;
-}*/
-
-/*main{
-  background: #f5f5f1;
-}*/
-
 header {
   height: 55px;
   padding-top: 10px;
@@ -78,6 +70,10 @@ input {
   margin-top: 0px;
   border-left: 1px solid #ccc;
   padding-left: 15px;
+}
+
+.favorite-logo:hover{
+  opacity: 0.7;
 }
 
 /*login - sign up - modal */
@@ -196,6 +192,11 @@ input {
   font-style: bold;
   padding: 12px 20px 12px 20px;
   border: none;
+}
+
+.search-button:hover{
+  cursor: pointer;
+  opacity: 0.9;
 }
 
 .search-input {
