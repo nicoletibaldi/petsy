@@ -70,7 +70,6 @@ var LoginForm = React.createClass({
     if (!errors["base"]) { return; }
 
     var messages = errors["base"].map(function (errorMsg, i) {
-      console.log(errorMsg);
       return <li className="errors" key={ i }>{ errorMsg }</li>;
     });
 
