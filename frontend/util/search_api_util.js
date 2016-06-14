@@ -10,9 +10,6 @@ module.exports = {
       url: "/api/search_pets",
       success: function (results) {
         SearchActions.receiveSearchResults(results);
-      },
-      error: function () {
-        console.log("Error");
       }
     });
   }

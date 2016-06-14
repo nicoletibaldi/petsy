@@ -10,9 +10,6 @@ var ErrorActions = require('./../actions/error_actions');
        url: "/api/pets",
        success: function (result) {
          PetActions.receivePets(result);
-       },
-       error: function () {
-         console.log("Error");
        }
      });
    },
@@ -25,9 +22,6 @@ var ErrorActions = require('./../actions/error_actions');
           url: "/api/pets",
           success: function (result) {
             PetActions.receivePets(result);
-          },
-          error: function () {
-            console.log("Error");
           }
         });
       },
@@ -51,9 +45,6 @@ var ErrorActions = require('./../actions/error_actions');
        url: "/api/pets/" + id,
        success: function (result) {
          PetActions.receiveSinglePet(result);
-       },
-       error: function () {
-         console.log("Error");
        }
      });
    },

@@ -13,7 +13,6 @@ var UserApiUtil = {
         callback && callback();
       },
       error: function (xhr) {
-        console.log('UserApiUtil#createAccount error');
         var errors = xhr.responseJSON;
         ErrorActions.setErrors("signup", errors);
       }
