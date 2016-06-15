@@ -310,7 +310,7 @@ input {
 
 .checkout-box {
   border: 10px solid #e4f3d9;
-  font-family: 'Raleway', sans-serif;
+  font-family: Georgia;
   list-style: none;
   text-align: left;
   padding: 20px;
@@ -325,7 +325,7 @@ input {
 }
 
 .detail-description {
-  font-family: 'Raleway', sans-serif;
+  font-family: Georgia;
   text-align: center;
   border: 1px solid #ececec;
   padding: 20px;

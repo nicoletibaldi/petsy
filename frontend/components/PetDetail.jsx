@@ -51,11 +51,6 @@ var PetDetail = React.createClass({
       }
   },
 
-  sendEmail: function () {
-    var mailto_link = 'mailto:' + this.state.pet.contact_email + '?subject=' + this.state.pet.name;
-    window.location = mailto_link
-  },
-
   addFavorite: function () {
     var userid = SessionStore.currentUser().id;
     var petid = this.state.pet.id;
@@ -99,9 +94,10 @@ var PetDetail = React.createClass({
               <li>{this.state.pet.animal}</li>
               <li>Sex: {this.state.pet.sex}</li>
               <li>Age: {this.state.pet.age}</li>
+              <p>If you are interested in adopting {this.state.pet.name}, please contact {this.state.pet.contact_email}</p>
               <div className="checkout">
                   {addFavorites}<br/>
-                  <p onClick={this.sendEmail} className="favorites email">Contact owner/rescue</p>
+                  <a href="http://www.petfinder.com" className="favorites email">Find this pet on Petfinder!</a>
               </div>
             </ul>
         </div>
