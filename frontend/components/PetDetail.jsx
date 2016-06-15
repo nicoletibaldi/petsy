@@ -94,10 +94,10 @@ var PetDetail = React.createClass({
               <li>{this.state.pet.animal}</li>
               <li>Sex: {this.state.pet.sex}</li>
               <li>Age: {this.state.pet.age}</li>
-              <p>If you are interested in adopting {this.state.pet.name}, please contact {this.state.pet.contact_email}</p>
+              <p>For more information, please contact {this.state.pet.contact_email} .</p>
               <div className="checkout">
                   {addFavorites}<br/>
-                  <a href="http://www.petfinder.com" className="favorites email">Find this pet on Petfinder!</a>
+                  <a href="http://www.petfinder.com" className="favorites email">Find {this.state.pet.name} on Petfinder!</a>
               </div>
             </ul>
         </div>
