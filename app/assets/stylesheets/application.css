@@ -370,6 +370,10 @@ input {
 .checkout:hover{
   cursor: pointer;
 }
+
+.contact{
+  font-size: 11px;
+}
 /*search filter bar*/
 
 .pet-type-nav {
