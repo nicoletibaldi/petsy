@@ -10,9 +10,16 @@ var PetIndex = React.createClass({
   },
 
   getInitialState: function () {
-    return ({
-      pets: PetStore.all()
-    });
+    if (!this.props.params) {
+      return ({
+        pets: PetStore.all().slice(60, 75)
+      });
+
+    } else {
+      return ({
+        pets: PetStore.all()
+      });
+    }
   },
 
   componentDidMount: function () {
@@ -40,9 +47,15 @@ var PetIndex = React.createClass({
   },
 
   _onChange: function () {
-    this.setState({
-      pets: PetStore.all()
-    });
+    if (!this.props.params) {
+      this.setState({
+        pets: PetStore.all().slice(60, 75)
+      });
+    } else {
+      this.setState({
+        pets: PetStore.all()
+      });
+    }
   },
 
   render: function () {
