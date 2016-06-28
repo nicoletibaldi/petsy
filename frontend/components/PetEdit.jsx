@@ -19,7 +19,6 @@ var PetEdit = React.createClass({
   },
 
   getInitialState: function () {
-
     var potentialPet = PetStore.find(this.props.id);
     var pet = potentialPet ? potentialPet : {};
     return ({user_id: pet.user_id, name: pet.name, animal: pet.animal,
@@ -103,13 +102,13 @@ handleSubmit: function (event) {
       formData.append("pet[image]", this.state.imageFile);
     }
     PetApiUtil.updatePet(formData, id, this.handleModalClick);
-    this.setState({user_id: "", name: "", animal: "", age: "", breed: "", contact_email: "",
-              description: "", sex: "", imageFile: null, imageUrl: null});
   },
 
   handleModalClick: function () {
     ErrorActions.clearErrors();
     this.props.close();
+    this.setState({user_id: "", name: "", animal: "", age: "", breed: "", contact_email: "",
+              description: "", sex: "", imageFile: null, imageUrl: null});
   },
 
   stopProp: function (e) {

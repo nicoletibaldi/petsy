@@ -96,12 +96,12 @@ handleSubmit: function (event) {
       formData.append("pet[image]", this.state.imageFile);
     }
     PetApiUtil.createPet(formData, this.handleModalClick);
-    this.setState({user_id: "", name: "", animal: "", age: "", breed: "", contact_email: "",
-              description: "", sex: "", imageFile: null, imageUrl: null});
   },
 
   handleModalClick: function () {
     ErrorActions.clearErrors();
+    this.setState({user_id: "", name: "", animal: "", age: "", breed: "", contact_email: "",
+              description: "", sex: "", imageFile: null, imageUrl: null});
     this.props.close();
   },
 
