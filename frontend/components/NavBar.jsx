@@ -6,6 +6,7 @@ var SignupForm = require('./SignupForm');
 var LoginForm = require('./LoginForm');
 var PetForm = require('./PetForm');
 var FavoriteApiUtil = require('./../util/favorite_api_util');
+var AboutMe = require('./AboutMe');
 
 var NavBar = React.createClass({
   contextTypes: {
@@ -41,6 +42,10 @@ var NavBar = React.createClass({
     this.setState({modal: <PetForm close={this.closeModal}/>})
   },
 
+  showAbout: function () {
+    this.setState({modal: <AboutMe close={this.closeModal}/>})
+  },
+
   closeModal: function () {
     this.setState({modal: null})
   },
@@ -68,6 +73,7 @@ var NavBar = React.createClass({
           <button onClick={this.showRegister} className="h-button">Register </button>
           <button onClick={this.showSignUp} className="h-button sign-in">Sign in</button>
           <a href="#" className="h-button" onClick={this.guestLogin}>Demo User</a>
+          <button onClick={this.showAbout} className="h-button">About</button>
         </nav>
       );
     } else {

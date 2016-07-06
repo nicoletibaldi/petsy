@@ -98,6 +98,20 @@ input {
   height: 290px;
 }
 
+.about-me{
+  height: 500px;
+  text-align: center;
+}
+
+.about-me-img{
+  height: 250px;
+  border: 1px solid #0192b5;
+}
+
+.about-me-link{
+  color: #0192b5;
+}
+
 .login-button {
   color: white;
   border-radius: 4px;
