@@ -24,7 +24,8 @@ var AboutMe = React.createClass({
         I utilized the Petfinder API to populate Petsy with real adoptable pets in Manhattan, and stored images
         on AWS to allow for scalability. Petsy is a RESTful API built on a Rails backend, along with React on
         the front end to provide seamless rendering of the site’s components.</p><br/>
-        <p>If you would like to see more of my work, view my resume, or would like my contact information, please visit my <a href="http://www.nicole-tibaldi.me" className="about-me-link">portfolio site</a>.</p>
+        <p>If you would like to see more of my work, view my resume, or would like my contact information, please visit my <a href="http://www.nicole-tibaldi.me" className="about-me-link">portfolio site</a>.
+        You can also find me on <a href="http://www.github.com/ntibaldi92" className="about-me-link">GitHub</a> and <a href="http://www.linkedin.com/in/ntibaldi92" className="about-me-link">LinkedIn</a></p>
       </div>
       </div>
     );
